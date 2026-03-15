@@ -241,7 +241,6 @@
           <button class="chip"    onclick="pick(this)">栃木</button>
           <button class="chip"    onclick="pick(this)">群馬</button>
           <button class="chip"    onclick="pick(this)">茨城</button>
-          <button class="chip"    onclick="pick(this)">おうち</button>
         </div>
       </div>
       <div class="sep"></div>
@@ -341,7 +340,6 @@ const CAT_INFO = {
   "スポーツ・アクティビティ": {icon:"🏃", color:"#43e97b"},
   "エンタメ":                 {icon:"🎭", color:"#667eea"},
   "お家デート":               {icon:"🏠", color:"#f7971e"},
-  "ドライブ":                 {icon:"🚗", color:"#4facfe"},
   "プチ旅行":                 {icon:"🚆", color:"#f093fb"},
   "リラクゼーション":         {icon:"♨️", color:"#E8332A"},
   "季節限定イベント":         {icon:"🌸", color:"#fccb90"},
@@ -356,7 +354,6 @@ const BAR_COLORS = {
   "スポーツ・アクティビティ": "linear-gradient(90deg,#43e97b,#38f9d7)",
   "エンタメ":                 "linear-gradient(90deg,#667eea,#764ba2)",
   "お家デート":               "linear-gradient(90deg,#f7971e,#ffd200)",
-  "ドライブ":                 "linear-gradient(90deg,#4facfe,#00f2fe)",
   "プチ旅行":                 "linear-gradient(90deg,#f093fb,#f5576c)",
   "リラクゼーション":         "linear-gradient(90deg,#E8332A,#FF6B35)",
   "季節限定イベント":         "linear-gradient(90deg,#fccb90,#d57eeb)",
@@ -369,14 +366,13 @@ const BAR_COLORS = {
 
 // サブカテゴリ選択が必要なカテゴリ
 const NEEDS_SUBCAT = new Set([
-  "ドライブ", "プチ旅行", "食べ歩き・散策",
+  "プチ旅行", "食べ歩き・散策",
   "アウトドア", "ミュージアム・展示施設", "季節限定イベント", "リラクゼーション",
 ]);
 
 // エリアフィルターを適用するカテゴリ（場所が固定のもの）
 // ※スポーツ・エンタメ・体験などどこでもできるカテゴリは含めない
 const AREA_CATS = new Set([
-  "ドライブ",
   "プチ旅行",
   "食べ歩き・散策",
   "ミュージアム・展示施設",
