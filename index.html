@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresdate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,900;1,900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red:#E8332A; --orange:#FF6B35; --cream:#FFF8F5;
+      --white:#FFFFFF; --gray-light:#F5F0EE; --gray-mid:#C4B5B0;
+      --gray-dark:#4A3F3C; --text:#2D1F1C; --radius:20px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    .app{max-width:430px;margin:0 auto;min-height:100vh;background:var(--cream);}
+    .page{display:none;min-height:100vh;}
+    .page.active{display:flex;flex-direction:column;}
+    @keyframes slideUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+    .page-enter{animation:slideUp 0.3s ease forwards;}
+
+    /* ━━━ ホーム ━━━ */
+    #home{position:relative;overflow:hidden;}
+    #home::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;
+      background:radial-gradient(circle,rgba(232,51,42,0.09) 0%,transparent 70%);pointer-events:none;}
+    .header{display:flex;align-items:center;gap:10px;padding:52px 24px 0;position:relative;z-index:1;}
+    .logo-img{width:44px;height:44px;border-radius:12px;object-fit:cover;}
+    .logo-text{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;
+      background:linear-gradient(135deg,var(--red),var(--orange));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    /* いいねボタン（ホームのみ） */
+    .home-likes-btn{margin-left:auto;background:white;border:none;cursor:pointer;
+      width:40px;height:40px;border-radius:12px;font-size:18px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.07);transition:transform 0.15s;
+      position:relative;}
+    .home-likes-btn:active{transform:scale(0.9);}
+    /* ポップアップ吹き出し */
+    .likes-popup{
+      position:absolute;
+      top:50px; right:0;
+      background:var(--text);
+      color:white;
+      font-size:12px; font-weight:700;
+      white-space:nowrap;
+      padding:8px 14px;
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.18);
+      pointer-events:none;
+      /* 1秒かけてフェードイン → 4秒後からフェードアウト */
+      animation:popupAnim 5s ease forwards;
+      z-index:300;
+    }
+    /* 吹き出しの三角 */
+    .likes-popup::before{
+      content:'';
+      position:absolute;
+      top:-7px; right:12px;
+      border:7px solid transparent;
+      border-bottom-color:var(--text);
+      border-top:none;
+    }
+    @keyframes popupAnim{
+      0%  {opacity:0; transform:translateY(4px);}
+      15% {opacity:1; transform:translateY(0);}
+      75% {opacity:1; transform:translateY(0);}
+      100%{opacity:0; transform:translateY(4px);}
+    }
+    .hero-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 28px;position:relative;z-index:1;}
+    .live-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(232,51,42,0.08);
+      border:1px solid rgba(232,51,42,0.2);border-radius:100px;padding:6px 14px;
+      font-size:12px;font-weight:700;color:var(--red);width:fit-content;animation:fadeUp 0.5s 0.1s both;}
+    .live-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+    .hero-title{font-family:'Nunito',sans-serif;font-size:52px;font-weight:900;line-height:1.05;letter-spacing:-1px;animation:fadeUp 0.5s 0.2s both;}
+    .hero-title .gr{background:linear-gradient(135deg,var(--red),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
+    .hero-sub{font-size:14px;line-height:1.7;color:var(--gray-dark);font-weight:500;animation:fadeUp 0.5s 0.3s both;}
+    .float-cards{position:relative;height:130px;margin:0 24px;animation:fadeUp 0.5s 0.4s both;}
+    .fc{position:absolute;border-radius:16px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;box-shadow:0 10px 36px rgba(0,0,0,0.11);}
+    .fc-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+    .fc1{background:white;left:0;top:8px;color:var(--text);animation:float1 4s ease-in-out infinite;}
+    .fc2{background:linear-gradient(135deg,var(--red),var(--orange));right:0;top:48px;color:white;animation:float2 4s ease-in-out infinite;}
+    @keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    @keyframes float2{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+    .cta{padding:0 24px 48px;display:flex;flex-direction:column;gap:12px;animation:fadeUp 0.5s 0.5s both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ━━━ 共通ボタン ━━━ */
+    .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:18px;
+      border-radius:var(--radius);font-size:16px;font-weight:700;font-family:'Noto Sans JP',sans-serif;
+      border:none;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;letter-spacing:0.3px;}
+    .btn:active{transform:scale(0.97);}
+    .btn-main{background:linear-gradient(135deg,var(--red),var(--orange));color:white;box-shadow:0 8px 24px rgba(232,51,42,0.32);}
+    .btn-main:hover{box-shadow:0 12px 30px rgba(232,51,42,0.42);transform:translateY(-1px);}
+    .btn-sub{background:white;color:var(--red);border:2px solid rgba(232,51,42,0.22);}
+    .btn-sub:hover{border-color:var(--red);}
+
+    /* ━━━ ページヘッダー共通 ━━━ */
+    .page-hd{display:flex;align-items:center;gap:12px;padding:52px 24px 16px;position:sticky;top:0;background:var(--cream);z-index:100;}
+    .back-btn{width:40px;height:40px;border-radius:12px;background:white;border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;font-size:18px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.07);transition:transform 0.15s;flex-shrink:0;}
+    .back-btn:active{transform:scale(0.9);}
+    .page-ttl{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;flex:1;}
+    .mode-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:700;margin:0 24px 12px;}
+    .mode-instant{background:linear-gradient(135deg,var(--red),var(--orange));color:white;}
+    .mode-tmr{background:#1A1A2E;color:white;}
+
+    /* ━━━ 絞り込みページ ━━━ */
+    #filter{overflow-y:auto;padding-bottom:100px;}
+    .filter-wrap{padding:0 24px;}
+    .filter-grp{margin-bottom:16px;}
+    .filter-lbl{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gray-mid);margin-bottom:8px;}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;}
+    .chip{padding:8px 15px;border-radius:100px;font-size:13px;font-weight:600;
+      border:1.5px solid rgba(0,0,0,0.09);background:white;cursor:pointer;color:var(--gray-dark);
+      font-family:'Noto Sans JP',sans-serif;transition:all 0.13s;}
+    .chip.on{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:transparent;}
+    .chip:hover:not(.on){border-color:var(--red);color:var(--red);}
+    .sep{height:1px;background:rgba(0,0,0,0.05);margin:4px 0 16px;}
+    .filter-foot{position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+      width:100%;max-width:430px;padding:14px 24px 32px;
+      background:linear-gradient(to top,var(--cream) 65%,transparent);z-index:200;}
+
+    /* ━━━ カテゴリ選択 ━━━ */
+    #category{overflow-y:auto;padding-bottom:32px;}
+    .cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 24px;}
+    .cat-card{background:white;border-radius:18px;padding:18px 14px;
+      display:flex;flex-direction:column;align-items:center;gap:8px;
+      cursor:pointer;border:2px solid transparent;
+      box-shadow:0 3px 14px rgba(0,0,0,0.06);
+      transition:transform 0.18s,box-shadow 0.18s,border-color 0.18s;
+      animation:fadeUp 0.35s both;}
+    .cat-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.11);border-color:var(--red);}
+    .cat-card:active{transform:scale(0.96);}
+    .cat-icon{font-size:28px;line-height:1;}
+    .cat-name{font-size:12px;font-weight:700;text-align:center;line-height:1.3;color:var(--text);}
+    .cat-count{font-size:10px;color:var(--gray-mid);font-weight:500;}
+
+    /* ━━━ サブカテゴリ選択（エリア・ジャンル選択画面） ━━━ */
+    #subcategory{overflow-y:auto;padding-bottom:32px;}
+    .sub-select-grid{display:flex;flex-direction:column;gap:10px;padding:0 24px;}
+    .sub-select-card{background:white;border-radius:16px;padding:16px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+      cursor:pointer;border:2px solid transparent;
+      box-shadow:0 3px 12px rgba(0,0,0,0.06);
+      transition:transform 0.15s,border-color 0.15s;
+      animation:fadeUp 0.35s both;}
+    .sub-select-card:hover{border-color:var(--red);transform:translateX(4px);}
+    .sub-select-card:active{transform:scale(0.97);}
+    /* プランなしカード：グレーアウト・クリック不可 */
+    .sub-select-card.sub-empty{opacity:0.5;cursor:default;}
+    .sub-select-card.sub-empty:hover{border-color:transparent;transform:none;}
+    .sub-select-left{display:flex;align-items:center;gap:12px;}
+    .sub-select-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+    .sub-select-name{font-size:15px;font-weight:700;}
+    .sub-select-count{font-size:12px;color:var(--gray-mid);margin-top:2px;}
+    .sub-arrow{font-size:16px;color:var(--gray-mid);}
+
+    /* ━━━ 結果ページ ━━━ */
+    #results{overflow-y:auto;padding-bottom:32px;}
+    .count-row{padding:0 24px 12px;font-size:13px;color:var(--gray-dark);font-weight:500;}
+    .count-num{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;color:var(--red);margin-right:3px;}
+    .card-list{padding:0 24px;display:flex;flex-direction:column;gap:10px;}
+
+    /* ━━━ カード ━━━ */
+    .card{background:white;border-radius:18px;overflow:hidden;
+      box-shadow:0 3px 14px rgba(0,0,0,0.06);cursor:pointer;
+      transition:transform 0.18s,box-shadow 0.18s;animation:fadeUp 0.35s both;}
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.11);}
+    .card-bar{height:4px;}
+    .card-body{padding:13px 15px;}
+    .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+    .card-name{font-size:15px;font-weight:700;line-height:1.3;flex:1;margin-right:8px;}
+    .heart{width:32px;height:32px;border-radius:9px;background:var(--gray-light);border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background 0.2s;}
+    .heart.liked{background:rgba(232,51,42,0.1);animation:pop 0.25s ease;}
+    @keyframes pop{0%{transform:scale(1);}50%{transform:scale(1.28);}100%{transform:scale(1);}}
+    .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+    .tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:100px;background:var(--gray-light);color:var(--gray-dark);}
+    .tag.budget{background:rgba(232,51,42,0.07);color:var(--red);}
+    .card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid var(--gray-light);}
+    .card-area{font-size:11px;color:var(--gray-mid);}
+    .no-hit{text-align:center;padding:52px 24px;color:var(--gray-mid);}
+    .no-hit .ico{font-size:46px;margin-bottom:12px;}
+    .no-hit p{font-size:15px;line-height:1.8;}
+
+    /* ━━━ いいね一覧 ━━━ */
+    #liked{overflow-y:auto;padding-bottom:32px;}
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ① ホーム -->
+  <section id="home" class="page active">
+    <header class="header">
+      <img src="logo.png" alt="Fresdate" class="logo-img" onerror="this.style.display='none'">
+      <span class="logo-text">Fresdate</span>
+      <!-- いいねボタンはホームにだけ置く -->
+      <button class="home-likes-btn" onclick="showLikes()">❤️
+        <div class="likes-popup" id="likesPopup">いいねしたプランを見返そう</div>
+      </button>
+    </header>
+    <div class="hero-body">
+      <div class="live-tag">カップルのデート探し</div>
+      <h1 class="hero-title">今日、<br><span class="gr">何する？</span><br>をなくす。</h1>
+      <p class="hero-sub">実際のカップルの声から生まれた<br>リアルなデートプランが見つかる。</p>
+    </div>
+    <div class="float-cards">
+      <div class="fc fc1">
+        <div class="fc-icon" style="background:#FFF0EE;">🌸</div>
+        <div><div>お花見ピクニック</div><div style="font-size:11px;color:#C4B5B0;font-weight:500;margin-top:2px;">〜¥1,000 · 2〜4時間</div></div>
+      </div>
+      <div class="fc fc2">
+        <div class="fc-icon" style="background:rgba(255,255,255,0.2);">♨️</div>
+        <div><div>スパジャポ</div><div style="font-size:11px;color:rgba(255,255,255,0.65);font-weight:500;margin-top:2px;">¥1,000〜 · 半日〜</div></div>
+      </div>
+    </div>
+    <div class="cta">
+      <button class="btn btn-main" onclick="goFilter('instant')">⚡ 今すぐ決めたい</button>
+      <button class="btn btn-sub"  onclick="goFilter('tmr')">📅 前日から考える</button>
+    </div>
+  </section>
+
+  <!-- ② 絞り込みページ -->
+  <section id="filter" class="page">
+    <div class="page-hd">
+      <button class="back-btn" onclick="go('home','filter')">←</button>
+      <h2 class="page-ttl">絞り込む</h2>
+    </div>
+    <div id="modeBadge" class="mode-badge mode-instant">⚡ 今すぐモード</div>
+    <div class="filter-wrap">
+      <div class="filter-grp">
+        <div class="filter-lbl">📍 エリア</div>
+        <div class="chips" data-key="area">
+          <button class="chip on" onclick="pick(this)">すべて</button>
+          <button class="chip"    onclick="pick(this)">東京</button>
+          <button class="chip"    onclick="pick(this)">神奈川</button>
+          <button class="chip"    onclick="pick(this)">埼玉</button>
+          <button class="chip"    onclick="pick(this)">千葉</button>
+          <button class="chip"    onclick="pick(this)">栃木</button>
+          <button class="chip"    onclick="pick(this)">群馬</button>
+          <button class="chip"    onclick="pick(this)">茨城</button>
+          <button class="chip"    onclick="pick(this)">おうち</button>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="filter-grp">
+        <div class="filter-lbl">💰 予算（お一人あたり）</div>
+        <div class="chips" data-key="budget">
+          <button class="chip on" onclick="pick(this)">すべて</button>
+          <button class="chip"    onclick="pick(this)">〜¥1,000</button>
+          <button class="chip"    onclick="pick(this)">〜¥3,000</button>
+          <button class="chip"    onclick="pick(this)">〜¥5,000</button>
+          <button class="chip"    onclick="pick(this)">¥5,000〜</button>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="filter-grp">
+        <div class="filter-lbl">🕐 時間帯</div>
+        <div class="chips" data-key="time">
+          <button class="chip on" onclick="pick(this)">すべて</button>
+          <button class="chip"    onclick="pick(this)">昼</button>
+          <button class="chip"    onclick="pick(this)">夕方</button>
+          <button class="chip"    onclick="pick(this)">夜</button>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="filter-grp">
+        <div class="filter-lbl">🏠 場所タイプ</div>
+        <div class="chips" data-key="indoor">
+          <button class="chip on" onclick="pick(this)">すべて</button>
+          <button class="chip"    onclick="pick(this)">屋内</button>
+          <button class="chip"    onclick="pick(this)">屋外</button>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="filter-grp">
+        <div class="filter-lbl">🌸 季節</div>
+        <div class="chips" data-key="season">
+          <button class="chip on" onclick="pick(this)">すべて</button>
+          <button class="chip"    onclick="pick(this)">春</button>
+          <button class="chip"    onclick="pick(this)">夏</button>
+          <button class="chip"    onclick="pick(this)">秋</button>
+          <button class="chip"    onclick="pick(this)">冬</button>
+        </div>
+      </div>
+    </div>
+    <div class="filter-foot">
+      <button class="btn btn-main" onclick="showCategories()">🔍 カテゴリを選ぶ</button>
+    </div>
+  </section>
+
+  <!-- ③ カテゴリ選択 -->
+  <section id="category" class="page">
+    <div class="page-hd">
+      <button class="back-btn" onclick="go('filter','category')">←</button>
+      <h2 class="page-ttl">カテゴリを選ぶ</h2>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </section>
+
+  <!-- ④ サブカテゴリ選択（エリア・ジャンル選択） -->
+  <section id="subcategory" class="page">
+    <div class="page-hd">
+      <button class="back-btn" onclick="go('category','subcategory')">←</button>
+      <h2 class="page-ttl" id="subPageTitle">エリアを選ぶ</h2>
+    </div>
+    <div class="sub-select-grid" id="subSelectGrid"></div>
+  </section>
+
+  <!-- ⑤ 結果ページ -->
+  <section id="results" class="page">
+    <div class="page-hd">
+      <button class="back-btn" id="resultBackBtn" onclick="go('subcategory','results')">←</button>
+      <h2 class="page-ttl" id="resultTitle">プラン一覧</h2>
+    </div>
+    <div class="count-row">
+      <span class="count-num" id="countNum">0</span>件
+    </div>
+    <div class="card-list" id="cardList"></div>
+  </section>
+
+  <!-- ⑥ いいね一覧 -->
+  <section id="liked" class="page">
+    <div class="page-hd">
+      <button class="back-btn" onclick="go('home','liked')">←</button>
+      <h2 class="page-ttl">❤️ いいねしたプラン</h2>
+    </div>
+    <div class="card-list" id="likedList"></div>
+  </section>
+
+</div>
+
+<script src="data.js"></script>
+<script>
+// =====================================================
+// カテゴリ定義
+// =====================================================
+const CAT_INFO = {
+  "スポーツ・アクティビティ": {icon:"🏃", color:"#43e97b"},
+  "エンタメ":                 {icon:"🎭", color:"#667eea"},
+  "お家デート":               {icon:"🏠", color:"#f7971e"},
+  "ドライブ":                 {icon:"🚗", color:"#4facfe"},
+  "プチ旅行":                 {icon:"🚆", color:"#f093fb"},
+  "リラクゼーション":         {icon:"♨️", color:"#E8332A"},
+  "季節限定イベント":         {icon:"🌸", color:"#fccb90"},
+  "アウトドア":               {icon:"🌿", color:"#11998e"},
+  "ミュージアム・展示施設":   {icon:"🏛️", color:"#a18cd1"},
+  "体験・ものづくり":         {icon:"🎨", color:"#fa709a"},
+  "食べ歩き・散策":           {icon:"🍜", color:"#f7971e"},
+  "テーマパーク":             {icon:"🎢", color:"#30cfd0"},
+};
+
+const BAR_COLORS = {
+  "スポーツ・アクティビティ": "linear-gradient(90deg,#43e97b,#38f9d7)",
+  "エンタメ":                 "linear-gradient(90deg,#667eea,#764ba2)",
+  "お家デート":               "linear-gradient(90deg,#f7971e,#ffd200)",
+  "ドライブ":                 "linear-gradient(90deg,#4facfe,#00f2fe)",
+  "プチ旅行":                 "linear-gradient(90deg,#f093fb,#f5576c)",
+  "リラクゼーション":         "linear-gradient(90deg,#E8332A,#FF6B35)",
+  "季節限定イベント":         "linear-gradient(90deg,#fccb90,#d57eeb)",
+  "アウトドア":               "linear-gradient(90deg,#11998e,#38ef7d)",
+  "ミュージアム・展示施設":   "linear-gradient(90deg,#a18cd1,#fbc2eb)",
+  "体験・ものづくり":         "linear-gradient(90deg,#fa709a,#fee140)",
+  "食べ歩き・散策":           "linear-gradient(90deg,#f7971e,#ffd200)",
+  "テーマパーク":             "linear-gradient(90deg,#30cfd0,#330867)",
+};
+
+// サブカテゴリ選択が必要なカテゴリ
+const NEEDS_SUBCAT = new Set([
+  "ドライブ", "プチ旅行", "食べ歩き・散策",
+  "アウトドア", "ミュージアム・展示施設", "季節限定イベント", "リラクゼーション",
+]);
+
+// エリアフィルターを適用するカテゴリ（場所が固定のもの）
+// ※スポーツ・エンタメ・体験などどこでもできるカテゴリは含めない
+const AREA_CATS = new Set([
+  "ドライブ",
+  "プチ旅行",
+  "食べ歩き・散策",
+  "ミュージアム・展示施設",
+  "テーマパーク",
+  "アウトドア",
+]);
+
+// 絞り込みのエリア選択値 → サブカテゴリ名の対応表
+const AREA_TO_SUBCAT = {
+  "東京":  "東京エリア",
+  "神奈川":"神奈川エリア",
+  "埼玉":  "埼玉エリア",
+  "千葉":  "千葉エリア",
+  "栃木":  "栃木エリア",
+  "群馬":  "群馬エリア",
+  "茨城":  "茨城エリア",
+};
+
+// サブカテゴリのアイコンマップ
+const SUB_ICONS = {
+  // ドライブ・プチ旅行・食べ歩き（エリア）
+  "東京エリア":"🗼", "神奈川エリア":"⛩️", "埼玉エリア":"🏯", "千葉エリア":"🌊",
+  "栃木エリア":"🍓", "群馬エリア":"♨️", "茨城エリア":"🌾",
+  // アウトドア
+  "登山":"⛰️", "ピクニック":"🌱", "海":"🏖️", "キャンプ":"🏕️", "牧場":"🐄", "釣り":"🎣",
+  // ミュージアム
+  "水族館":"🐠", "美術館":"🖼️", "動物園":"🦁", "プラネタリウム":"🌟",
+  "博物館":"📜", "イルミネーション":"✨",
+  // 季節
+  "春":"🌸", "夏":"🌻", "秋":"🍂", "冬":"❄️",
+  // リラクゼーション
+  "温泉":"♨️", "温泉・サウナ・岩盤浴":"🧖", "サウナ":"🔥", "岩盤浴":"💆", "動物カフェ":"🐾",
+};
+
+// ─────────────────────────────
+// 状態管理
+// ─────────────────────────────
+let currentMode = 'instant';
+const filters = {area:'すべて', budget:'すべて', time:'すべて', indoor:'すべて', season:'すべて'};
+let filteredDB = [];       // フィルター後のDB
+let selectedCat = '';      // 選択中のカテゴリ
+let prevResultPage = 'subcategory'; // 結果ページの戻り先
+
+// 5秒後にポップアップをDOMから削除
+setTimeout(() => {
+  const popup = document.getElementById('likesPopup');
+  if (popup) popup.remove();
+}, 5000);
+
+// ─────────────────────────────
+// ページ遷移
+// ─────────────────────────────
+function go(toId, fromId) {
+  document.getElementById(fromId).classList.remove('active');
+  const to = document.getElementById(toId);
+  to.classList.add('active', 'page-enter');
+  setTimeout(() => to.classList.remove('page-enter'), 350);
+  window.scrollTo(0, 0);
+}
+
+// ─────────────────────────────
+// ホーム → フィルター
+// ─────────────────────────────
+function goFilter(mode) {
+  currentMode = mode;
+  const b = document.getElementById('modeBadge');
+  if (mode === 'instant') {
+    b.textContent = '⚡ 今すぐモード'; b.className = 'mode-badge mode-instant';
+  } else {
+    b.textContent = '📅 前日モード'; b.className = 'mode-badge mode-tmr';
+  }
+  go('filter', 'home');
+}
+
+// ─────────────────────────────
+// チップ選択
+// ─────────────────────────────
+function pick(el) {
+  el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
+  filters[el.parentElement.dataset.key] = el.textContent.trim();
+}
+
+// ─────────────────────────────
+// フィルター → カテゴリ選択
+// ─────────────────────────────
+function showCategories() {
+  filteredDB = applyFilters();
+  const grid = document.getElementById('catGrid');
+  grid.innerHTML = '';
+
+  // カテゴリごとの件数
+  const catCount = {};
+  filteredDB.forEach(p => { catCount[p.category] = (catCount[p.category] || 0) + 1; });
+
+  Object.entries(CAT_INFO).forEach(([cat, info], i) => {
+    const count = catCount[cat] || 0;
+    if (count === 0) return;
+    const card = document.createElement('div');
+    card.className = 'cat-card';
+    card.style.animationDelay = `${i * 0.04}s`;
+    card.style.borderTop = `3px solid ${info.color}`;
+    card.innerHTML = `
+      <div class="cat-icon">${info.icon}</div>
+      <div class="cat-name">${cat}</div>
+      <div class="cat-count">${count}件</div>`;
+    card.onclick = () => onCatSelect(cat);
+    grid.appendChild(card);
+  });
+
+  go('category', 'filter');
+}
+
+// ─────────────────────────────
+// カテゴリ選択後の分岐
+// サブカテゴリが必要→サブカテゴリ選択画面へ
+// 不要→直接結果へ
+// ─────────────────────────────
+function onCatSelect(cat) {
+  selectedCat = cat;
+  const plans = filteredDB.filter(p => p.category === cat);
+
+  if (NEEDS_SUBCAT.has(cat)) {
+    // サブカテゴリ選択画面を表示
+    showSubcategories(cat, plans);
+  } else {
+    // 直接結果を表示（戻り先はカテゴリ選択）
+    prevResultPage = 'category';
+    document.getElementById('resultBackBtn').onclick = () => go('category', 'results');
+    renderResults(cat, plans);
+    go('results', 'category');
+  }
+}
+
+// ─────────────────────────────
+// サブカテゴリ選択画面
+// ─────────────────────────────
+function showSubcategories(cat, plans) {
+  const info = CAT_INFO[cat];
+
+  // タイトルをカテゴリに合わせて変える
+  const titleMap = {
+    "ドライブ":           "エリアを選ぶ",
+    "プチ旅行":           "エリアを選ぶ",
+    "食べ歩き・散策":     "エリアを選ぶ",
+    "アウトドア":         "種類を選ぶ",
+    "ミュージアム・展示施設": "種類を選ぶ",
+    "季節限定イベント":   "季節を選ぶ",
+    "リラクゼーション":   "種類を選ぶ",
+  };
+  document.getElementById('subPageTitle').textContent =
+    (info?.icon || '') + ' ' + (titleMap[cat] || '選択する');
+
+  // サブカテゴリごとに集計
+  const subCount = {};
+  plans.forEach(p => {
+    const key = p.subCategory || 'その他';
+    subCount[key] = (subCount[key] || 0) + 1;
+  });
+
+  if (AREA_CATS.has(cat) && filters.area !== 'すべて' && AREA_TO_SUBCAT[filters.area]) {
+    // エリアが絞られている→そのエリアのプランを直接表示（エリア選択画面スキップ）
+    const subName = AREA_TO_SUBCAT[filters.area];
+    const subPlans = plans.filter(p => (p.subCategory || 'その他') === subName);
+    const info2 = CAT_INFO[cat];
+    prevResultPage = 'category';
+    document.getElementById('resultBackBtn').onclick = () => go('category', 'results');
+    renderResults(`${info2?.icon || ''} ${subName}`, subPlans);
+    go('results', 'category');
+    return;
+  }
+
+  // エリア系カテゴリは全エリアを固定で表示（プランがなくても出す）
+  const ALL_AREAS = [
+    "東京エリア","神奈川エリア","埼玉エリア","千葉エリア",
+    "栃木エリア","群馬エリア","茨城エリア"
+  ];
+  // 表示するサブカテゴリのリストを決定
+  // エリア系 → 全エリアを固定順で表示
+  // それ以外 → データにあるサブカテゴリのみ表示
+  const subList = AREA_CATS.has(cat)
+    ? ALL_AREAS
+    : Object.keys(subCount);
+
+  const grid = document.getElementById('subSelectGrid');
+  grid.innerHTML = '';
+
+  const color = info?.color || '#E8332A';
+
+  subList.forEach((sub, i) => {
+    const count = subCount[sub] || 0;
+    const isEmpty = count === 0;
+    const card = document.createElement('div');
+    card.className = 'sub-select-card' + (isEmpty ? ' sub-empty' : '');
+    card.style.animationDelay = `${i * 0.05}s`;
+    const icon = SUB_ICONS[sub] || '📍';
+    card.innerHTML = `
+      <div class="sub-select-left">
+        <div class="sub-select-icon" style="background:${isEmpty ? '#F5F0EE' : color+'22'};">${icon}</div>
+        <div>
+          <div class="sub-select-name" style="color:${isEmpty ? '#C4B5B0' : ''}">${sub}</div>
+          <div class="sub-select-count">${isEmpty ? 'まだプランがありません' : count+'件のプラン'}</div>
+        </div>
+      </div>
+      <div class="sub-arrow" style="color:${isEmpty ? '#E0D8D5' : ''}">${isEmpty ? '' : '›'}</div>`;
+    // プランがある場合のみクリック可能
+    if (!isEmpty) {
+      card.onclick = () => {
+        const subPlans = plans.filter(p => (p.subCategory || 'その他') === sub);
+        prevResultPage = 'subcategory';
+        document.getElementById('resultBackBtn').onclick = () => go('subcategory', 'results');
+        renderResults(`${info?.icon || ''} ${sub}`, subPlans);
+        go('results', 'subcategory');
+      };
+    }
+    grid.appendChild(card);
+  });
+
+  go('subcategory', 'category');
+}
+
+// ─────────────────────────────
+// 結果ページをレンダリング
+// ─────────────────────────────
+function renderResults(title, plans) {
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('countNum').textContent = plans.length;
+  const list = document.getElementById('cardList');
+  list.innerHTML = '';
+
+  if (plans.length === 0) {
+    list.innerHTML = '<div class="no-hit"><div class="ico">🔍</div><p>条件に合うプランが見つかりませんでした。<br>条件を変えてみてください。</p></div>';
+    return;
+  }
+  plans.forEach((p, i) => {
+    const c = makeCard(p);
+    c.style.animationDelay = `${i * 0.04}s`;
+    list.appendChild(c);
+  });
+}
+
+// ─────────────────────────────
+// フィルタリングロジック
+// ─────────────────────────────
+function applyFilters() {
+  return DB.filter(p => {
+    if (currentMode === 'instant' && p.duration !== '1〜3時間') return false;
+    // エリアフィルターはドライブ・プチ旅行・食べ歩き散策のみ適用
+    // スポーツ・エンタメなど「どこでもできる」カテゴリはエリアで絞らない
+    if (filters.area !== 'すべて' && AREA_CATS.has(p.category) && p.area !== filters.area) return false;
+    if (filters.budget !== 'すべて') {
+      if (filters.budget === '〜¥1,000' && p.budgetNum > 1000) return false;
+      if (filters.budget === '〜¥3,000' && p.budgetNum > 3000) return false;
+      if (filters.budget === '〜¥5,000' && p.budgetNum > 5000) return false;
+      if (filters.budget === '¥5,000〜' && p.budgetNum < 5000) return false;
+    }
+    if (filters.time !== 'すべて') {
+      if (p.time !== filters.time && p.time !== 'いつでも') return false;
+    }
+    if (filters.indoor !== 'すべて' && p.indoor !== filters.indoor) return false;
+    if (filters.season !== 'すべて') {
+      if (p.season !== filters.season && p.season !== '通年') return false;
+    }
+    return true;
+  });
+}
+
+// ─────────────────────────────
+// カードDOM生成
+// ─────────────────────────────
+function makeCard(p) {
+  const bar = BAR_COLORS[p.category] || 'linear-gradient(90deg,#E8332A,#FF6B35)';
+  const isLiked = getLikes().includes(p.name);
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.innerHTML = `
+    <div class="card-bar" style="background:${bar}"></div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">${p.name}</div>
+        <button class="heart ${isLiked?'liked':''}" data-name="${p.name}"
+          onclick="toggleHeart(this);event.stopPropagation()">${isLiked?'❤️':'🤍'}</button>
+      </div>
+      <div class="tags">
+        <span class="tag budget">${p.budget}</span>
+        <span class="tag">${p.indoor==='屋内'?'🏠 屋内':'🌿 屋外'}</span>
+        <span class="tag">⏱ ${p.duration}</span>
+        <span class="tag">${p.season==='通年'?'🌸 通年':'📅 '+p.season}</span>
+      </div>
+      <div class="card-foot">
+        <span class="card-area">📍 ${p.areaRaw}</span>
+      </div>
+    </div>`;
+  return el;
+}
+
+// ─────────────────────────────
+// いいね機能
+// ─────────────────────────────
+function getLikes() {
+  try { return JSON.parse(localStorage.getItem('fresdate_likes') || '[]'); }
+  catch { return []; }
+}
+function saveLikes(likes) { localStorage.setItem('fresdate_likes', JSON.stringify(likes)); }
+function toggleHeart(btn) {
+  btn.classList.toggle('liked');
+  const liked = btn.classList.contains('liked');
+  btn.textContent = liked ? '❤️' : '🤍';
+  const name = btn.dataset.name;
+  let likes = getLikes();
+  if (liked) { if (!likes.includes(name)) likes.push(name); }
+  else        { likes = likes.filter(n => n !== name); }
+  saveLikes(likes);
+}
+
+// ─────────────────────────────
+// いいね一覧（ホームから遷移）
+// ─────────────────────────────
+function showLikes() {
+  const likes = getLikes();
+  const list  = document.getElementById('likedList');
+  list.innerHTML = '';
+  if (likes.length === 0) {
+    list.innerHTML = '<div class="no-hit"><div class="ico">🤍</div><p>まだいいねしたプランがありません。<br>気になるプランにハートを押してみよう！</p></div>';
+  } else {
+    DB.filter(p => likes.includes(p.name)).forEach((p, i) => {
+      const c = makeCard(p);
+      c.style.animationDelay = i * 0.04 + 's';
+      list.appendChild(c);
+    });
+  }
+  go('liked', 'home');
+}
+</script>
+</body>
+</html>
