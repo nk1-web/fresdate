@@ -52,12 +52,6 @@ const DB = [
   {category:"お家デート",subCategory:"",name:"映画（家）",   budget:"0円",    budgetNum:0,    area:"おうち",areaRaw:"家",time:"夜",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  // ④ ドライブ
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"ドライブ",subCategory:"東京エリア",  name:"海ほたる",   budget:"2000円〜",budgetNum:2000, area:"千葉",areaRaw:"千葉（木更津）",         time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"ドライブ",subCategory:"神奈川エリア",name:"箱根ドライブ",budget:"3000円〜",budgetNum:3000, area:"神奈川",    areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑤ プチ旅行
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   {category:"プチ旅行",subCategory:"神奈川エリア",name:"箱根",              budget:"5000円〜",budgetNum:5000, area:"神奈川",areaRaw:"神奈川（箱根）",      time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
