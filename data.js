@@ -24,32 +24,38 @@ const DB = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ① スポーツ・アクティビティ
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"スポーツ・アクティビティ",subCategory:"施設",         name:"ラウンドワン",        budget:"3000円〜",  budgetNum:3000,  area:"東京",areaRaw:"東京都内",         time:"夕方",    indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"スポーツ・アクティビティ",subCategory:"施設",         name:"スポッチャ",          budget:"3000円〜",  budgetNum:3000,  area:"東京",areaRaw:"東京都内",         time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ", name:"ボウリング",          budget:"2000円〜",  budgetNum:2000,  area:"東京",areaRaw:"東京都内",         time:"昼",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ", name:"ボルダリング",        budget:"2000円〜",  budgetNum:2000,  area:"東京",areaRaw:"東京都内",         time:"昼",      indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"バドミントン（公園）",budget:"500円〜",   budgetNum:500,   area:"東京",areaRaw:"東京都内公園",     time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"スケート",            budget:"2000円〜",  budgetNum:2000,  area:"東京",areaRaw:"東京都内",         time:"昼",      indoor:"屋外",season:"冬",  duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"スノボ・スキー",      budget:"10000円〜", budgetNum:10000, area:"長野・山梨",areaRaw:"長野・山梨方面",     time:"昼",      indoor:"屋外",season:"冬",  duration:"半日〜1日"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"パラグライダー",      budget:"10000円〜", budgetNum:10000, area:"長野・山梨",areaRaw:"長野・山梨方面",     time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"サイクリング",        budget:"1000円〜",  budgetNum:1000,  area:"東京",areaRaw:"東京都内近郊",     time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"ランニング",          budget:"0円",       budgetNum:0,     area:"東京",areaRaw:"東京都内公園",         time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"キャッチボール",      budget:"0円",       budgetNum:0,     area:"東京",areaRaw:"東京都内公園",         time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"施設",         name:"ラウンドワン",        budget:"3000円〜",  budgetNum:3000,  area:"東京",areaRaw:"全国",         time:"夕方",    indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"スポーツ・アクティビティ",subCategory:"施設",         name:"スポッチャ",          budget:"3000円〜",  budgetNum:3000,  area:"東京",areaRaw:"全国",         time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ", name:"ボウリング",          budget:"2000円〜",  budgetNum:2000,  area:"東京",areaRaw:"全国",         time:"昼",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ", name:"ボルダリング",        budget:"2000円〜",  budgetNum:2000,  area:"東京",areaRaw:"全国",         time:"昼",      indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"バドミントン（公園）",budget:"500円〜",   budgetNum:500,   area:"東京",areaRaw:"全国",     time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"スケート",            budget:"2000円〜",  budgetNum:2000,  area:"東京",areaRaw:"全国",         time:"昼",      indoor:"屋外",season:"冬",  duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"スノボ・スキー",      budget:"10000円〜", budgetNum:10000, area:"長野・山梨",areaRaw:"全国",     time:"昼",      indoor:"屋外",season:"冬",  duration:"半日〜1日"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"パラグライダー",      budget:"10000円〜", budgetNum:10000, area:"長野・山梨",areaRaw:"全国",     time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"サイクリング",        budget:"1000円〜",  budgetNum:1000,  area:"東京",areaRaw:"全国",     time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"ランニング",          budget:"0円",       budgetNum:0,     area:"東京",areaRaw:"全国",         time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ", name:"キャッチボール",      budget:"0円",       budgetNum:0,     area:"東京",areaRaw:"全国",         time:"昼",      indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ② エンタメ
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"エンタメ",subCategory:"",name:"劇団四季・舞台",  budget:"6000円〜",  budgetNum:6000, area:"東京",areaRaw:"東京都内",time:"昼",  indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"エンタメ",subCategory:"",name:"映画館",          budget:"2000円〜",  budgetNum:2000, area:"東京",areaRaw:"東京都内",time:"昼",  indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"エンタメ",subCategory:"",name:"ゲームセンター",  budget:"1000円〜",  budgetNum:1000, area:"東京",areaRaw:"東京都内",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"エンタメ",subCategory:"",name:"劇団四季・舞台",  budget:"6000円〜",  budgetNum:6000, area:"東京",areaRaw:"全国",time:"昼",  indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"エンタメ",subCategory:"",name:"映画館",          budget:"2000円〜",  budgetNum:2000, area:"東京",areaRaw:"全国",time:"昼",  indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"エンタメ",subCategory:"",name:"ゲームセンター",  budget:"1000円〜",  budgetNum:1000, area:"東京",areaRaw:"全国",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ③ お家デート
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"お家デート",subCategory:"",name:"ゲーム（家）", budget:"0円",    budgetNum:0,    area:"おうち",areaRaw:"家",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"お家デート",subCategory:"",name:"料理づくり",   budget:"1000円〜",budgetNum:1000, area:"おうち",areaRaw:"家",time:"夜",      indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"お家デート",subCategory:"",name:"塗り絵（家）", budget:"500円〜", budgetNum:500,  area:"おうち",areaRaw:"家",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"お家デート",subCategory:"",name:"映画（家）",   budget:"0円",    budgetNum:0,    area:"おうち",areaRaw:"家",time:"夜",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"お家デート",subCategory:"",name:"ゲーム（家）", budget:"0円",    budgetNum:0,    area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"お家デート",subCategory:"",name:"料理づくり",   budget:"1000円〜",budgetNum:1000, area:"おうち",areaRaw:"全国",time:"夜",      indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"お家デート",subCategory:"",name:"塗り絵（家）", budget:"500円〜", budgetNum:500,  area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"お家デート",subCategory:"",name:"映画（家）",   budget:"0円",    budgetNum:0,    area:"おうち",areaRaw:"全国",time:"夜",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
+
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ④ ドライブ
+  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  {category:"ドライブ",subCategory:"東京エリア",  name:"海ほたる",   budget:"2000円〜",budgetNum:2000, area:"千葉",areaRaw:"千葉（木更津）",         time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"ドライブ",subCategory:"神奈川エリア",name:"箱根ドライブ",budget:"3000円〜",budgetNum:3000, area:"神奈川",    areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑤ プチ旅行
@@ -60,23 +66,23 @@ const DB = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑥ リラクゼーション
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"リラクゼーション",subCategory:"温泉",             name:"箱根温泉",  budget:"5000円〜",budgetNum:5000, area:"神奈川",    areaRaw:"神奈川（箱根）",    time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉・サウナ・岩盤浴",name:"スパジャポ",budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（東久留米）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"サウナ",           name:"個室サウナ", budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"東京都内",             time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",           name:"岩盤浴",     budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"東京都内",             time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"動物カフェ",       name:"動物カフェ", budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"東京都内",             time:"昼",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"リラクゼーション",subCategory:"温泉",             name:"箱根温泉",  budget:"5000円〜",budgetNum:5000, area:"神奈川",    areaRaw:"全国",    time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉・サウナ・岩盤浴",name:"スパジャポ",budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"サウナ",           name:"個室サウナ", budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"全国",             time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"岩盤浴",           name:"岩盤浴",     budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"全国",             time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"動物カフェ",       name:"動物カフェ", budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"全国",             time:"昼",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑦ 季節限定イベント
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"季節限定イベント",subCategory:"春",name:"お花見",      budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京都内",       time:"昼",  indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"季節限定イベント",subCategory:"春",name:"お花見（夜桜）",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京都内",       time:"夜",  indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"季節限定イベント",subCategory:"春",name:"いちご狩り",  budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"東京近郊",   time:"昼",  indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"季節限定イベント",subCategory:"夏",name:"お祭り",      budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京都内近郊",   time:"夜",  indoor:"屋外",season:"夏",duration:"2〜4時間"},
-  {category:"季節限定イベント",subCategory:"夏",name:"花火大会",    budget:"0円",     budgetNum:0,    area:"東京",areaRaw:"東京都内近郊",   time:"夜",  indoor:"屋外",season:"夏",duration:"2〜4時間"},
-  {category:"季節限定イベント",subCategory:"夏",name:"プール",      budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"東京都内近郊",   time:"昼",  indoor:"屋外",season:"夏",duration:"半日〜1日"},
-  {category:"季節限定イベント",subCategory:"秋",name:"昭和記念公園",budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（立川）",time:"昼", indoor:"屋外",season:"秋",duration:"2〜4時間"},
-  {category:"季節限定イベント",subCategory:"冬",name:"イルミネーション",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京都内近郊",time:"夜", indoor:"屋外",season:"冬",duration:"2〜4時間"},
+  {category:"季節限定イベント",subCategory:"春",name:"お花見",      budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"全国",       time:"昼",  indoor:"屋外",season:"春",duration:"2〜4時間"},
+  {category:"季節限定イベント",subCategory:"春",name:"お花見（夜桜）",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"全国",       time:"夜",  indoor:"屋外",season:"春",duration:"2〜4時間"},
+  {category:"季節限定イベント",subCategory:"春",name:"いちご狩り",  budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"全国",   time:"昼",  indoor:"屋外",season:"春",duration:"2〜4時間"},
+  {category:"季節限定イベント",subCategory:"夏",name:"お祭り",      budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"全国",   time:"夜",  indoor:"屋外",season:"夏",duration:"2〜4時間"},
+  {category:"季節限定イベント",subCategory:"夏",name:"花火大会",    budget:"0円",     budgetNum:0,    area:"東京",areaRaw:"全国",   time:"夜",  indoor:"屋外",season:"夏",duration:"2〜4時間"},
+  {category:"季節限定イベント",subCategory:"夏",name:"プール",      budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"全国",   time:"昼",  indoor:"屋外",season:"夏",duration:"半日〜1日"},
+  {category:"季節限定イベント",subCategory:"秋",name:"昭和記念公園",budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"全国",time:"昼", indoor:"屋外",season:"秋",duration:"2〜4時間"},
+  {category:"季節限定イベント",subCategory:"冬",name:"イルミネーション",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"全国",time:"夜", indoor:"屋外",season:"冬",duration:"2〜4時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑧ アウトドア
@@ -105,12 +111,12 @@ const DB = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑩ 体験・ものづくり
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"体験・ものづくり",subCategory:"",name:"陶芸体験",      budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"体験・ものづくり",subCategory:"",name:"キャンドル製作",budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"体験・ものづくり",subCategory:"",name:"ペアリング作り",budget:"5000円〜",budgetNum:5000, area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"体験・ものづくり",subCategory:"",name:"香水づくり",    budget:"4000円〜",budgetNum:4000, area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"体験・ものづくり",subCategory:"",name:"リアル脱出ゲーム",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"体験・ものづくり",subCategory:"",name:"アクセサリー作り",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"体験・ものづくり",subCategory:"",name:"陶芸体験",      budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"体験・ものづくり",subCategory:"",name:"キャンドル製作",budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"体験・ものづくり",subCategory:"",name:"ペアリング作り",budget:"5000円〜",budgetNum:5000, area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"体験・ものづくり",subCategory:"",name:"香水づくり",    budget:"4000円〜",budgetNum:4000, area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"体験・ものづくり",subCategory:"",name:"リアル脱出ゲーム",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"体験・ものづくり",subCategory:"",name:"アクセサリー作り",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑪ 食べ歩き・散策
