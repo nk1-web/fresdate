@@ -132,6 +132,8 @@
       animation:fadeUp 0.35s both;}
     .cat-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.11);border-color:var(--red);}
     .cat-card:active{transform:scale(0.96);}
+    .cat-card.cat-empty{opacity:0.55;cursor:default;}
+    .cat-card.cat-empty:hover{transform:none;box-shadow:0 3px 14px rgba(0,0,0,0.06);border-color:transparent;}
     .cat-icon{font-size:28px;line-height:1;}
     .cat-name{font-size:12px;font-weight:700;text-align:center;line-height:1.3;color:var(--text);}
     .cat-count{font-size:10px;color:var(--gray-mid);font-weight:500;}
@@ -371,7 +373,6 @@ const NEEDS_SUBCAT = new Set([
 ]);
 
 // エリアフィルターを適用するカテゴリ（場所が固定のもの）
-// ※スポーツ・エンタメ・体験などどこでもできるカテゴリは含めない
 const AREA_CATS = new Set([
   "プチ旅行",
   "食べ歩き・散策",
@@ -468,18 +469,26 @@ function showCategories() {
   const catCount = {};
   filteredDB.forEach(p => { catCount[p.category] = (catCount[p.category] || 0) + 1; });
 
+  // どこでもできるカテゴリ（エリアフィルター無視）
+  const ANYWHERE_CATS = new Set([
+    "スポーツ・アクティビティ","エンタメ","お家デート","体験・ものづくり","リラクゼーション","季節限定イベント"
+  ]);
+
   Object.entries(CAT_INFO).forEach(([cat, info], i) => {
-    const count = catCount[cat] || 0;
-    if (count === 0) return;
+    // どこでもできるカテゴリはフィルター後DBではなく全DBで件数カウント
+    const count = ANYWHERE_CATS.has(cat)
+      ? DB.filter(p => p.category === cat && matchFiltersExceptArea(p)).length
+      : (catCount[cat] || 0);
+    const isEmpty = count === 0;
     const card = document.createElement('div');
-    card.className = 'cat-card';
+    card.className = 'cat-card' + (isEmpty ? ' cat-empty' : '');
     card.style.animationDelay = `${i * 0.04}s`;
-    card.style.borderTop = `3px solid ${info.color}`;
+    card.style.borderTop = `3px solid ${isEmpty ? '#E0D8D5' : info.color}`;
     card.innerHTML = `
-      <div class="cat-icon">${info.icon}</div>
-      <div class="cat-name">${cat}</div>
-      <div class="cat-count">${count}件</div>`;
-    card.onclick = () => onCatSelect(cat);
+      <div class="cat-icon" style="opacity:${isEmpty?0.4:1}">${info.icon}</div>
+      <div class="cat-name" style="color:${isEmpty?'#C4B5B0':''}">${cat}</div>
+      <div class="cat-count">${isEmpty ? '0件' : count+'件'}</div>`;
+    if (!isEmpty) card.onclick = () => onCatSelect(cat);
     grid.appendChild(card);
   });
 
@@ -493,7 +502,13 @@ function showCategories() {
 // ─────────────────────────────
 function onCatSelect(cat) {
   selectedCat = cat;
-  const plans = filteredDB.filter(p => p.category === cat);
+  // どこでもできるカテゴリはエリアフィルター無視で全プランを取得
+  const ANYWHERE_CATS = new Set([
+    "スポーツ・アクティビティ","エンタメ","お家デート","体験・ものづくり","リラクゼーション","季節限定イベント"
+  ]);
+  const plans = ANYWHERE_CATS.has(cat)
+    ? DB.filter(p => p.category === cat && matchFiltersExceptArea(p))
+    : filteredDB.filter(p => p.category === cat);
 
   if (NEEDS_SUBCAT.has(cat)) {
     // サブカテゴリ選択画面を表示
@@ -533,7 +548,10 @@ function showSubcategories(cat, plans) {
     subCount[key] = (subCount[key] || 0) + 1;
   });
 
-  if (AREA_CATS.has(cat) && filters.area !== 'すべて' && AREA_TO_SUBCAT[filters.area]) {
+  // エリア選択画面が必要なカテゴリ（サブカテゴリがエリア名のもの）
+  const AREA_SELECT_CATS = new Set(["プチ旅行", "食べ歩き・散策"]);
+
+  if (AREA_SELECT_CATS.has(cat) && filters.area !== 'すべて' && AREA_TO_SUBCAT[filters.area]) {
     // エリアが絞られている→そのエリアのプランを直接表示（エリア選択画面スキップ）
     const subName = AREA_TO_SUBCAT[filters.area];
     const subPlans = plans.filter(p => (p.subCategory || 'その他') === subName);
@@ -545,15 +563,14 @@ function showSubcategories(cat, plans) {
     return;
   }
 
-  // エリア系カテゴリは全エリアを固定で表示（プランがなくても出す）
+  // 全エリアを固定順で表示（プランがなくても出す）
   const ALL_AREAS = [
     "東京エリア","神奈川エリア","埼玉エリア","千葉エリア",
     "栃木エリア","群馬エリア","茨城エリア"
   ];
-  // 表示するサブカテゴリのリストを決定
-  // エリア系 → 全エリアを固定順で表示
-  // それ以外 → データにあるサブカテゴリのみ表示
-  const subList = AREA_CATS.has(cat)
+  // エリア選択系 → 全エリアを固定順で表示
+  // それ以外（ミュージアム・アウトドア等）→ データにあるサブカテゴリを表示
+  const subList = AREA_SELECT_CATS.has(cat)
     ? ALL_AREAS
     : Object.keys(subCount);
 
@@ -612,6 +629,27 @@ function renderResults(title, plans) {
     c.style.animationDelay = `${i * 0.04}s`;
     list.appendChild(c);
   });
+}
+
+// ─────────────────────────────
+// エリア以外のフィルターを適用（どこでもできるカテゴリ用）
+// ─────────────────────────────
+function matchFiltersExceptArea(p) {
+  if (currentMode === 'instant' && p.duration !== '1〜3時間') return false;
+  if (filters.budget !== 'すべて') {
+    if (filters.budget === '〜¥1,000' && p.budgetNum > 1000) return false;
+    if (filters.budget === '〜¥3,000' && p.budgetNum > 3000) return false;
+    if (filters.budget === '〜¥5,000' && p.budgetNum > 5000) return false;
+    if (filters.budget === '¥5,000〜' && p.budgetNum < 5000) return false;
+  }
+  if (filters.time !== 'すべて') {
+    if (p.time !== filters.time && p.time !== 'いつでも') return false;
+  }
+  if (filters.indoor !== 'すべて' && p.indoor !== filters.indoor) return false;
+  if (filters.season !== 'すべて') {
+    if (p.season !== filters.season && p.season !== '通年') return false;
+  }
+  return true;
 }
 
 // ─────────────────────────────
