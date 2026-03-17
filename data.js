@@ -67,7 +67,7 @@ const DB = [
   // ⑥ リラクゼーション
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   {category:"リラクゼーション",subCategory:"温泉",             name:"箱根温泉",  budget:"5000円〜",budgetNum:5000, area:"神奈川",    areaRaw:"全国",    time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉・サウナ・岩盤浴",name:"スパジャポ",budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"スーパー銭湯",name:"スパジャポ",budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"サウナ",           name:"個室サウナ", budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"全国",             time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"岩盤浴",           name:"岩盤浴",     budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"全国",             time:"昼",      indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"動物カフェ",       name:"動物カフェ", budget:"3000円〜",budgetNum:3000, area:"東京",areaRaw:"全国",             time:"昼",      indoor:"屋内",season:"通年",duration:"1〜3時間"},
