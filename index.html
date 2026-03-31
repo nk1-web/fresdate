@@ -398,10 +398,10 @@ const SUB_ICONS = {
   "東京エリア":"🗼", "神奈川エリア":"⛩️", "埼玉エリア":"🏯", "千葉エリア":"🌊",
   "栃木エリア":"🍓", "群馬エリア":"♨️", "茨城エリア":"🌾",
   // アウトドア
-  "登山":"⛰️", "ピクニック":"🌱", "海":"🏖️", "キャンプ":"🏕️", "牧場":"🐄", "釣り":"🎣",
+  "登山":"⛰️", "公園":"🌳", "海":"🏖️", "キャンプ":"🏕️", "牧場":"🐄", "釣り":"🎣", "高原":"🏔️", "滝・渓谷":"💧", "神社・史跡":"⛩️", "その他":"🌿",
   // ミュージアム
   "水族館":"🐠", "美術館":"🖼️", "動物園":"🦁", "プラネタリウム":"🌟",
-  "博物館":"📜", "イルミネーション":"✨",
+  "博物館":"📜", "植物園":"🍃", "展望台":"🗼",
   // 季節
   "春":"🌸", "夏":"🌻", "秋":"🍂", "冬":"❄️",
   // リラクゼーション
@@ -570,9 +570,13 @@ function showSubcategories(cat, plans) {
   ];
   // エリア選択系 → 全エリアを固定順で表示
   // それ以外（ミュージアム・アウトドア等）→ データにあるサブカテゴリを表示
+  // アウトドアは順番固定（その他を一番下に）
+  const OUTDOOR_ORDER = ["山","公園","海","高原","滝・渓谷・湖","神社・史跡","キャンプ","牧場","釣り","その他"];
   const subList = AREA_SELECT_CATS.has(cat)
     ? ALL_AREAS
-    : Object.keys(subCount);
+    : cat === "アウトドア"
+      ? OUTDOOR_ORDER.filter(s => subCount[s] !== undefined)
+      : Object.keys(subCount);
 
   const grid = document.getElementById('subSelectGrid');
   grid.innerHTML = '';
@@ -657,7 +661,7 @@ function matchFiltersExceptArea(p) {
 // ─────────────────────────────
 function applyFilters() {
   return DB.filter(p => {
-    if (currentMode === 'instant' && p.duration !== '1〜3時間') return false;
+    if (currentMode === 'instant' && p.duration !== '1時間～2時間') return false;
     // エリアフィルターはドライブ・プチ旅行・食べ歩き散策のみ適用
     // スポーツ・エンタメなど「どこでもできる」カテゴリはエリアで絞らない
     if (filters.area !== 'すべて' && AREA_CATS.has(p.category) && p.area !== filters.area) return false;
