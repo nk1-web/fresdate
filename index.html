@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HL8DTWJX0E"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -110,9 +110,6 @@
       box-shadow:0 2px 10px rgba(0,0,0,0.07);transition:transform 0.15s;flex-shrink:0;}
     .back-btn:active{transform:scale(0.9);}
     .page-ttl{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;flex:1;}
-    .mode-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:700;margin:0 24px 12px;}
-    .mode-instant{background:linear-gradient(135deg,var(--red),var(--orange));color:white;}
-    .mode-tmr{background:#1A1A2E;color:white;}
 
     /* ━━━ 絞り込みページ ━━━ */
     #filter{overflow-y:auto;padding-bottom:100px;}
@@ -126,9 +123,9 @@
     .chip.on{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:transparent;}
     .chip:hover:not(.on){border-color:var(--red);color:var(--red);}
     .sep{height:1px;background:rgba(0,0,0,0.05);margin:4px 0 16px;}
-    .filter-foot{position:fixed;bottom:0;left:50%;transform:translateX(-50%);
-      width:100%;max-width:430px;padding:14px 24px 32px;
-      background:linear-gradient(to top,var(--cream) 65%,transparent);z-index:200;}
+    .filter-foot{position:fixed;bottom:64px;left:50%;transform:translateX(-50%);
+      width:100%;max-width:430px;padding:14px 24px 16px;
+      background:linear-gradient(to top,var(--cream) 70%,transparent);z-index:200;}
 
     /* ━━━ カテゴリ選択 ━━━ */
     #category{overflow-y:auto;padding-bottom:32px;}
@@ -191,9 +188,160 @@
     .tag.budget{background:rgba(232,51,42,0.07);color:var(--red);}
     .card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid var(--gray-light);}
     .card-area{font-size:11px;color:var(--gray-mid);}
+    .card-period{font-size:11px;color:var(--red);font-weight:600;}
     .no-hit{text-align:center;padding:52px 24px;color:var(--gray-mid);}
     .no-hit .ico{font-size:46px;margin-bottom:12px;}
     .no-hit p{font-size:15px;line-height:1.8;}
+
+
+
+    /* ━━━ 運勢カード ━━━ */
+    .swipe-card-fortune{
+      width:100%;
+      max-width:360px;
+      background:white;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 8px 32px rgba(0,0,0,0.12);
+      padding:28px 24px 28px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+      animation:fadeUp 0.5s ease forwards;
+    }
+    .fortune-seal{
+      width:100px;height:100px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 8px 24px rgba(0,0,0,0.2);
+    }
+    .fortune-seal-inner{
+      font-family:'Nunito',sans-serif;
+      font-size:24px;font-weight:900;color:white;
+      text-shadow:0 2px 6px rgba(0,0,0,0.3);
+    }
+    .fortune-title{
+      font-size:11px;font-weight:700;letter-spacing:2px;
+      color:var(--gray-mid);margin-top:-8px;
+    }
+    .fortune-rank{
+      font-family:'Nunito',sans-serif;
+      font-size:48px;font-weight:900;
+      line-height:1;
+    }
+    .fortune-msg{
+      font-size:14px;font-weight:600;
+      line-height:1.8;color:var(--text);
+      background:var(--gray-light);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+    .fortune-sub{
+      font-size:12px;color:var(--gray-mid);
+    }
+
+    /* ━━━ スワイプカードUI ━━━ */
+    .swipe-area{
+      flex:1;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:16px 24px;
+      overflow:hidden;
+    }
+    .swipe-card{
+      width:100%;
+      max-width:360px;
+      background:white;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 8px 32px rgba(0,0,0,0.12);
+      cursor:grab;
+      user-select:none;
+      transition:box-shadow 0.2s;
+      touch-action:pan-y;
+    }
+    .swipe-card:active{cursor:grabbing;}
+    .swipe-card-img{width:100%;height:180px;object-fit:cover;display:block;background:var(--gray-light);}
+    .swipe-card-bar{height:6px;}
+    .swipe-card-body{padding:20px;}
+    .swipe-card-cat{font-size:11px;font-weight:700;color:var(--gray-mid);letter-spacing:1px;margin-bottom:6px;}
+    .swipe-card-name{font-size:22px;font-weight:900;font-family:'Nunito',sans-serif;margin-bottom:12px;line-height:1.2;}
+    .swipe-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+    .swipe-card-tag{font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px;background:var(--gray-light);color:var(--gray-dark);}
+    .swipe-card-tag.budget{background:rgba(232,51,42,0.08);color:var(--red);}
+    .swipe-card-area{font-size:12px;color:var(--gray-mid);}
+    /* スワイプ時のヒント表示 */
+    .swipe-hint{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      opacity:0;
+      transition:opacity 0.15s;
+      pointer-events:none;
+      z-index:10;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
+    }
+    .swipe-hint-left{left:10px;}
+    .swipe-hint-right{right:10px;}
+    .hint-label{
+      font-family:'Nunito',sans-serif;
+      font-size:13px;font-weight:900;
+      letter-spacing:1px;
+    }
+    .hint-label-left{color:#1565C0;}
+    .hint-label-right{color:#E8332A;}
+    /* カウンター */
+    .swipe-counter{
+      margin-top:16px;
+      font-size:12px;
+      color:var(--gray-mid);
+      font-weight:600;
+    }
+
+    /* ━━━ 下部ナビゲーションバー ━━━ */
+    .bottom-nav{
+      position:fixed;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:100%;
+      max-width:430px;
+      background:white;
+      display:flex;
+      border-top:1px solid var(--gray-light);
+      z-index:500;
+      padding-bottom:env(safe-area-inset-bottom);
+    }
+    .nav-btn{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:3px;
+      padding:10px 0 12px;
+      background:none;
+      border:none;
+      cursor:pointer;
+      transition:transform 0.15s;
+    }
+    .nav-btn:active{transform:scale(0.9);}
+    .nav-icon{font-size:22px;line-height:1;}
+    .nav-label{font-size:10px;font-weight:700;color:var(--gray-mid);}
+    .nav-btn.nav-active .nav-label{color:var(--red);}
+    .nav-btn.nav-active .nav-icon{filter:drop-shadow(0 0 4px rgba(232,51,42,0.4));}
+
+    /* ホームとフィルターはナビ分の余白確保 */
+    #home .swipe-area{padding-bottom:80px;}
+    #filter{padding-bottom:160px;}
+    #liked .card-list{padding-bottom:80px;}
 
     /* ━━━ いいね一覧 ━━━ */
     #liked{overflow-y:auto;padding-bottom:32px;}
@@ -204,33 +352,85 @@
 
   <!-- ① ホーム -->
   <section id="home" class="page active">
+    <!-- ヘッダー -->
     <header class="header">
       <img src="logo.png" alt="Fresdate" class="logo-img" onerror="this.style.display='none'">
       <span class="logo-text">Fresdate</span>
-      <!-- いいねボタンはホームにだけ置く -->
-      <button class="home-likes-btn" onclick="showLikes()">❤️
-        <div class="likes-popup" id="likesPopup">いいねしたプランを見返そう</div>
-      </button>
     </header>
-    <div class="hero-body">
-      <div class="live-tag">カップルのデート探し</div>
-      <h1 class="hero-title">今日、<br><span class="gr">何する？</span><br>をなくす。</h1>
-      <p class="hero-sub">実際のカップルの声から生まれた<br>リアルなデートプランが見つかる。</p>
+
+    <!-- サブテキスト -->
+    <div style="padding:8px 24px 0;">
+      <div class="live-tag">今日のおすすめ</div>
     </div>
-    <div class="float-cards">
-      <div class="fc fc1">
-        <div class="fc-icon" style="background:#FFF0EE;">🌸</div>
-        <div><div>お花見ピクニック</div><div style="font-size:11px;color:#C4B5B0;font-weight:500;margin-top:2px;">〜¥1,000 · 2〜4時間</div></div>
+    <p style="padding:6px 24px 0;font-size:13px;color:var(--gray-dark);font-weight:500;">
+      左スワイプでスキップ、右スワイプでいいね！
+    </p>
+
+    <!-- スワイプカードエリア -->
+    <div class="swipe-area" id="swipeArea">
+      <!-- 左ヒント：コミック系バツ（青系） -->
+      <div class="swipe-hint swipe-hint-left" id="hintLeft">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="36" fill="#1565C0" opacity="0.15"/>
+          <circle cx="40" cy="40" r="36" fill="none" stroke="#1E88E5" stroke-width="4"/>
+          <!-- 飛び出し効果 -->
+          <ellipse cx="40" cy="40" rx="36" ry="36" fill="#E3F2FD" opacity="0.6"/>
+          <!-- ✕ -->
+          <line x1="24" y1="24" x2="56" y2="56" stroke="#1565C0" stroke-width="7" stroke-linecap="round"/>
+          <line x1="56" y1="24" x2="24" y2="56" stroke="#1565C0" stroke-width="7" stroke-linecap="round"/>
+          <!-- コミック線 -->
+          <line x1="8" y1="8"  x2="14" y2="14" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+          <line x1="72" y1="8"  x2="66" y2="14" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+          <line x1="8" y1="72" x2="14" y2="66" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+          <line x1="72" y1="72" x2="66" y2="66" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+          <line x1="4"  y1="40" x2="12" y2="40" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+          <line x1="76" y1="40" x2="68" y2="40" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="hint-label hint-label-left">SKIP</div>
       </div>
-      <div class="fc fc2">
-        <div class="fc-icon" style="background:rgba(255,255,255,0.2);">♨️</div>
-        <div><div>スパジャポ</div><div style="font-size:11px;color:rgba(255,255,255,0.65);font-weight:500;margin-top:2px;">¥1,000〜 · 半日〜</div></div>
+      <!-- 右ヒント：コミック系ハート（赤系） -->
+      <div class="swipe-hint swipe-hint-right" id="hintRight">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="36" fill="#E8332A" opacity="0.12"/>
+          <circle cx="40" cy="40" r="36" fill="none" stroke="#E8332A" stroke-width="4"/>
+          <ellipse cx="40" cy="40" rx="36" ry="36" fill="#FFEBEE" opacity="0.6"/>
+          <!-- ハート -->
+          <path d="M40 56 C40 56 18 42 18 28 C18 21 24 16 31 16 C35 16 38 18 40 21 C42 18 45 16 49 16 C56 16 62 21 62 28 C62 42 40 56 40 56Z"
+                fill="#E8332A" stroke="#B71C1C" stroke-width="2"/>
+          <!-- ハイライト -->
+          <ellipse cx="32" cy="26" rx="5" ry="3" fill="white" opacity="0.5" transform="rotate(-30 32 26)"/>
+          <!-- コミック線 -->
+          <line x1="8"  y1="8"  x2="14" y2="14" stroke="#E8332A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="72" y1="8"  x2="66" y2="14" stroke="#E8332A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="8"  y1="72" x2="14" y2="66" stroke="#E8332A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="72" y1="72" x2="66" y2="66" stroke="#E8332A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="4"  y1="40" x2="12" y2="40" stroke="#E8332A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="hint-label hint-label-right">LIKE!</div>
       </div>
+      <div class="swipe-card" id="swipeCard">
+        <!-- JSで動的に生成 -->
+      </div>
+      <!-- カード下のカウンター -->
+      <div class="swipe-counter" id="swipeCounter"></div>
     </div>
-    <div class="cta">
-      <button class="btn btn-main" onclick="goFilter('instant')">⚡ 今すぐ決めたい</button>
-      <button class="btn btn-sub"  onclick="goFilter('tmr')">📅 前日から考える</button>
-    </div>
+
+
+    <!-- 下部ナビゲーションバー -->
+    <nav class="bottom-nav">
+      <button class="nav-btn nav-active" id="navHome" onclick="navTo('home')">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">ホーム</span>
+      </button>
+      <button class="nav-btn" id="navSearch" onclick="navTo('search')">
+        <span class="nav-icon">🔍</span>
+        <span class="nav-label">さがす</span>
+      </button>
+      <button class="nav-btn" id="navLike" onclick="navTo('liked')">
+        <span class="nav-icon">❤️</span>
+        <span class="nav-label">いいね</span>
+      </button>
+    </nav>
   </section>
 
   <!-- ② 絞り込みページ -->
@@ -239,7 +439,6 @@
       <button class="back-btn" onclick="go('home','filter')">←</button>
       <h2 class="page-ttl">絞り込む</h2>
     </div>
-    <div id="modeBadge" class="mode-badge mode-instant">⚡ 今すぐモード</div>
     <div class="filter-wrap">
       <div class="filter-grp">
         <div class="filter-lbl">📍 エリア</div>
@@ -286,19 +485,23 @@
       </div>
       <div class="sep"></div>
       <div class="filter-grp">
-        <div class="filter-lbl">🌸 季節</div>
-        <div class="chips" data-key="season">
+        <div class="filter-lbl">⏱ 所要時間</div>
+        <div class="chips" data-key="duration">
           <button class="chip on" onclick="pick(this)">すべて</button>
-          <button class="chip"    onclick="pick(this)">春</button>
-          <button class="chip"    onclick="pick(this)">夏</button>
-          <button class="chip"    onclick="pick(this)">秋</button>
-          <button class="chip"    onclick="pick(this)">冬</button>
+          <button class="chip"    onclick="pick(this)">1〜3時間</button>
+          <button class="chip"    onclick="pick(this)">2〜4時間</button>
+          <button class="chip"    onclick="pick(this)">半日〜1日</button>
         </div>
       </div>
     </div>
     <div class="filter-foot">
       <button class="btn btn-main" onclick="showCategories()">🔍 カテゴリを選ぶ</button>
     </div>
+    <nav class="bottom-nav">
+      <button class="nav-btn" onclick="navTo('home')"><span class="nav-icon">🏠</span><span class="nav-label">ホーム</span></button>
+      <button class="nav-btn nav-active" onclick="navTo('search')"><span class="nav-icon">🔍</span><span class="nav-label">さがす</span></button>
+      <button class="nav-btn" onclick="navTo('liked')"><span class="nav-icon">❤️</span><span class="nav-label">いいね</span></button>
+    </nav>
   </section>
 
   <!-- ③ カテゴリ選択 -->
@@ -334,26 +537,244 @@
   <!-- ⑥ いいね一覧 -->
   <section id="liked" class="page">
     <div class="page-hd">
-      <button class="back-btn" onclick="go('home','liked')">←</button>
       <h2 class="page-ttl">❤️ いいねしたプラン</h2>
     </div>
-    <div class="card-list" id="likedList"></div>
+    <div class="card-list" id="likedList" style="padding-bottom:80px;"></div>
+    <nav class="bottom-nav">
+      <button class="nav-btn" onclick="navTo('home')"><span class="nav-icon">🏠</span><span class="nav-label">ホーム</span></button>
+      <button class="nav-btn" onclick="navTo('search')"><span class="nav-icon">🔍</span><span class="nav-label">さがす</span></button>
+      <button class="nav-btn nav-active" onclick="navTo('liked')"><span class="nav-icon">❤️</span><span class="nav-label">いいね</span></button>
+    </nav>
   </section>
 
 </div>
 
 <script src="data.js"></script>
 <script>
+
+// =====================================================
+// ホーム スワイプカード
+// =====================================================
+let swipeCards = [];      // 今日表示するカードのキュー
+let swipeIndex = 0;       // 現在のカードindex
+let startX = 0;
+let currentX = 0;
+let isDragging = false;
+
+// DB全件から毎回真のランダムで10件を選ぶ
+function initSwipeCards() {
+  const shuffled = [...DB].sort(() => Math.random() - 0.5);
+  swipeCards = shuffled.slice(0, 10);
+  swipeIndex = 0;
+  renderSwipeCard();
+}
+
+// スワイプカードを描画
+function renderSwipeCard() {
+  const cardEl = document.getElementById('swipeCard');
+  const counter = document.getElementById('swipeCounter');
+  if (!cardEl) return;
+
+  if (swipeIndex >= swipeCards.length) {
+    // 全部スワイプしたら運勢表示
+    const fortune = drawFortune();
+    // swipe-cardクラスを外してCSSの高さ制限を解除
+    cardEl.className = 'swipe-card-fortune';
+    cardEl.style.transform = '';
+    cardEl.style.opacity   = '1';
+    cardEl.innerHTML =
+      '<div class="fortune-seal" style="background:' + fortune.bg + '">' +
+        '<div class="fortune-seal-inner">' + fortune.rank + '</div>' +
+      '</div>' +
+      '<div class="fortune-title">今日の運勢</div>' +
+      '<div class="fortune-rank" style="color:' + fortune.color + '">' + fortune.rank + '</div>' +
+      '<div class="fortune-msg">' + fortune.msg + '</div>' +
+      '<div class="fortune-sub">🔍 検索でもっとプランを探してみよう</div>';
+    if (counter) counter.textContent = '';
+    return;
+  }
+
+  const p = swipeCards[swipeIndex];
+  const bar = BAR_COLORS[p.category] || 'linear-gradient(90deg,#E8332A,#FF6B35)';
+  // Unsplashから画像取得（プラン名で検索）
+  cardEl.innerHTML =
+    '<div class="swipe-card-bar" style="background:' + bar + '"></div>' +
+    '<div class="swipe-card-body">' +
+      '<div class="swipe-card-cat">' + p.category + '</div>' +
+      '<div class="swipe-card-name">' + p.name + '</div>' +
+      '<div class="swipe-card-tags">' +
+        '<span class="swipe-card-tag budget">' + p.budget + '</span>' +
+        '<span class="swipe-card-tag">' + (p.indoor==='屋内'?'🏠 屋内':'🌿 屋外') + '</span>' +
+        '<span class="swipe-card-tag">⏱ ' + p.duration + '</span>' +
+      '</div>' +
+      '<div class="swipe-card-area">📍 ' + p.areaRaw + '</div>' +
+    '</div>';
+
+  if (counter) counter.textContent = (swipeIndex+1) + ' / ' + swipeCards.length;
+
+  // カードをリセット
+  cardEl.style.transform = '';
+  cardEl.style.opacity = '';
+
+  // スワイプイベント登録
+  cardEl.onmousedown  = onDragStart;
+  cardEl.ontouchstart = onDragStart;
+}
+
+// ドラッグ開始
+function onDragStart(e) {
+  isDragging = true;
+  startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+  document.onmousemove  = onDragMove;
+  document.ontouchmove  = onDragMove;
+  document.onmouseup    = onDragEnd;
+  document.ontouchend   = onDragEnd;
+}
+
+// ドラッグ中
+function onDragMove(e) {
+  if (!isDragging) return;
+  currentX = (e.type === 'touchmove' ? e.touches[0].clientX : e.clientX) - startX;
+  const cardEl = document.getElementById('swipeCard');
+  const rotate = currentX * 0.08;
+  cardEl.style.transform = 'translateX(' + currentX + 'px) rotate(' + rotate + 'deg)';
+  cardEl.style.opacity   = Math.max(0.6, 1 - Math.abs(currentX) / 300);
+  // ヒント表示
+  document.getElementById('hintLeft').style.opacity  = currentX < -30 ? Math.min(1,(Math.abs(currentX)-30)/80) : 0;
+  document.getElementById('hintRight').style.opacity = currentX >  30 ? Math.min(1,(currentX-30)/80) : 0;
+}
+
+// ドラッグ終了
+function onDragEnd() {
+  isDragging = false;
+  document.onmousemove = document.ontouchmove = null;
+  document.onmouseup   = document.ontouchend  = null;
+  document.getElementById('hintLeft').style.opacity  = 0;
+  document.getElementById('hintRight').style.opacity = 0;
+
+  if (currentX < -80) {
+    // 左スワイプ → スキップ
+    flyOut(-1);
+  } else if (currentX > 80) {
+    // 右スワイプ → いいね
+    likeCurrentCard();
+    flyOut(1);
+  } else {
+    // 戻す
+    const cardEl = document.getElementById('swipeCard');
+    cardEl.style.transition = 'transform 0.3s,opacity 0.3s';
+    cardEl.style.transform  = '';
+    cardEl.style.opacity    = '';
+    setTimeout(() => { cardEl.style.transition=''; }, 300);
+  }
+  currentX = 0;
+}
+
+// カードを画面外へ飛ばして次へ
+function flyOut(dir) {
+  const cardEl = document.getElementById('swipeCard');
+  cardEl.style.transition = 'transform 0.35s,opacity 0.35s';
+  cardEl.style.transform  = 'translateX(' + (dir*500) + 'px) rotate(' + (dir*20) + 'deg)';
+  cardEl.style.opacity    = '0';
+  setTimeout(() => {
+    cardEl.style.transition = '';
+    swipeIndex++;
+    renderSwipeCard();
+  }, 350);
+}
+
+// 現在のカードをいいねに保存
+function likeCurrentCard() {
+  if (swipeIndex >= swipeCards.length) return;
+  const name = swipeCards[swipeIndex].name;
+  let likes = getLikes();
+  if (!likes.includes(name)) {
+    likes.push(name);
+    saveLikes(likes);
+  }
+}
+
+// ━━━ ナビゲーション ━━━
+function navTo(dest) {
+  const current = document.querySelector('.page.active');
+  if (!current) return;
+  const fromId = current.id;
+  if (dest === 'search') {
+    // 検索（フィルター）ページへ
+    if (fromId !== 'filter') go('filter', fromId);
+  } else if (dest === 'liked') {
+    showLikes(fromId);
+  } else if (dest === 'home') {
+    if (fromId !== 'home') go('home', fromId);
+  }
+}
+
+// ページ読み込み時にスワイプカード初期化
+setTimeout(() => {
+  if (typeof DB !== 'undefined') initSwipeCards();
+}, 100);
+
+
+// =====================================================
+// 運勢ロジック
+// 大吉10% / 中吉15% / 小吉25% / 吉30% / 末吉20%
+// =====================================================
+const FORTUNES = [
+  {rank:'大吉', weight:10, color:'#E8332A', bg:'linear-gradient(135deg,#E8332A,#FF6B35)',
+   msgs:[
+     '今日は絶好のデート日和！思い切って遠出してみては？',
+     '新しいことに挑戦する日。体験系デートが運気をアップさせそう！',
+     '二人の距離がぐっと縮まる予感。特別な場所に行ってみよう。'
+   ]},
+  {rank:'中吉', weight:15, color:'#FF6B35', bg:'linear-gradient(135deg,#FF6B35,#FFA500)',
+   msgs:[
+     '自然の中で過ごすと良いことがありそう。公園やアウトドアがおすすめ。',
+     '一緒に何かを作る体験が二人の絆を深めてくれる日。',
+     '美味しいものを一緒に食べると幸せが倍増する予感！'
+   ]},
+  {rank:'小吉', weight:25, color:'#F0A500', bg:'linear-gradient(135deg,#F0A500,#FFD700)',
+   msgs:[
+     '近場でゆったり過ごすのが吉。カフェやミュージアムはいかが？',
+     '二人でのんびり散策すると素敵な発見があるかも。',
+     'お家でまったりするのも今日は正解かもしれない。'
+   ]},
+  {rank:'吉', weight:30, color:'#4CAF50', bg:'linear-gradient(135deg,#4CAF50,#81C784)',
+   msgs:[
+     '定番スポットに行くと安心感と幸福感が得られそう。',
+     '二人の好きなことを持ち寄るとうまくいく日。',
+     '夜のデートが特に盛り上がりそう。夜景スポットへGO！'
+   ]},
+  {rank:'末吉', weight:20, color:'#78909C', bg:'linear-gradient(135deg,#78909C,#B0BEC5)',
+   msgs:[
+     '焦らずゆっくりが今日のキーワード。お家デートも悪くない。',
+     '小さな幸せを大切に。近所のお気に入りの場所へ行ってみよう。',
+     '今日は計画を立てるだけでも◎。次のデートのしおりを作ってみては？'
+   ]}
+];
+
+function drawFortune() {
+  const total = FORTUNES.reduce((s,f) => s + f.weight, 0);
+  let r = Math.random() * total;
+  for (const f of FORTUNES) {
+    r -= f.weight;
+    if (r <= 0) {
+      const msg = f.msgs[Math.floor(Math.random() * f.msgs.length)];
+      return {...f, msg};
+    }
+  }
+  return {...FORTUNES[3], msg: FORTUNES[3].msgs[0]};
+}
+
 // =====================================================
 // カテゴリ定義
 // =====================================================
 const CAT_INFO = {
+  "期間限定イベント":         {icon:"🎪", color:"#E8332A"},
   "スポーツ・アクティビティ": {icon:"🏃", color:"#43e97b"},
   "エンタメ":                 {icon:"🎭", color:"#667eea"},
   "お家デート":               {icon:"🏠", color:"#f7971e"},
   "プチ旅行":                 {icon:"🚆", color:"#f093fb"},
-  "リラクゼーション":         {icon:"♨️", color:"#E8332A"},
-  "季節限定イベント":         {icon:"🌸", color:"#fccb90"},
+  "リラクゼーション":         {icon:"♨️", color:"#FF6B35"},
   "アウトドア":               {icon:"🌿", color:"#11998e"},
   "ミュージアム・展示施設":   {icon:"🏛️", color:"#a18cd1"},
   "体験・ものづくり":         {icon:"🎨", color:"#fa709a"},
@@ -367,7 +788,7 @@ const BAR_COLORS = {
   "お家デート":               "linear-gradient(90deg,#f7971e,#ffd200)",
   "プチ旅行":                 "linear-gradient(90deg,#f093fb,#f5576c)",
   "リラクゼーション":         "linear-gradient(90deg,#E8332A,#FF6B35)",
-  "季節限定イベント":         "linear-gradient(90deg,#fccb90,#d57eeb)",
+  "期間限定イベント":         "linear-gradient(90deg,#E8332A,#FF6B35)",
   "アウトドア":               "linear-gradient(90deg,#11998e,#38ef7d)",
   "ミュージアム・展示施設":   "linear-gradient(90deg,#a18cd1,#fbc2eb)",
   "体験・ものづくり":         "linear-gradient(90deg,#fa709a,#fee140)",
@@ -378,7 +799,7 @@ const BAR_COLORS = {
 // サブカテゴリ選択が必要なカテゴリ
 const NEEDS_SUBCAT = new Set([
   "プチ旅行", "食べ歩き・散策",
-  "アウトドア", "ミュージアム・展示施設", "季節限定イベント", "リラクゼーション",
+  "アウトドア", "ミュージアム・展示施設", "期間限定イベント", "リラクゼーション",
 ]);
 
 // エリアフィルターを適用するカテゴリ（場所が固定のもの）
@@ -411,6 +832,8 @@ const SUB_ICONS = {
   // ミュージアム
   "水族館":"🐠", "美術館":"🖼️", "動物園":"🦁", "プラネタリウム":"🌟",
   "博物館":"📜", "植物園":"🍃", "展望台":"🗼",
+  // 期間限定イベント
+  "花見":"🌸", "いちご狩り":"🍓", "展示":"🖼️", "アクティビティ":"🎯",
   // 季節
   "春":"🌸", "夏":"🌻", "秋":"🍂", "冬":"❄️",
   // リラクゼーション
@@ -420,17 +843,10 @@ const SUB_ICONS = {
 // ─────────────────────────────
 // 状態管理
 // ─────────────────────────────
-let currentMode = 'instant';
-const filters = {area:'すべて', budget:'すべて', time:'すべて', indoor:'すべて', season:'すべて'};
+const filters = {area:'すべて', budget:'すべて', time:'すべて', indoor:'すべて', duration:'すべて'};
 let filteredDB = [];       // フィルター後のDB
 let selectedCat = '';      // 選択中のカテゴリ
 let prevResultPage = 'subcategory'; // 結果ページの戻り先
-
-// 5秒後にポップアップをDOMから削除
-setTimeout(() => {
-  const popup = document.getElementById('likesPopup');
-  if (popup) popup.remove();
-}, 5000);
 
 // ─────────────────────────────
 // ページ遷移
@@ -446,14 +862,7 @@ function go(toId, fromId) {
 // ─────────────────────────────
 // ホーム → フィルター
 // ─────────────────────────────
-function goFilter(mode) {
-  currentMode = mode;
-  const b = document.getElementById('modeBadge');
-  if (mode === 'instant') {
-    b.textContent = '⚡ 今すぐモード'; b.className = 'mode-badge mode-instant';
-  } else {
-    b.textContent = '📅 前日モード'; b.className = 'mode-badge mode-tmr';
-  }
+function goFilter() {
   go('filter', 'home');
 }
 
@@ -480,7 +889,7 @@ function showCategories() {
 
   // どこでもできるカテゴリ（エリアフィルター無視）
   const ANYWHERE_CATS = new Set([
-    "スポーツ・アクティビティ","エンタメ","お家デート","体験・ものづくり","リラクゼーション","季節限定イベント"
+    "スポーツ・アクティビティ","エンタメ","お家デート","体験・ものづくり","リラクゼーション"
   ]);
 
   Object.entries(CAT_INFO).forEach(([cat, info], i) => {
@@ -513,7 +922,7 @@ function onCatSelect(cat) {
   selectedCat = cat;
   // どこでもできるカテゴリはエリアフィルター無視で全プランを取得
   const ANYWHERE_CATS = new Set([
-    "スポーツ・アクティビティ","エンタメ","お家デート","体験・ものづくり","リラクゼーション","季節限定イベント"
+    "スポーツ・アクティビティ","エンタメ","お家デート","体験・ものづくり","リラクゼーション"
   ]);
   const plans = ANYWHERE_CATS.has(cat)
     ? DB.filter(p => p.category === cat && matchFiltersExceptArea(p))
@@ -544,7 +953,7 @@ function showSubcategories(cat, plans) {
     "食べ歩き・散策":     "エリアを選ぶ",
     "アウトドア":         "種類を選ぶ",
     "ミュージアム・展示施設": "種類を選ぶ",
-    "季節限定イベント":   "季節を選ぶ",
+    "期間限定イベント":   "季節を選ぶ",
     "リラクゼーション":   "種類を選ぶ",
   };
   document.getElementById('subPageTitle').textContent =
@@ -624,6 +1033,12 @@ function showSubcategories(cat, plans) {
   go('subcategory', 'category');
 }
 
+
+// =====================================================
+// 現在開催中イベント（月ごとに更新してください）
+// 毎月このリストを書き換えるだけでOK！
+// =====================================================
+
 // ─────────────────────────────
 // 結果ページをレンダリング
 // ─────────────────────────────
@@ -648,7 +1063,6 @@ function renderResults(title, plans) {
 // エリア以外のフィルターを適用（どこでもできるカテゴリ用）
 // ─────────────────────────────
 function matchFiltersExceptArea(p) {
-  if (currentMode === 'instant' && p.duration !== '1〜3時間') return false;
   if (filters.budget !== 'すべて') {
     if (filters.budget === '〜¥1,000' && p.budgetNum > 1000) return false;
     if (filters.budget === '〜¥3,000' && p.budgetNum > 3000) return false;
@@ -659,9 +1073,7 @@ function matchFiltersExceptArea(p) {
     if (p.time !== filters.time && p.time !== 'いつでも') return false;
   }
   if (filters.indoor !== 'すべて' && p.indoor !== filters.indoor) return false;
-  if (filters.season !== 'すべて') {
-    if (p.season !== filters.season && p.season !== '通年') return false;
-  }
+  if (filters.duration !== 'すべて' && p.duration !== filters.duration) return false;
   return true;
 }
 
@@ -669,8 +1081,20 @@ function matchFiltersExceptArea(p) {
 // フィルタリングロジック
 // ─────────────────────────────
 function applyFilters() {
+  const today = new Date();
+  const mm = String(today.getMonth()+1).padStart(2,'0');
+  const dd = String(today.getDate()).padStart(2,'0');
+  const todayStr = mm + '-' + dd; // 例: "04-11"
+
   return DB.filter(p => {
-    if (currentMode === 'instant' && p.duration !== '1時間～2時間') return false;
+    // 期間限定イベントは開催期間内のものだけ表示
+    if (p.category === '期間限定イベント' && p.startDate && p.endDate) {
+      // 年をまたぐイベント対応（例: 11-01〜02-28）
+      const inRange = p.startDate <= p.endDate
+        ? todayStr >= p.startDate && todayStr <= p.endDate
+        : todayStr >= p.startDate || todayStr <= p.endDate;
+      if (!inRange) return false;
+    }
     // エリアフィルターはドライブ・プチ旅行・食べ歩き散策のみ適用
     // スポーツ・エンタメなど「どこでもできる」カテゴリはエリアで絞らない
     if (filters.area !== 'すべて' && AREA_CATS.has(p.category) && p.area !== filters.area) return false;
@@ -684,11 +1108,18 @@ function applyFilters() {
       if (p.time !== filters.time && p.time !== 'いつでも') return false;
     }
     if (filters.indoor !== 'すべて' && p.indoor !== filters.indoor) return false;
-    if (filters.season !== 'すべて') {
-      if (p.season !== filters.season && p.season !== '通年') return false;
-    }
-    return true;
+  return true;
   });
+}
+
+
+// 開催期間を「M月D日〜M月D日」に変換
+function formatPeriod(start, end) {
+  const fmt = s => {
+    const [m, d] = s.split('-');
+    return parseInt(m) + '月' + parseInt(d) + '日';
+  };
+  return fmt(start) + '〜' + fmt(end);
 }
 
 // ─────────────────────────────
@@ -697,6 +1128,9 @@ function applyFilters() {
 function makeCard(p) {
   const bar = BAR_COLORS[p.category] || 'linear-gradient(90deg,#E8332A,#FF6B35)';
   const isLiked = getLikes().includes(p.name);
+  const periodHtml = p.startDate
+    ? '<span class="card-period">📅 ' + formatPeriod(p.startDate, p.endDate) + '</span>'
+    : '';
   const el = document.createElement('div');
   el.className = 'card';
   el.innerHTML = `
@@ -711,10 +1145,10 @@ function makeCard(p) {
         <span class="tag budget">${p.budget}</span>
         <span class="tag">${p.indoor==='屋内'?'🏠 屋内':'🌿 屋外'}</span>
         <span class="tag">⏱ ${p.duration}</span>
-        <span class="tag">${p.season==='通年'?'🌸 通年':'📅 '+p.season}</span>
       </div>
       <div class="card-foot">
         <span class="card-area">📍 ${p.areaRaw}</span>
+        ${periodHtml}
       </div>
     </div>`;
   return el;
@@ -740,9 +1174,10 @@ function toggleHeart(btn) {
 }
 
 // ─────────────────────────────
-// いいね一覧（ホームから遷移）
+// いいね一覧（どこからでも遷移可）
 // ─────────────────────────────
-function showLikes() {
+function showLikes(fromId) {
+  fromId = fromId || 'home';
   const likes = getLikes();
   const list  = document.getElementById('likedList');
   list.innerHTML = '';
@@ -755,7 +1190,7 @@ function showLikes() {
       list.appendChild(c);
     });
   }
-  go('liked', 'home');
+  go('liked', fromId);
 }
 </script>
 </body>
