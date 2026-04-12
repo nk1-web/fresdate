@@ -623,6 +623,7 @@ function renderSwipeCard() {
 
 // ドラッグ開始
 function onDragStart(e) {
+  if (swipeIndex >= swipeCards.length) return; // 運勢表示後は無効
   isDragging = true;
   startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
   document.onmousemove  = onDragMove;
@@ -798,13 +799,12 @@ const BAR_COLORS = {
 
 // サブカテゴリ選択が必要なカテゴリ
 const NEEDS_SUBCAT = new Set([
-  "プチ旅行", "食べ歩き・散策",
-  "アウトドア", "ミュージアム・展示施設", "期間限定イベント", "リラクゼーション",
+  "食べ歩き・散策",
+  "アウトドア", "ミュージアム・展示施設", "リラクゼーション",
 ]);
 
 // エリアフィルターを適用するカテゴリ（場所が固定のもの）
 const AREA_CATS = new Set([
-  "プチ旅行",
   "食べ歩き・散策",
   "ミュージアム・展示施設",
   "テーマパーク",
@@ -967,7 +967,7 @@ function showSubcategories(cat, plans) {
   });
 
   // エリア選択画面が必要なカテゴリ（サブカテゴリがエリア名のもの）
-  const AREA_SELECT_CATS = new Set(["プチ旅行", "食べ歩き・散策"]);
+  const AREA_SELECT_CATS = new Set(["食べ歩き・散策"]);
 
   if (AREA_SELECT_CATS.has(cat) && filters.area !== 'すべて' && AREA_TO_SUBCAT[filters.area]) {
     // エリアが絞られている→そのエリアのプランを直接表示（エリア選択画面スキップ）
@@ -1095,7 +1095,7 @@ function applyFilters() {
         : todayStr >= p.startDate || todayStr <= p.endDate;
       if (!inRange) return false;
     }
-    // エリアフィルターはドライブ・プチ旅行・食べ歩き散策のみ適用
+    // エリアフィルターは食べ歩き散策・ミュージアム等のみ適用
     // スポーツ・エンタメなど「どこでもできる」カテゴリはエリアで絞らない
     if (filters.area !== 'すべて' && AREA_CATS.has(p.category) && p.area !== filters.area) return false;
     if (filters.budget !== 'すべて') {
