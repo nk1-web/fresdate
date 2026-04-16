@@ -82,7 +82,6 @@ const DB = [
   {category:"アウトドア",subCategory:"公園",name:"新宿御苑",      budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（新宿）",    time:"昼",indoor:"屋外",season:"春",  duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"海",       name:"葛西臨海公園",  budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（葛西）",    time:"昼",indoor:"屋外",season:"夏",  duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"キャンプ", name:"山中湖キャンプ",budget:"5000円〜",budgetNum:5000, area:"その他",    areaRaw:"山梨（山中湖）",  time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"アウトドア",subCategory:"牧場",     name:"牧場",          budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"東京近郊",        time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"釣り",     name:"八景島釣り掘",    budget:"3000円〜",budgetNum:3000, area:"神奈川",    areaRaw:"神奈川（八景島）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -92,7 +91,7 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"美術館",       name:"森美術館",        budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"東京（六本木）",  time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",       name:"チームラボ",      budget:"4000円〜",budgetNum:4000, area:"東京",areaRaw:"東京（豊洲）",            time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",       name:"上野動物園",      budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（上野）",    time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"プラネタリウム",name:"プラネタリウム",  budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"東京都内",            time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+
   
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -172,7 +171,7 @@ const DB = [
 
   // ミュージアム・展示施設
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"アートアクアリウム",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（銀座）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"その他",name:"都立9庭園",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"公園",name:"都立9庭園",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"北仲ノット展望台",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜）",time:"夕方",indoor:"屋外",season:"通年",duration:"1〜3時間"},
 
   // テーマパーク
@@ -301,18 +300,18 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"展望レストハウスクリスタルビュー",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（葛西）",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
 
   // ── ミュージアム・展示施設 / その他 ──
-  {category:"ミュージアム・展示施設",subCategory:"その他",name:"大谷グランドセンター",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"食べ歩き・散策",subCategory:"",name:"大谷グランドセンター",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"その他",name:"市谷の社 本と活字館",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（市谷）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"その他",name:"赤レンガ倉庫",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"その他",name:"ロックハート城",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（高山村）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"その他",name:"ポケパークカントー",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"テーマパーク",subCategory:"",name:"ポケパークカントー",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ── テーマパーク ──
   {category:"テーマパーク",subCategory:"",name:"TOKYO DREAM PARK",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"東映太秦映画村",budget:"2000円〜",budgetNum:2000,area:"その他",areaRaw:"京都（太秦）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"那須ユートピア",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"NASU FARM VILLAGE",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"ワンダリア横浜",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"サウナ",name:"那須ユートピア",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"アウトドア",subCategory:"牧場",name:"NASU FARM VILLAGE",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"ワンダリア横浜",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
 
   // ── アウトドア / 公園 ──
   {category:"アウトドア",subCategory:"公園",name:"上野恩賜公園",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
@@ -386,7 +385,7 @@ const DB = [
   // ★ 追加・更新するときはstartDate/endDateを変更してください
   // 形式: "MM-DD"（例: "04-01" = 4月1日）
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"期間限定イベント",subCategory:"",name:"お花見（上野恩賜公園）",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-15",endDate:"04-20"},
+  {category:"期間限定イベント",subCategory:"",name:"上野恩賜公園のお花見",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-15",endDate:"04-20"},
   {category:"期間限定イベント",subCategory:"",name:"千鳥ヶ淵ライトアップ",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（千代田）",time:"夜",indoor:"屋外",season:"春",duration:"1〜3時間",startDate:"03-20",endDate:"04-10"},
   {category:"期間限定イベント",subCategory:"",name:"新宿御苑の桜",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（新宿）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-15",endDate:"04-20"},
   {category:"期間限定イベント",subCategory:"",name:"国営ひたち海浜公園ネモフィラ",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（ひたちなか）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-15",endDate:"05-10"},
@@ -409,20 +408,15 @@ const DB = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   // ── 花見 ──
-  {category:"期間限定イベント",subCategory:"花見",name:"上野恩賜公園お花見",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-15",endDate:"04-20"},
-  {category:"期間限定イベント",subCategory:"花見",name:"千鳥ヶ淵ボートで夜桜",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（千代田）",time:"夜",indoor:"屋外",season:"春",duration:"1〜3時間",startDate:"03-20",endDate:"04-10"},
-  {category:"期間限定イベント",subCategory:"花見",name:"新宿御苑の桜",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（新宿）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-15",endDate:"04-20"},
-  {category:"期間限定イベント",subCategory:"花見",name:"六義園しだれ桜ライトアップ",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（駒込）",time:"夜",indoor:"屋外",season:"春",duration:"1〜3時間",startDate:"03-18",endDate:"04-07"},
-  {category:"期間限定イベント",subCategory:"花見",name:"吾妻山公園の菜の花と富士山",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（二宮）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"01-20",endDate:"02-20"},
-  {category:"期間限定イベント",subCategory:"花見",name:"小田原城の桜",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（小田原）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"04-15"},
+ 
+  {category:"期間限定イベント",subCategory:"",name:"六義園しだれ桜ライトアップ",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（駒込）",time:"夜",indoor:"屋外",season:"春",duration:"1〜3時間",startDate:"03-18",endDate:"04-07"},
+  {category:"期間限定イベント",subCategory:"",name:"吾妻山公園の菜の花と富士山",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（二宮）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"01-20",endDate:"02-20"},
+  {category:"期間限定イベント",subCategory:"",name:"小田原城の桜",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（小田原）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"04-15"},
 
   // ── いちご狩り ──
-  {category:"期間限定イベント",subCategory:"いちご狩り",name:"いちご狩り（東京近郊）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京近郊",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"01-01",endDate:"05-31"},
-  {category:"期間限定イベント",subCategory:"いちご狩り",name:"いちご狩り（栃木）",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（宇都宮近郊）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"01-01",endDate:"05-31"},
 
   // ── 展示 ──
-  {category:"期間限定イベント",subCategory:"展示",name:"国営ひたち海浜公園ネモフィラ",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（ひたちなか）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-15",endDate:"05-10"},
-  {category:"期間限定イベント",subCategory:"展示",name:"あしかがフラワーパーク藤まつり",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（足利）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-10",endDate:"05-20"},
+  
   {category:"期間限定イベント",subCategory:"展示",name:"座間のひまわり畑",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（座間）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間",startDate:"07-20",endDate:"08-20"},
   {category:"期間限定イベント",subCategory:"展示",name:"花貫渓谷の紅葉",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（高萩）",time:"昼",indoor:"屋外",season:"秋",duration:"2〜4時間",startDate:"11-01",endDate:"11-30"},
   {category:"期間限定イベント",subCategory:"展示",name:"イルミネーション（よみうりランド）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（よみうりランド）",time:"夜",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"11-01",endDate:"02-28"},
@@ -433,5 +427,37 @@ const DB = [
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"お祭り・縁日",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京都内近郊",time:"夜",indoor:"屋外",season:"夏",duration:"2〜4時間",startDate:"07-01",endDate:"08-31"},
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"プール・海水浴",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内近郊",time:"昼",indoor:"屋外",season:"夏",duration:"半日〜1日",startDate:"07-01",endDate:"08-31"},
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"スケート（冬季）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"11-01",endDate:"02-28"},
+
+  {category:"期間限定イベント",subCategory:"",name:"SORAYAMA 光・透明・反射-TOKYO-",budget:"2500円〜",budgetNum:2500,area:"東京",areaRaw:"東京（京橋）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"03-14",endDate:"05-31"},
+  {category:"期間限定イベント",subCategory:"",name:"ピクサーの世界展",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京（豊洲）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"10-12"},
+  {category:"期間限定イベント",subCategory:"",name:"逗子海岸映画祭",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（逗子）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-26",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"",name:"アイスクリーム万博　あいぱくPremium TOKYO 2026",budget:"600円〜",budgetNum:600,area:"東京",areaRaw:"東京（新宿）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-24",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"",name:"台湾祭 in東京スカイツリータウン2026",budget:"0円〜",budgetNum:0,area:"東京",areaRaw:"東京（押上）",time:"夜",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-04",endDate:"05-31"},
+
+
+  // ── 新規追加：2026年4月〜5月開催中イベント ──
+
+  // 【花見・花】
+  {category:"期間限定イベント",subCategory:"花見",name:"亀戸天神社 藤まつり",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（亀戸）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-04",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"花見",name:"ガーデンネックレス横浜2026",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜みなとみらい）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-19",endDate:"06-14"},
+  {category:"期間限定イベント",subCategory:"花見",name:"練馬区立四季の香ローズガーデン バラ祭り",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（練馬）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"05-01",endDate:"06-07"},
+  {category:"期間限定イベント",subCategory:"花見",name:"館林つつじまつり",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（館林）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"花見",name:"文京つつじまつり",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（文京区）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"こもれび森のイバライドのネモフィラ",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（石岡）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-01",endDate:"05-31"},
+  {category:"期間限定イベント",subCategory:"花見",name:"鹿沼ルピナスまつり",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（鹿沼）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-18",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"花見",name:"土浦桜まつり",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（土浦）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"04-12"},
+  {category:"期間限定イベント",subCategory:"花見",name:"秦野桜まつり",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（秦野）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"04-12"},
+
+ 
+
+ 
+  {category:"期間限定イベント",subCategory:"展示",name:"東京タワー シティライトファンタジア 春",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（東京タワー）",time:"夜",indoor:"屋内",season:"春",duration:"1〜3時間",startDate:"02-28",endDate:"05-06"}, 
+  {category:"期間限定イベント",subCategory:"展示",name:"Space Travelium TeNQ 宇宙兄弟展",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（東京ドームシティ）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"01-01",endDate:"04-19"},
+
+  // 【アクティビティ】
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"横浜みなとみらい野外シネマフェス",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜みなとみらい）",time:"夜",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"05-06"},
+  
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"ネットフリックス渋谷リアル・イカゲーム",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京（渋谷）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"01-16",endDate:"07-20"},
+ 
 
 ];
