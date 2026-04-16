@@ -57,8 +57,8 @@ const DB = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑤ プチ旅行
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {category:"プチ旅行",subCategory:"神奈川エリア",name:"箱根",              budget:"5000円〜",budgetNum:5000, area:"神奈川",areaRaw:"神奈川（箱根）",      time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"プチ旅行",subCategory:"神奈川エリア",name:"みさきまぐろきっぷ",budget:"4000円〜",budgetNum:4000, area:"神奈川",areaRaw:"神奈川（三浦半島）",  time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"食べ歩き・散策",subCategory:"神奈川エリア",name:"箱根",              budget:"5000円〜",budgetNum:5000, area:"神奈川",areaRaw:"神奈川（箱根）",      time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"食べ歩き・散策",subCategory:"神奈川エリア",name:"みさきまぐろきっぷ",budget:"4000円〜",budgetNum:4000, area:"神奈川",areaRaw:"神奈川（三浦半島）",  time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   // ⑥ リラクゼーション
@@ -181,7 +181,7 @@ const DB = [
   {category:"テーマパーク",subCategory:"",name:"ちいかわパーク",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // プチ旅行
-  {category:"プチ旅行",subCategory:"神奈川エリア",name:"江ノ島",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（江ノ島）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"食べ歩き・散策",subCategory:"神奈川エリア",name:"江ノ島",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（江ノ島）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
 
   // 期間限定イベント
 
@@ -390,15 +390,6 @@ const DB = [
   {category:"期間限定イベント",subCategory:"",name:"新宿御苑の桜",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（新宿）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-15",endDate:"04-20"},
   {category:"期間限定イベント",subCategory:"",name:"国営ひたち海浜公園ネモフィラ",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（ひたちなか）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-15",endDate:"05-10"},
   {category:"期間限定イベント",subCategory:"",name:"あしかがフラワーパーク藤まつり",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（足利）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-10",endDate:"05-20"},
-  {category:"期間限定イベント",subCategory:"",name:"いちご狩り",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京近郊",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"01-01",endDate:"05-31"},
-  {category:"期間限定イベント",subCategory:"",name:"花火大会",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京都内近郊",time:"夜",indoor:"屋外",season:"夏",duration:"2〜4時間",startDate:"07-01",endDate:"08-31"},
-  {category:"期間限定イベント",subCategory:"",name:"お祭り・縁日",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京都内近郊",time:"夜",indoor:"屋外",season:"夏",duration:"2〜4時間",startDate:"07-01",endDate:"08-31"},
-  {category:"期間限定イベント",subCategory:"",name:"プール・海水浴",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内近郊",time:"昼",indoor:"屋外",season:"夏",duration:"半日〜1日",startDate:"07-01",endDate:"08-31"},
-  {category:"期間限定イベント",subCategory:"",name:"紅葉狩り（昭和記念公園）",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（立川）",time:"昼",indoor:"屋外",season:"秋",duration:"2〜4時間",startDate:"10-20",endDate:"12-05"},
-  {category:"期間限定イベント",subCategory:"",name:"花貫渓谷の紅葉",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（高萩）",time:"昼",indoor:"屋外",season:"秋",duration:"2〜4時間",startDate:"11-01",endDate:"11-30"},
-  {category:"期間限定イベント",subCategory:"",name:"焼き芋・いもフェア",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋外",season:"秋",duration:"1〜3時間",startDate:"10-01",endDate:"11-30"},
-  {category:"期間限定イベント",subCategory:"",name:"イルミネーション（よみうりランド）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（よみうりランド）",time:"夜",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"11-01",endDate:"02-28"},
-  {category:"期間限定イベント",subCategory:"",name:"三十槌の氷柱",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"01-10",endDate:"02-20"},
 
 
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -459,5 +450,36 @@ const DB = [
   
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"ネットフリックス渋谷リアル・イカゲーム",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京（渋谷）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"01-16",endDate:"07-20"},
  
+
+  // ── 2026年4月 新規追加イベント ──
+  {category:"期間限定イベント",subCategory:"花見",name:"昭和記念公園 チューリップフェス",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（立川）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-10",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"亀戸天神 藤まつり",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（江東区）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-15",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"展示",name:"デザインあ展",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（六本木）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"06-30"},
+  {category:"期間限定イベント",subCategory:"展示",name:"ジブリパークとジブリ展",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"06-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"オクトーバーフェスト（日比谷）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（日比谷）",time:"夕方",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-24",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"チームラボ 期間限定演出（春Ver）",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京（豊洲）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"長井海の手公園 ネモフィラ",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（横須賀）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"相模原麻溝公園 花フェス",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"展示",name:"鎌倉文学館 春展示",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"湘南クラフトビールフェス",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（藤沢）",time:"夕方",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"ふなばしアンデルセン公園 花イベント",budget:"1000円〜",budgetNum:1000,area:"千葉",areaRaw:"千葉（船橋）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"房総フラワーライン",budget:"0円",budgetNum:0,area:"千葉",areaRaw:"千葉（南房総）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"成田山表参道 春まつり",budget:"500円〜",budgetNum:500,area:"千葉",areaRaw:"千葉（成田）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"木更津アウトレット フードフェス",budget:"1000円〜",budgetNum:1000,area:"千葉",areaRaw:"千葉（木更津）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"国営武蔵丘陵森林公園 ポピー",budget:"500円〜",budgetNum:500,area:"埼玉",areaRaw:"埼玉（滑川町）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-20",endDate:"05-20"},
+  {category:"期間限定イベント",subCategory:"花見",name:"羊山公園 芝桜",budget:"500円〜",budgetNum:500,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-15",endDate:"05-06"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"長瀞ライン下り 春シーズン",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（長瀞）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"06-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"川越 春グルメ祭り",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（川越）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"フラワーパーク春イルミ",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（石岡）",time:"夜",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"鹿島神宮 春イベント",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（鹿嶋）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"水戸グルメフェス",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"八幡山公園 桜＆花イベント",budget:"0円",budgetNum:0,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"日光東照宮 春季イベント",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"宇都宮餃子祭り（春）",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"花見",name:"敷島公園バラ園",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（前橋）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-20",endDate:"05-20"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"榛名湖 春イベント",budget:"500円〜",budgetNum:500,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"アクティビティ",name:"高崎フードフェス",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
+  {category:"期間限定イベント",subCategory:"展示",name:"平成恋愛展",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（渋谷）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-07",endDate:"06-28"},
+
 
 ];
