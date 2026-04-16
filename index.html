@@ -429,11 +429,11 @@
     <div class="swipe-area" id="swipeArea">
       <!-- 左ヒント：NOPE画像 -->
       <div class="swipe-hint swipe-hint-left" id="hintLeft">
-        <img src="NOPE.png" width="110" height="110" style="display:block;">
+        <img src="Nope.png" width="110" height="110" style="display:block;">
       </div>
       <!-- 右ヒント：LIKE画像 -->
       <div class="swipe-hint swipe-hint-right" id="hintRight">
-        <img src="LIKE.png" width="110" height="110" style="display:block;">
+        <img src="Like.png" width="110" height="110" style="display:block;">
       </div>
 
       <!-- スワイプカード本体 -->
@@ -859,7 +859,6 @@ const CAT_INFO = {
   "スポーツ・アクティビティ": {icon:"🏃", color:"#43e97b"},
   "エンタメ":                 {icon:"🎭", color:"#667eea"},
   "お家デート":               {icon:"🏠", color:"#f7971e"},
-  "プチ旅行":                 {icon:"🚆", color:"#f093fb"},
   "リラクゼーション":         {icon:"♨️", color:"#FF6B35"},
   "アウトドア":               {icon:"🌿", color:"#11998e"},
   "ミュージアム・展示施設":   {icon:"🏛️", color:"#a18cd1"},
@@ -872,7 +871,6 @@ const BAR_COLORS = {
   "スポーツ・アクティビティ": "linear-gradient(90deg,#43e97b,#38f9d7)",
   "エンタメ":                 "linear-gradient(90deg,#667eea,#764ba2)",
   "お家デート":               "linear-gradient(90deg,#f7971e,#ffd200)",
-  "プチ旅行":                 "linear-gradient(90deg,#f093fb,#f5576c)",
   "リラクゼーション":         "linear-gradient(90deg,#E8332A,#FF6B35)",
   "期間限定イベント":         "linear-gradient(90deg,#E8332A,#FF6B35)",
   "アウトドア":               "linear-gradient(90deg,#11998e,#38ef7d)",
@@ -909,7 +907,7 @@ const AREA_TO_SUBCAT = {
 
 // サブカテゴリのアイコンマップ
 const SUB_ICONS = {
-  // ドライブ・プチ旅行・食べ歩き（エリア）
+  // ドライブ・食べ歩き（エリア）
   "東京エリア":"🗼", "神奈川エリア":"⛩️", "埼玉エリア":"🏯", "千葉エリア":"🌊",
   "栃木エリア":"🍓", "群馬エリア":"♨️", "茨城エリア":"🌾",
   // アウトドア
@@ -1034,7 +1032,6 @@ function showSubcategories(cat, plans) {
   // タイトルをカテゴリに合わせて変える
   const titleMap = {
     "ドライブ":           "エリアを選ぶ",
-    "プチ旅行":           "エリアを選ぶ",
     "食べ歩き・散策":     "エリアを選ぶ",
     "アウトドア":         "種類を選ぶ",
     "ミュージアム・展示施設": "種類を選ぶ",
