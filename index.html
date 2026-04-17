@@ -13,7 +13,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fresdate</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,900;1,900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nunito:ital,wght@0,700;0,900;1,900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --red:#E8332A; --orange:#FF6B35; --cream:#FFF8F5;
@@ -244,6 +245,22 @@
       font-size:12px;color:var(--gray-mid);
     }
 
+
+    /* ━━━ Lottieヒント ━━━ */
+    .lottie-hint-wrap{
+      width:280px;height:280px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+      filter:drop-shadow(0 12px 32px rgba(0,0,0,0.14));
+    }
+    .hint-badge{
+      font-family:'Dela Gothic One',sans-serif;
+      font-size:28px;line-height:1;
+      letter-spacing:1px;
+      text-shadow:0 2px 6px rgba(255,255,255,0.55);
+    }
+    .nope-wrap .hint-badge{color:#1565C0;}
+    .like-wrap .hint-badge{color:#E8332A;}
+
     /* ━━━ スワイプカードUI ━━━ */
     .swipe-area{
       flex:1;
@@ -281,26 +298,15 @@
     /* スワイプ時のヒント表示 */
     .swipe-hint{
       position:absolute;
-      top:50%;
-      transform:translateY(-50%);
+      top:50%;left:50%;
+      transform:translate(-50%,-50%);
       opacity:0;
       transition:opacity 0.15s;
       pointer-events:none;
       z-index:10;
       display:flex;
-      flex-direction:column;
       align-items:center;
-      gap:4px;
     }
-    .swipe-hint-left{left:4px;}
-    .swipe-hint-right{right:4px;}
-    .hint-label{
-      font-family:'Nunito',sans-serif;
-      font-size:13px;font-weight:900;
-      letter-spacing:1px;
-    }
-    .hint-label-left{color:#1565C0;}
-    .hint-label-right{color:#E8332A;}
     /* カウンター */
     .swipe-counter{
       margin-top:16px;
@@ -427,13 +433,19 @@
 
     <!-- スワイプカードエリア -->
     <div class="swipe-area" id="swipeArea">
-      <!-- 左ヒント：NOPE画像 -->
-      <div class="swipe-hint swipe-hint-left" id="hintLeft">
-        <img src="Nope.png" width="110" height="110" style="display:block;">
+      <!-- 左ヒント：NOPEアニメーション -->
+      <div class="swipe-hint" id="hintLeft">
+        <div class="lottie-hint-wrap nope-wrap">
+          <div id="lottiNope" style="width:280px;height:280px;"></div>
+          <div class="hint-badge">NOPE</div>
+        </div>
       </div>
-      <!-- 右ヒント：LIKE画像 -->
-      <div class="swipe-hint swipe-hint-right" id="hintRight">
-        <img src="Like.png" width="110" height="110" style="display:block;">
+      <!-- 右ヒント：LIKEアニメーション -->
+      <div class="swipe-hint" id="hintRight">
+        <div class="lottie-hint-wrap like-wrap">
+          <div id="lottiLike" style="width:280px;height:280px;"></div>
+          <div class="hint-badge">LIKE</div>
+        </div>
       </div>
 
       <!-- スワイプカード本体 -->
@@ -609,6 +621,7 @@
 </div>
 
 <script src="data.js"></script>
+<script src="animations.js"></script>
 <script>
 // =====================================================
 // Supabase 設定
@@ -714,9 +727,13 @@ function onDragMove(e) {
   const rotate = currentX * 0.08;
   cardEl.style.transform = 'translateX(' + currentX + 'px) rotate(' + rotate + 'deg)';
   cardEl.style.opacity   = Math.max(0.6, 1 - Math.abs(currentX) / 300);
-  // ヒント表示
-  document.getElementById('hintLeft').style.opacity  = currentX < -30 ? Math.min(1,(Math.abs(currentX)-30)/80) : 0;
-  document.getElementById('hintRight').style.opacity = currentX >  30 ? Math.min(1,(currentX-30)/80) : 0;
+  // ヒント表示 + Lottie制御
+  const leftOp  = currentX < -30 ? Math.min(1,(Math.abs(currentX)-30)/80) : 0;
+  const rightOp = currentX >  30 ? Math.min(1,(currentX-30)/80) : 0;
+  document.getElementById('hintLeft').style.opacity  = leftOp;
+  document.getElementById('hintRight').style.opacity = rightOp;
+  if (leftOp > 0.3 && lottieNope) { lottieNope.play(); } else if (lottieNope) { lottieNope.pause(); lottieNope.goToAndStop(0,true); }
+  if (rightOp > 0.3 && lottieLike) { lottieLike.play(); } else if (lottieLike) { lottieLike.pause(); lottieLike.goToAndStop(0,true); }
 }
 
 // ドラッグ終了
@@ -726,6 +743,8 @@ function onDragEnd() {
   document.onmouseup   = document.ontouchend  = null;
   document.getElementById('hintLeft').style.opacity  = 0;
   document.getElementById('hintRight').style.opacity = 0;
+  if (lottieNope) { lottieNope.pause(); lottieNope.goToAndStop(0,true); }
+  if (lottieLike) { lottieLike.pause(); lottieLike.goToAndStop(0,true); }
 
   if (currentX < -80) {
     // 左スワイプ → スキップ
@@ -795,6 +814,8 @@ function navTo(dest) {
   }
 }
 
+
+// ─────────────────────────────
 // ページ読み込み時にスワイプカード初期化
 setTimeout(() => {
   if (typeof DB !== 'undefined') initSwipeCards();
@@ -1223,6 +1244,37 @@ function formatPeriod(start, end) {
 }
 
 
+
+// ─────────────────────────────
+// Lottieアニメーション初期化
+// ─────────────────────────────
+let lottieNope = null;
+let lottieLike = null;
+
+function initLottie() {
+  if (typeof lottie === 'undefined' || typeof CROSS_ANIMATION === 'undefined' || typeof BURN_CALORIES_ANIMATION === 'undefined') return;
+  lottieNope = lottie.loadAnimation({
+    container: document.getElementById('lottiNope'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: false,
+    animationData: CROSS_ANIMATION
+  });
+  lottieLike = lottie.loadAnimation({
+    container: document.getElementById('lottiLike'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: false,
+    animationData: BURN_CALORIES_ANIMATION
+  });
+  // NOPEは色を青系にフィルター
+  document.getElementById('lottiNope').style.filter = 'hue-rotate(200deg) saturate(1.5)';
+  // LIKEは赤系
+  document.getElementById('lottiLike').style.filter = 'hue-rotate(0deg) saturate(1.5)';
+}
+
+setTimeout(initLottie, 300);
+
 // ─────────────────────────────
 // キーワード検索
 // ─────────────────────────────
@@ -1439,3 +1491,4 @@ async function showLikes(fromId) {
 </script>
 </body>
 </html>
+
