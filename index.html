@@ -827,6 +827,16 @@ let pageSwipeLocked = false;
 
 document.addEventListener('touchstart', e => {
   if (e.target.closest('#swipeArea')) return;
+  // 画面中央部（上下20%〜80%の範囲）のみでページスワイプを受け付ける
+  const touchY = e.touches[0].clientY;
+  const winH = window.innerHeight;
+  if (touchY < winH * 0.20 || touchY > winH * 0.80) {
+    // 中央範囲外は座標をリセットして無効化
+    pageSwipeStartX = 0;
+    pageSwipeStartY = 0;
+    pageSwipeLocked = true;
+    return;
+  }
   pageSwipeStartX = e.touches[0].clientX;
   pageSwipeStartY = e.touches[0].clientY;
   pageSwipeLocked = false;
@@ -835,6 +845,8 @@ document.addEventListener('touchstart', e => {
 document.addEventListener('touchend', e => {
   if (e.target.closest('#swipeArea')) return;
   if (pageSwipeLocked) return;
+  // 開始Y座標が未設定（中央範囲外でtouchstartされた）場合は無視
+  if (pageSwipeStartX === 0 && pageSwipeStartY === 0) return;
 
   const current = document.querySelector('.page.active');
   if (!current) return;
@@ -854,6 +866,8 @@ document.addEventListener('touchend', e => {
   }
 
   pageSwipeLocked = true;
+  pageSwipeStartX = 0;
+  pageSwipeStartY = 0;
 }, {passive: true});
 
 // ─────────────────────────────
@@ -1270,7 +1284,8 @@ function applyFilters() {
       if (p.time !== filters.time && p.time !== 'いつでも') return false;
     }
     if (filters.indoor !== 'すべて' && p.indoor !== filters.indoor) return false;
-  return true;
+    if (filters.duration !== 'すべて' && p.duration !== filters.duration) return false;
+    return true;
   });
 }
 
