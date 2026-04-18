@@ -985,7 +985,7 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"茨城県立歴史館",budget:"200円〜",budgetNum:200,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"茨城県立近代美術館",budget:"300円〜",budgetNum:300,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"地質標本館（産業技術総合研究所）",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"水族館",name:"アクアワールド大洗",budget:"2000円〜",budgetNum:2000,area:"茨城",areaRaw:"茨城（大洗）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"筑波山頂展望台",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"日立シビックセンター科学館",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（日立）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"笠間日動美術館",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（笠間）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -1100,8 +1100,7 @@ const DB = [
   {category:"テーマパーク",subCategory:"",name:"ザ・ヒロサワ・シティ（廃線テーマパーク）",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（筑西）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"偕楽園公園ボート",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"テーマパーク",subCategory:"",name:"牛久大仏＆花の庭園",budget:"800円〜",budgetNum:800,area:"茨城",areaRaw:"茨城（牛久）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"アクアワールド大洗（大型水族館）",budget:"2000円〜",budgetNum:2000,area:"茨城",areaRaw:"茨城（大洗）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-
+ 
   // ── テーマパーク 栃木 ──
   {category:"テーマパーク",subCategory:"",name:"日光江戸村",budget:"3000円〜",budgetNum:3000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"とちのきファミリーランド",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
