@@ -161,9 +161,11 @@
     .chip.on{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:transparent;}
     .chip:hover:not(.on){border-color:var(--red);color:var(--red);}
     .sep{height:1px;background:rgba(0,0,0,0.05);margin:4px 0 16px;}
-    .filter-foot{position:fixed;bottom:64px;left:50%;transform:translateX(-50%);
-      width:100%;max-width:430px;padding:14px 24px 16px;
-      background:linear-gradient(to top,var(--cream) 70%,transparent);z-index:200;}
+    .filter-foot{
+      padding:10px 24px 14px;
+      background:var(--cream);
+      flex-shrink:0;
+    }
 
     /* ━━━ カテゴリ選択 ━━━ */
     #category{overflow-y:auto;padding-bottom:32px;}
@@ -404,7 +406,8 @@
       line-height:1.8;
       animation:fadeUp 0.4s ease both;
     }
-    #filter{padding-bottom:160px;}
+    #filter{padding-bottom:0;display:flex;flex-direction:column;overflow:hidden;}
+    #liked{overflow-y:auto;padding-bottom:80px;}
     #liked .card-list{padding-bottom:80px;}
 
 
@@ -433,10 +436,10 @@
       display:flex;align-items:center;justify-content:center;
     }
     .keyword-results{
-      padding:0 24px;
+      padding:0 24px 80px;
       overflow-y:auto;
       flex:1;
-      padding-bottom:140px;
+      min-height:0;
     }
     .keyword-count{
       font-size:12px;color:var(--gray-mid);
@@ -499,18 +502,6 @@
       </p>
     </div>
 
-    <!-- 下部ナビゲーションバー -->
-    <nav class="bottom-nav">
-      <button class="nav-btn nav-active" id="navHome" onclick="navTo('home')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
-      </button>
-      <button class="nav-btn" id="navSearch" onclick="navTo('search')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      </button>
-      <button class="nav-btn" id="navLike" onclick="navTo('liked')">
-        <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
-      </button>
-    </nav>
   </section>
 
   <!-- ② 絞り込みページ -->
@@ -536,7 +527,7 @@
     <!-- キーワード検索結果（入力中のみ表示） -->
     <div id="keywordResults" class="keyword-results" style="display:none;"></div>
     <!-- 通常フィルター（キーワード未入力時のみ表示） -->
-    <div id="normalFilter">
+    <div id="normalFilter" style="flex:1;overflow-y:auto;min-height:0;">
     <div class="filter-wrap">
       <div class="filter-grp">
         <div class="filter-lbl">📍 エリア</div>
@@ -596,17 +587,6 @@
     <div class="filter-foot">
       <button class="btn btn-main" onclick="showCategories()">🔍 カテゴリを選ぶ</button>
     </div>
-    <nav class="bottom-nav">
-      <button class="nav-btn" onclick="navTo('home')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
-      </button>
-      <button class="nav-btn nav-active" onclick="navTo('search')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      </button>
-      <button class="nav-btn" onclick="navTo('liked')">
-        <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
-      </button>
-    </nav>
   </section>
 
   <!-- ③ いいね一覧（スライドコンテナ内） -->
@@ -615,20 +595,22 @@
       <h2 class="page-ttl">❤️ いいねしたプラン</h2>
     </div>
     <div class="card-list" id="likedList" style="padding-bottom:80px;"></div>
-    <nav class="bottom-nav">
-      <button class="nav-btn" onclick="navTo('home')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
-      </button>
-      <button class="nav-btn" onclick="navTo('search')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      </button>
-      <button class="nav-btn nav-active" onclick="navTo('liked')">
-        <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
-      </button>
-    </nav>
   </section>
 
   </div><!-- /.main-pages -->
+
+  <!-- ★ 共通ナビバー：.appの直下に1つだけ。position:fixedで常に表示 -->
+  <nav class="bottom-nav">
+    <button class="nav-btn nav-active" id="navHome" onclick="navTo('home')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
+    </button>
+    <button class="nav-btn" id="navSearch" onclick="navTo('search')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+    </button>
+    <button class="nav-btn" id="navLike" onclick="navTo('liked')">
+      <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
+    </button>
+  </nav>
 
   <!-- ④ カテゴリ選択（サブページ・重ねて表示） -->
   <section id="category" class="sub-page">
@@ -1460,64 +1442,63 @@ setTimeout(initLottie, 300);
 // キーワード検索
 // ─────────────────────────────
 
-// ひらがな → カタカナ変換
+// ひらがな → カタカナ
 function toKatakana(str) {
-  return str.replace(/[\u3041-\u3096]/g, ch =>
-    String.fromCharCode(ch.charCodeAt(0) + 0x60)
-  );
+  return str.replace(/[\u3041-\u3096]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
 }
-// カタカナ → ひらがな変換
+// カタカナ → ひらがな
 function toHiragana(str) {
-  return str.replace(/[\u30A1-\u30F6]/g, ch =>
-    String.fromCharCode(ch.charCodeAt(0) - 0x60)
-  );
-}
-
-// テキストを正規化（ひらがな・カタカナ両方含む文字列にする）
-function normalize(str) {
-  const s = (str || '').toLowerCase();
-  // ひらがな版とカタカナ版を両方つなげて検索対象にする
-  return s + toKatakana(s) + toHiragana(s);
+  return str.replace(/[\u30A1-\u30F6]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
 }
 
 function onKeywordInput(val) {
-  const clearBtn  = document.getElementById('keywordClear');
-  const kwResults = document.getElementById('keywordResults');
+  const clearBtn     = document.getElementById('keywordClear');
+  const kwResults    = document.getElementById('keywordResults');
   const normalFilter = document.getElementById('normalFilter');
   const filterFoot   = document.querySelector('.filter-foot');
 
   clearBtn.style.display = val ? 'flex' : 'none';
 
   if (!val.trim()) {
-    // 未入力→通常フィルター表示
     kwResults.style.display    = 'none';
     normalFilter.style.display = '';
     if (filterFoot) filterFoot.style.display = '';
     return;
   }
 
-  // 入力中→フィルターを隠してキーワード結果を表示
+  // 入力中 → フィルター隠してキーワード結果表示
   normalFilter.style.display = 'none';
   if (filterFoot) filterFoot.style.display = 'none';
   kwResults.style.display    = 'block';
 
-  // 入力をひらがな・カタカナ両方で検索できるよう正規化
-  const q       = val.trim().toLowerCase();
-  const qKana   = toKatakana(q);   // 入力をカタカナに変換
-  const qHira   = toHiragana(q);   // 入力をひらがなに変換
+  // ひらがな・カタカナ両方で検索できるよう3パターン用意
+  const q     = val.trim().toLowerCase();
+  const qKana = toKatakana(q);
+  const qHira = toHiragana(q);
+
+  function fieldOf(p) {
+    return [p.name, p.category, p.subCategory || '', p.areaRaw || '']
+      .map(s => s.toLowerCase())
+      .join('\0');
+  }
 
   const hits = DB.filter(p => {
-    const fields = normalize(p.name) + normalize(p.category) +
-                   normalize(p.subCategory) + normalize(p.areaRaw);
-    return fields.includes(q) || fields.includes(qKana) || fields.includes(qHira);
+    const f = fieldOf(p);
+    // 元の入力 or カタカナ変換 or ひらがな変換のどれかが含まれればヒット
+    return f.includes(q) || f.includes(qKana) || f.includes(qHira)
+      || toKatakana(f).includes(qKana)   // フィールド側もカタカナ化して比較
+      || toHiragana(f).includes(qHira);  // フィールド側もひらがな化して比較
   });
 
+  // 結果をリセットしてカウント表示
   kwResults.innerHTML = '<div class="keyword-count">' + hits.length + '件ヒット</div>';
+
   if (hits.length === 0) {
     kwResults.innerHTML += '<div class="no-hit"><div class="ico">🔍</div><p>「' + val + '」に一致するプランが見つかりませんでした。</p></div>';
     return;
   }
-  // いいね数取得してソート
+
+  // いいね数取得してカード描画
   (async () => {
     let likeMap = {};
     try {
