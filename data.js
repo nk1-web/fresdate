@@ -251,7 +251,7 @@ const DB = [
   {category:"アウトドア",subCategory:"海",name:"南房総国定公園鵜原理想郷",budget:"0円",budgetNum:0,area:"千葉",areaRaw:"千葉（勝浦）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ── アウトドア / 神社・史跡 ──
-  {category:"アウトドア",subCategory:"神社・史跡",name:"天空の鳥居（高屋神社）",budget:"0円",budgetNum:0,area:"その他",areaRaw:"香川（観音寺）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"神社・史跡",name:"高屋神社の天空の鳥居",budget:"0円",budgetNum:0,area:"その他",areaRaw:"香川（観音寺）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"神社・史跡",name:"世界遺産鬼ヶ城",budget:"0円",budgetNum:0,area:"その他",areaRaw:"三重（熊野）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"山",name:"吉野山",budget:"0円",budgetNum:0,area:"その他",areaRaw:"奈良（吉野）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"神社・史跡",name:"旧太子駅",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
@@ -408,16 +408,13 @@ const DB = [
 
   // ── 展示 ──
   
-  {category:"期間限定イベント",subCategory:"展示",name:"座間のひまわり畑",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（座間）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間",startDate:"07-20",endDate:"08-20"},
   {category:"期間限定イベント",subCategory:"展示",name:"花貫渓谷の紅葉",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（高萩）",time:"昼",indoor:"屋外",season:"秋",duration:"2〜4時間",startDate:"11-01",endDate:"11-30"},
-  {category:"期間限定イベント",subCategory:"展示",name:"イルミネーション（よみうりランド）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（よみうりランド）",time:"夜",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"11-01",endDate:"02-28"},
-  {category:"期間限定イベント",subCategory:"展示",name:"三十槌の氷柱",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"01-10",endDate:"02-20"},
+  {category:"期間限定イベント",subCategory:"展示",name:"よみうりランドイルミネーション",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（よみうりランド）",time:"夜",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"11-01",endDate:"02-28"},
 
   // ── アクティビティ ──
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"花火大会",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京都内近郊",time:"夜",indoor:"屋外",season:"夏",duration:"2〜4時間",startDate:"07-01",endDate:"08-31"},
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"お祭り・縁日",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京都内近郊",time:"夜",indoor:"屋外",season:"夏",duration:"2〜4時間",startDate:"07-01",endDate:"08-31"},
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"プール・海水浴",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内近郊",time:"昼",indoor:"屋外",season:"夏",duration:"半日〜1日",startDate:"07-01",endDate:"08-31"},
-  {category:"期間限定イベント",subCategory:"アクティビティ",name:"スケート（冬季）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋外",season:"冬",duration:"2〜4時間",startDate:"11-01",endDate:"02-28"},
 
   {category:"期間限定イベント",subCategory:"",name:"SORAYAMA 光・透明・反射-TOKYO-",budget:"2500円〜",budgetNum:2500,area:"東京",areaRaw:"東京（京橋）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"03-14",endDate:"05-31"},
   {category:"期間限定イベント",subCategory:"",name:"ピクサーの世界展",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京（豊洲）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"10-12"},
@@ -478,15 +475,6 @@ const DB = [
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"高崎フードフェス",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
   {category:"期間限定イベント",subCategory:"展示",name:"平成恋愛展",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（渋谷）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-07",endDate:"06-28"},
 
-{category:"期間限定イベント",subCategory:"花見",name:"亀戸天神社 藤まつり",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（亀戸）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-04",endDate:"05-06"},
-  {category:"期間限定イベント",subCategory:"花見",name:"ガーデンネックレス横浜2026",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜みなとみらい）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-19",endDate:"06-14"},
-  {category:"期間限定イベント",subCategory:"花見",name:"練馬区立四季の香ローズガーデン バラ祭り",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（練馬）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"05-01",endDate:"06-07"},
-  {category:"期間限定イベント",subCategory:"花見",name:"館林つつじまつり",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（館林）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"05-06"},
-  {category:"期間限定イベント",subCategory:"花見",name:"文京つつじまつり",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（文京区）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"04-30"},
-  {category:"期間限定イベント",subCategory:"花見",name:"こもれび森のイバライドのネモフィラ",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（石岡）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-01",endDate:"05-31"},
-  {category:"期間限定イベント",subCategory:"花見",name:"鹿沼ルピナスまつり",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（鹿沼）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日",startDate:"04-18",endDate:"05-06"},
-  {category:"期間限定イベント",subCategory:"花見",name:"土浦桜まつり",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（土浦）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"04-12"},
-  {category:"期間限定イベント",subCategory:"花見",name:"秦野桜まつり",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（秦野）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"03-20",endDate:"04-12"},
  
  
  
@@ -630,7 +618,7 @@ const DB = [
   {category:"お家デート",subCategory:"",name:"写真プリント＆コラージュ",budget:"500円〜",budgetNum:500,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"お家デート",subCategory:"",name:"サウナ風自宅スパナイト",budget:"500円〜",budgetNum:500,area:"おうち",areaRaw:"全国",time:"夜",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"お家デート",subCategory:"",name:"絵本づくり",budget:"500円〜",budgetNum:500,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"お家デート",subCategory:"",name:"バーチャル旅行（Google Earthで世界一周）",budget:"0円",budgetNum:0,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"お家デート",subCategory:"",name:"バーチャル世界一周旅行",budget:"0円",budgetNum:0,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"お家デート",subCategory:"",name:"ミニ観葉植物テラリウム作り",budget:"2000円〜",budgetNum:2000,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
  
   // ── 体験・ものづくり追加 ──
@@ -668,7 +656,6 @@ const DB = [
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"下北沢散策",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（下北沢）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"清澄白河カフェ巡り",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（清澄白河）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"蔵前おしゃれ散策",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（蔵前）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"食べ歩き・散策",subCategory:"東京エリア",name:"吉祥寺散策",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（吉祥寺）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"中目黒カフェ＆川沿い散歩",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（中目黒）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"原宿・表参道ショッピング",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京（原宿・表参道）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"築地場外市場",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（築地）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
@@ -713,18 +700,17 @@ const DB = [
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"うさぎカフェ",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"爬虫類カフェ",budget:"1500円〜",budgetNum:1500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"ハリネズミカフェ",budget:"1500円〜",budgetNum:1500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"岩盤浴ラウンジ（カップル個室）",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"温泉",name:"日帰り温泉リゾート（千葉鴨川）",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（鴨川）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"岩盤浴",name:"カップル個室岩盤浴",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"温泉",name:"鴨川日帰り温泉リゾート",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（鴨川）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"コミュニティスパ",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京都内",time:"夜",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"サウナ",name:"フィンランド式サウナ",budget:"10000円〜",budgetNum:10000,area:"その他",areaRaw:"山梨（山中湖）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"月岡温泉",budget:"3000円〜",budgetNum:3000,area:"その他",areaRaw:"新潟（月岡）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"モルモットカフェ",budget:"1500円〜",budgetNum:1500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"漢方岩盤浴（薬草スチーム）",budget:"2500円〜",budgetNum:2500,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"岩盤浴",name:"薬草スチーム漢方岩盤浴",budget:"2500円〜",budgetNum:2500,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
  
   // ── テーマパーク追加 ──
   {category:"テーマパーク",subCategory:"",name:"東京ディズニーシー",budget:"10000円〜",budgetNum:10000,area:"千葉",areaRaw:"千葉（舞浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"ユニバーサル・スタジオ・ジャパン",budget:"10000円〜",budgetNum:10000,area:"その他",areaRaw:"大阪（此花区）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"富士急ハイランド",budget:"6000円〜",budgetNum:6000,area:"その他",areaRaw:"山梨（富士吉田）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"那須ハイランドパーク",budget:"4000円〜",budgetNum:4000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"西武園ゆうえんち",budget:"5000円〜",budgetNum:5000,area:"埼玉",areaRaw:"埼玉（所沢）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"東武ワールドスクウェア",budget:"3000円〜",budgetNum:3000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
@@ -736,7 +722,6 @@ const DB = [
   {category:"テーマパーク",subCategory:"",name:"スペースワールド跡地",budget:"0円",budgetNum:0,area:"その他",areaRaw:"福岡（北九州）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"テーマパーク",subCategory:"",name:"しまじろうパーク",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（川崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"鴨川シーワールド",budget:"3500円〜",budgetNum:3500,area:"千葉",areaRaw:"千葉（鴨川）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"アウトドア",subCategory:"牧場",name:"マザー牧場",budget:"2000円〜",budgetNum:2000,area:"千葉",areaRaw:"千葉（富津）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"牧場",name:"成田ゆめ牧場",budget:"1500円〜",budgetNum:1500,area:"千葉",areaRaw:"千葉（成田）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"東京ジョイポリス",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京（お台場）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"横浜八景島シーパラダイス",budget:"3500円〜",budgetNum:3500,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
@@ -780,57 +765,39 @@ const DB = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   // ── リラクゼーション 神奈川 ──
-  {category:"リラクゼーション",subCategory:"サウナ",name:"サウナ＆スパ（川崎）",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（川崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"岩盤浴（相模原）",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"サウナ",name:"川崎サウナ＆スパ",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（川崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ── リラクゼーション 埼玉 ──
   {category:"リラクゼーション",subCategory:"温泉",name:"満願の湯",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（越生）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"温泉",name:"花鳥風月（秩父）",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"彩の湯（所沢）",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（所沢）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"個室サウナ（大宮）",budget:"3000円〜",budgetNum:3000,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"岩盤浴（川越）",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（川越）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ（大宮）",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"スパ＆リゾート（浦和）",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（浦和）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉",name:"七間の湯（飯能）",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（飯能）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ（秩父川）",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉",name:"秩父 花鳥風月",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"所沢 彩の湯",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（所沢）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"浦和スパ＆リゾート",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（浦和）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉",name:"飯能 七間の湯",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（飯能）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
 
   // ── リラクゼーション 千葉 ──
-  {category:"リラクゼーション",subCategory:"温泉",name:"湯巡り万華郷（市原）",budget:"2000円〜",budgetNum:2000,area:"千葉",areaRaw:"千葉（市原）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"スパワールド（船橋）",budget:"1500円〜",budgetNum:1500,area:"千葉",areaRaw:"千葉（船橋）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"個室サウナ（千葉市）",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（千葉市）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ（千葉市）",budget:"1500円〜",budgetNum:1500,area:"千葉",areaRaw:"千葉（千葉市）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"岩盤浴（松戸）",budget:"2000円〜",budgetNum:2000,area:"千葉",areaRaw:"千葉（松戸）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"温泉",name:"ヴィラ鴨川温泉（南房総）",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（南房総）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"湯楽の里（野田）",budget:"1000円〜",budgetNum:1000,area:"千葉",areaRaw:"千葉（野田）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ（九十九里浜）",budget:"8000円〜",budgetNum:8000,area:"千葉",areaRaw:"千葉（九十九里）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉",name:"市原 湯巡り万華郷",budget:"2000円〜",budgetNum:2000,area:"千葉",areaRaw:"千葉（市原）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"船橋スパワールド",budget:"1500円〜",budgetNum:1500,area:"千葉",areaRaw:"千葉（船橋）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉",name:"鴨川温泉ヴィラ",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（南房総）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"湯楽の里",budget:"1000円〜",budgetNum:1000,area:"千葉",areaRaw:"千葉（野田）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ── リラクゼーション 茨城 ──
-  {category:"リラクゼーション",subCategory:"温泉",name:"筑波山温泉（つくば）",budget:"2000円〜",budgetNum:2000,area:"茨城",areaRaw:"茨城（筑波山）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"温泉",name:"筑波山温泉",budget:"2000円〜",budgetNum:2000,area:"茨城",areaRaw:"茨城（筑波山）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"大洗温泉",budget:"2000円〜",budgetNum:2000,area:"茨城",areaRaw:"茨城（大洗）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"スーパー銭湯（水戸）",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（水戸）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"個室サウナ（水戸）",budget:"3000円〜",budgetNum:3000,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ（水戸）",budget:"1500円〜",budgetNum:1500,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"岩盤浴（ひたちなか）",budget:"2000円〜",budgetNum:2000,area:"茨城",areaRaw:"茨城（ひたちなか）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"水戸スーパー銭湯",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（水戸）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"温泉",name:"奥久慈温泉",budget:"3000円〜",budgetNum:3000,area:"茨城",areaRaw:"茨城（大子）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"湯楽の里（ひたちなか）",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（ひたちなか）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ（霞ヶ浦）",budget:"8000円〜",budgetNum:8000,area:"茨城",areaRaw:"茨城（霞ヶ浦）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉",name:"フォレストイン諏訪（笠間）",budget:"2500円〜",budgetNum:2500,area:"茨城",areaRaw:"茨城（笠間）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"温泉",name:"笠間 フォレストイン諏訪",budget:"2500円〜",budgetNum:2500,area:"茨城",areaRaw:"茨城（笠間）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ── リラクゼーション 栃木 ──
   {category:"リラクゼーション",subCategory:"温泉",name:"日光湯元温泉",budget:"3000円〜",budgetNum:3000,area:"栃木",areaRaw:"栃木（日光）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"喜楽里別邸（宇都宮）",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ（宇都宮）",budget:"1500円〜",budgetNum:1500,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"岩盤浴（宇都宮）",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"喜楽里別邸",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"湯西川温泉",budget:"5000円〜",budgetNum:5000,area:"栃木",areaRaw:"栃木（日光市）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"個室サウナ（宇都宮）",budget:"3000円〜",budgetNum:3000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ── リラクゼーション 群馬 ──
   {category:"リラクゼーション",subCategory:"温泉",name:"水上温泉",budget:"3000円〜",budgetNum:3000,area:"群馬",areaRaw:"群馬（みなかみ）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"四万温泉",budget:"5000円〜",budgetNum:5000,area:"群馬",areaRaw:"群馬（四万）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"ゆーゆ（高崎）",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（高崎）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ（前橋）",budget:"1500円〜",budgetNum:1500,area:"群馬",areaRaw:"群馬（前橋）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"岩盤浴（高崎）",budget:"2000円〜",budgetNum:2000,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"個室サウナ（前橋）",budget:"3000円〜",budgetNum:3000,area:"群馬",areaRaw:"群馬（前橋）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"温泉複合施設",name:"高崎ゆーゆ",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（高崎）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"温泉",name:"老神温泉",budget:"3000円〜",budgetNum:3000,area:"群馬",areaRaw:"群馬（沼田）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
 
   // ── アウトドア 埼玉 ──
@@ -838,28 +805,23 @@ const DB = [
   {category:"アウトドア",subCategory:"公園",name:"秩父ミューズパーク",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"山",name:"武甲山ハイキング",budget:"500円〜",budgetNum:500,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"滝・渓谷・湖",name:"長瀞岩畳",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（長瀞）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"キャンプ",name:"グランピング（秩父）",budget:"15000円〜",budgetNum:15000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"公園",name:"さいたま緑の森博物館",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（所沢）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"釣り",name:"釣り堀（志木）",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（志木）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"牧場",name:"チーズ工房・武蔵丘陵牧場",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（日高）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"公園",name:"彩湖・道満グリーンパーク",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（戸田）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ── アウトドア 茨城 ──
   {category:"アウトドア",subCategory:"山",name:"筑波山ハイキング",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"海",name:"大洗海岸",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（大洗）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"キャンプ",name:"グランピング（大洗）",budget:"15000円〜",budgetNum:15000,area:"茨城",areaRaw:"茨城（大洗）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
 
   // ── アウトドア 栃木 ──
   {category:"アウトドア",subCategory:"山",name:"日光白根山",budget:"1500円〜",budgetNum:1500,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"公園",name:"とちぎ花センター",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（栃木市）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"滝・渓谷・湖",name:"中禅寺湖",budget:"0円",budgetNum:0,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"公園",name:"那須フラワーワールド",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"キャンプ",name:"グランピング（那須）",budget:"15000円〜",budgetNum:15000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"アウトドア",subCategory:"釣り",name:"フィッシングパーク（日光）",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"釣り",name:"日光フィッシングパーク",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ── アウトドア 群馬 ──
   {category:"アウトドア",subCategory:"高原",name:"榛名湖",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"キャンプ",name:"グランピング（みなかみ）",budget:"15000円〜",budgetNum:15000,area:"群馬",areaRaw:"群馬（みなかみ）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"公園",name:"群馬フラワーパーク",budget:"700円〜",budgetNum:700,area:"群馬",areaRaw:"群馬（太田）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ── ミュージアム・展示施設 埼玉 ──
@@ -877,7 +839,7 @@ const DB = [
   // ── ミュージアム・展示施設 茨城 ──
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"茨城県立歴史館",budget:"200円〜",budgetNum:200,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"茨城県立近代美術館",budget:"300円〜",budgetNum:300,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"博物館",name:"地質標本館（産業技術総合研究所）",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"博物館",name:"地質標本館",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"筑波山頂展望台",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"日立シビックセンター科学館",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（日立）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -891,7 +853,7 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"栃木県立博物館",budget:"300円〜",budgetNum:300,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"なかがわ水遊園",budget:"800円〜",budgetNum:800,area:"栃木",areaRaw:"栃木（大田原）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"宇都宮動物園",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"プラネタリウム",name:"星の杜プラネタリウム（宇都宮）",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"プラネタリウム",name:"宇都宮 星の杜プラネタリウム",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"那須昆虫ワールド",budget:"800円〜",budgetNum:800,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"那須テディベアミュージアム",budget:"1200円〜",budgetNum:1200,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"足利市立美術館",budget:"300円〜",budgetNum:300,area:"栃木",areaRaw:"栃木（足利）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -901,7 +863,7 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"富岡製糸場",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"群馬サファリパーク",budget:"2500円〜",budgetNum:2500,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"ミュージアム・展示施設",subCategory:"プラネタリウム",name:"高崎市少年科学館プラネタリウム",budget:"400円〜",budgetNum:400,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"ハラミュージアムアーク（渋川）",budget:"1500円〜",budgetNum:1500,area:"群馬",areaRaw:"群馬（渋川）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"渋川 ハラミュージアムアーク",budget:"1500円〜",budgetNum:1500,area:"群馬",areaRaw:"群馬（渋川）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"群馬県立歴史博物館",budget:"300円〜",budgetNum:300,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"桐生自然観察の森",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（桐生）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
@@ -956,8 +918,8 @@ const DB = [
 
   // ── テーマパーク 神奈川 ──
   {category:"テーマパーク",subCategory:"",name:"新江ノ島水族館",budget:"2500円〜",budgetNum:2500,area:"神奈川",areaRaw:"神奈川（藤沢）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"テーマパーク",subCategory:"",name:"神奈川フェアウェル農場（ピクニックパーク）",budget:"1500円〜",budgetNum:1500,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"テーマパーク",subCategory:"",name:"ナイトサファリ（よこはま動物園ズーラシア）",budget:"800円〜",budgetNum:800,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"テーマパーク",subCategory:"",name:"神奈川フェアウェル農場",budget:"1500円〜",budgetNum:1500,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"テーマパーク",subCategory:"",name:"よこはま動物園ズーラシア",budget:"800円〜",budgetNum:800,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"ドリームランドの丘・大船フラワーセンター",budget:"300円〜",budgetNum:300,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"箱根彫刻の森美術館",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"小田原フラワーガーデン",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（小田原）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
@@ -967,30 +929,28 @@ const DB = [
   {category:"テーマパーク",subCategory:"",name:"東武動物公園",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（宮代町）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"むさしの村",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（加須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"大宮アルディージャVENTUS スタジアム観戦",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"テーマパーク",subCategory:"",name:"鉄道博物館",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"メッツァビレッジ（北欧テーマ）",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（飯能）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"狭山スキー場（冬季）",budget:"3000円〜",budgetNum:3000,area:"埼玉",areaRaw:"埼玉（狭山）",time:"昼",indoor:"屋外",season:"冬",duration:"半日〜1日"},
+  {category:"テーマパーク",subCategory:"",name:"メッツァビレッジ",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（飯能）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"テーマパーク",subCategory:"",name:"狭山スキー場",budget:"3000円〜",budgetNum:3000,area:"埼玉",areaRaw:"埼玉（狭山）",time:"昼",indoor:"屋外",season:"冬",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"秩父ミューズパーク スキー場",budget:"2500円〜",budgetNum:2500,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"冬",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"羽生水郷公園ひなまつり会場",budget:"500円〜",budgetNum:500,area:"埼玉",areaRaw:"埼玉（羽生）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"さいたま市大宮公園小動物園",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
 
   // ── テーマパーク 千葉 ──
-  {category:"テーマパーク",subCategory:"",name:"成田ゆめ牧場",budget:"1500円〜",budgetNum:1500,area:"千葉",areaRaw:"千葉（成田）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"東京ドイツ村",budget:"1000円〜",budgetNum:1000,area:"千葉",areaRaw:"千葉（袖ケ浦）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"市原ぞうの国",budget:"2000円〜",budgetNum:2000,area:"千葉",areaRaw:"千葉（市原）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"清水公園アスレチック",budget:"1500円〜",budgetNum:1500,area:"千葉",areaRaw:"千葉（野田）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"ふなばしアンデルセン公園",budget:"900円〜",budgetNum:900,area:"千葉",areaRaw:"千葉（船橋）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"チーバくんのお家・千葉市動物公園",budget:"700円〜",budgetNum:700,area:"千葉",areaRaw:"千葉（千葉市）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"佐倉ふるさと広場（オランダ風車）",budget:"0円",budgetNum:0,area:"千葉",areaRaw:"千葉（佐倉）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"テーマパーク",subCategory:"",name:"佐倉ふるさと広場",budget:"0円",budgetNum:0,area:"千葉",areaRaw:"千葉（佐倉）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ── テーマパーク 茨城 ──
-  {category:"テーマパーク",subCategory:"",name:"ひたち海浜公園（遊園地エリア）",budget:"1500円〜",budgetNum:1500,area:"茨城",areaRaw:"茨城（ひたちなか）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"テーマパーク",subCategory:"",name:"ひたち海浜公園遊園地",budget:"1500円〜",budgetNum:1500,area:"茨城",areaRaw:"茨城（ひたちなか）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"笠間芸術の森公園",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（笠間）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"大洗リゾートアウトレット",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（大洗）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"茨城県フラワーパーク",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（石岡）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"アサヒビール茨城工場見学",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（守谷）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"日立市かみね動物園",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（日立）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"テーマパーク",subCategory:"",name:"ザ・ヒロサワ・シティ（廃線テーマパーク）",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（筑西）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"テーマパーク",subCategory:"",name:"ザ・ヒロサワ・シティ",budget:"500円〜",budgetNum:500,area:"茨城",areaRaw:"茨城（筑西）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"偕楽園公園ボート",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（水戸）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"テーマパーク",subCategory:"",name:"牛久大仏＆花の庭園",budget:"800円〜",budgetNum:800,area:"茨城",areaRaw:"茨城（牛久）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
  
@@ -998,16 +958,14 @@ const DB = [
   {category:"テーマパーク",subCategory:"",name:"日光江戸村",budget:"3000円〜",budgetNum:3000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"とちのきファミリーランド",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"那須ワールドモンキーパーク",budget:"1500円〜",budgetNum:1500,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"那須フラワーワールド",budget:"700円〜",budgetNum:700,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"テーマパーク",subCategory:"",name:"大谷資料館（地下神殿）",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"テーマパーク",subCategory:"",name:"大谷資料館",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（宇都宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"テーマパーク",subCategory:"",name:"日光自然博物館 体験ゾーン",budget:"500円〜",budgetNum:500,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"テーマパーク",subCategory:"",name:"マウントジーンズ那須（ゴンドラ）",budget:"1500円〜",budgetNum:1500,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"テーマパーク",subCategory:"",name:"マウントジーンズ那須",budget:"1500円〜",budgetNum:1500,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // ── テーマパーク 群馬 ──
-  {category:"テーマパーク",subCategory:"",name:"カンティファーレ（ハーブ庭園旅日記）",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（渋川）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"テーマパーク",subCategory:"",name:"カンティファーレ",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（渋川）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"草津熱帯園",budget:"700円〜",budgetNum:700,area:"群馬",areaRaw:"群馬（草津）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"テーマパーク",subCategory:"",name:"群馬サファリパーク",budget:"2500円〜",budgetNum:2500,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"榛名湖レジャー（ボート・ワカサギ釣り）",budget:"2000円〜",budgetNum:2000,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"テーマパーク",subCategory:"",name:"榛名湖レジャー",budget:"2000円〜",budgetNum:2000,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"伊香保グリーン牧場",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（伊香保）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"碓氷峠鉄道文化むら",budget:"500円〜",budgetNum:500,area:"群馬",areaRaw:"群馬（安中）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"みなかみ18ホールゴルフ体験",budget:"5000円〜",budgetNum:5000,area:"群馬",areaRaw:"群馬（みなかみ）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
@@ -1034,7 +992,7 @@ const DB = [
   {category:"アウトドア",subCategory:"花畑・農園",name:"横浜・三ツ池公園 桜",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
   // 埼玉
   {category:"アウトドア",subCategory:"花畑・農園",name:"幸手権現堂堤 桜・菜の花",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（幸手）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"花畑・農園",name:"天空のポピー（高麗川）",budget:"300円〜",budgetNum:300,area:"埼玉",areaRaw:"埼玉（日高）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"花畑・農園",name:"高麗川 天空のポピー",budget:"300円〜",budgetNum:300,area:"埼玉",areaRaw:"埼玉（日高）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"花畑・農園",name:"深谷いちご狩り",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（深谷）",time:"昼",indoor:"屋外",season:"春",duration:"1〜3時間"},
   {category:"アウトドア",subCategory:"花畑・農園",name:"荒川河川敷 桜並木",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（熊谷）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
   // 千葉
@@ -1088,7 +1046,7 @@ const DB = [
   {category:"アウトドア",subCategory:"ドライブ",name:"箱根ターンパイクドライブ",budget:"1000円〜",budgetNum:1000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"ドライブ",name:"三浦半島一周ドライブ",budget:"1000円〜",budgetNum:1000,area:"神奈川",areaRaw:"神奈川（三浦半島）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"ドライブ",name:"秩父アルプスドライブ",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"アウトドア",subCategory:"ドライブ",name:"いろは坂ドライブ（日光）",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"秋",duration:"半日〜1日"},
+  {category:"アウトドア",subCategory:"ドライブ",name:"日光いろは坂ドライブ",budget:"1000円〜",budgetNum:1000,area:"栃木",areaRaw:"栃木（日光）",time:"昼",indoor:"屋外",season:"秋",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"ドライブ",name:"志賀草津高原ルートドライブ",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（草津）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"ドライブ",name:"房総フラワーラインドライブ",budget:"1000円〜",budgetNum:1000,area:"千葉",areaRaw:"千葉（南房総）",time:"昼",indoor:"屋外",season:"春",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"ドライブ",name:"霞ヶ浦湖畔ドライブ",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（土浦）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
@@ -1096,11 +1054,10 @@ const DB = [
   // ────────────────────────────────────────
   // アウトドア／マリンスポーツ・水上アクティビティ
   // ────────────────────────────────────────
-  {category:"アウトドア",subCategory:"マリンスポーツ",name:"SUP体験（葉山・逗子）",budget:"5000円〜",budgetNum:5000,area:"神奈川",areaRaw:"神奈川（葉山）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"マリンスポーツ",name:"カヤック体験（相模湾）",budget:"8000円〜",budgetNum:8000,area:"神奈川",areaRaw:"神奈川（三浦）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"マリンスポーツ",name:"ボートクルーズ（東京湾）",budget:"5000円〜",budgetNum:5000,area:"東京",areaRaw:"東京（お台場）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"マリンスポーツ",name:"シュノーケリング（三浦海岸）",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（三浦）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"マリンスポーツ",name:"ウェイクボード体験（相模湖）",budget:"8000円〜",budgetNum:8000,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"マリンスポーツ",name:"葉山SUP体験",budget:"5000円〜",budgetNum:5000,area:"神奈川",areaRaw:"神奈川（葉山）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"マリンスポーツ",name:"相模湾カヤック体験",budget:"8000円〜",budgetNum:8000,area:"神奈川",areaRaw:"神奈川（三浦）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"マリンスポーツ",name:"東京湾ボートクルーズ",budget:"5000円〜",budgetNum:5000,area:"東京",areaRaw:"東京（お台場）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"マリンスポーツ",name:"三浦海岸シュノーケリング",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（三浦）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"マリンスポーツ",name:"芦ノ湖ボート",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"アウトドア",subCategory:"マリンスポーツ",name:"九十九里サーフィン体験",budget:"8000円〜",budgetNum:8000,area:"千葉",areaRaw:"千葉（九十九里）",time:"昼",indoor:"屋外",season:"夏",duration:"2〜4時間"},
 
@@ -1108,9 +1065,9 @@ const DB = [
   // リラクゼーション／マッサージ・スパ
   // ────────────────────────────────────────
   // 東京
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"カップルスパ（東京都内）",budget:"10000円〜",budgetNum:10000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ペアマッサージ（東京都内）",budget:"8000円〜",budgetNum:8000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ヘッドスパ（銀座・表参道）",budget:"5000円〜",budgetNum:5000,area:"東京",areaRaw:"東京（銀座・表参道）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"カップルスパ",budget:"10000円〜",budgetNum:10000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ペアマッサージ",budget:"8000円〜",budgetNum:8000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ヘッドスパ",budget:"5000円〜",budgetNum:5000,area:"東京",areaRaw:"東京（銀座・表参道）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"タイ古式マッサージ",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"リフレクソロジー",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   // 神奈川
@@ -1118,18 +1075,17 @@ const DB = [
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"箱根 日帰りスパ",budget:"10000円〜",budgetNum:10000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"鎌倉 ボディマッサージ",budget:"6000円〜",budgetNum:6000,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   // 埼玉・千葉・茨城・栃木・群馬
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ペアスパ（大宮）",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ペアスパ（千葉市）",budget:"8000円〜",budgetNum:8000,area:"千葉",areaRaw:"千葉（千葉市）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ペアスパ",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"那須 ペアスパリゾート",budget:"12000円〜",budgetNum:12000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"草津 旅館スパ体験",budget:"10000円〜",budgetNum:10000,area:"群馬",areaRaw:"群馬（草津）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
 
   // ────────────────────────────────────────
   // リラクゼーション／ヨガ・瞑想
   // ────────────────────────────────────────
-  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"公園ヨガ体験（代々木公園）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（代々木）",time:"昼",indoor:"屋外",season:"春",duration:"1〜3時間"},
+  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"代々木公園ヨガ体験",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（代々木）",time:"昼",indoor:"屋外",season:"春",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"カップルヨガ体験",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"サンセットヨガ（湘南）",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（藤沢）",time:"夕方",indoor:"屋外",season:"夏",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"森林瞑想体験（高尾山）",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（八王子）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"湘南サンセットヨガ",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（藤沢）",time:"夕方",indoor:"屋外",season:"夏",duration:"1〜3時間"},
+  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"高尾山森林瞑想体験",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（八王子）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"那須 朝ヨガ体験",budget:"3000円〜",budgetNum:3000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
 
   // ────────────────────────────────────────
@@ -1142,11 +1098,11 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"松岡美術館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（白金台）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"目黒区立美術館",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（目黒）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"ワタリウム美術館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（外苑前）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"太田記念美術館（浮世絵）",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（原宿）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"太田記念美術館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（原宿）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"東京ステーションギャラリー",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（丸の内）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"パナソニック汐留美術館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（汐留）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"三菱一号館美術館",budget:"1500円〜",budgetNum:1500,area:"東京",areaRaw:"東京（丸の内）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"山種美術館（日本画）",budget:"1200円〜",budgetNum:1200,area:"東京",areaRaw:"東京（恵比寿）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"山種美術館",budget:"1200円〜",budgetNum:1200,area:"東京",areaRaw:"東京（恵比寿）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"渋谷区立松濤美術館",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（渋谷）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"東郷青児記念 損保ジャパン博物館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（新宿）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"府中市美術館",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（府中）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -1155,23 +1111,21 @@ const DB = [
   // 神奈川
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"平塚市美術館",budget:"300円〜",budgetNum:300,area:"神奈川",areaRaw:"神奈川（平塚）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"鎌倉市鏑木清方記念美術館",budget:"300円〜",budgetNum:300,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"川崎市市民ミュージアム（アート）",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（川崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"MUS.E（相模原市立美術館）",budget:"200円〜",budgetNum:200,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"美術館",name:"相模原市立美術館",budget:"200円〜",budgetNum:200,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ────────────────────────────────────────
   // ミュージアム・展示施設／科学館
   // ────────────────────────────────────────
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"日本科学未来館",budget:"630円〜",budgetNum:630,area:"東京",areaRaw:"東京（お台場）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"科学館",name:"国立科学博物館（上野）",budget:"630円〜",budgetNum:630,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"多摩六都科学館",budget:"800円〜",budgetNum:800,area:"東京",areaRaw:"東京（西東京）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"神奈川県立生命の星・地球博物館",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（小田原）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"川崎市青少年科学館",budget:"200円〜",budgetNum:200,area:"神奈川",areaRaw:"神奈川（川崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"JAXA相模原キャンパス 見学",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"科学館",name:"でんきの科学館（中部電力）",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（汐留）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"科学館",name:"でんきの科学館",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（汐留）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"消防博物館",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（四谷）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"地下鉄博物館",budget:"220円〜",budgetNum:220,area:"東京",areaRaw:"東京（葛西）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"科学館",name:"航空科学博物館（成田）",budget:"600円〜",budgetNum:600,area:"千葉",areaRaw:"千葉（成田）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"科学館",name:"筑波実験植物園（NARO）",budget:"310円〜",budgetNum:310,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"科学館",name:"成田 航空科学博物館",budget:"600円〜",budgetNum:600,area:"千葉",areaRaw:"千葉（成田）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"科学館",name:"筑波実験植物園",budget:"310円〜",budgetNum:310,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"科学館",name:"産業技術総合研究所 一般公開",budget:"0円",budgetNum:0,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ────────────────────────────────────────
@@ -1191,22 +1145,21 @@ const DB = [
   // ────────────────────────────────────────
   // ミュージアム・展示施設／企業ミュージアム・工場見学
   // ────────────────────────────────────────
-  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"日清食品 カップヌードルミュージアム（横浜）",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"キリン工場見学（横浜）",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"サッポロビール工場見学（恵比寿）",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（恵比寿）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"サントリー工場見学（武蔵野）",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（府中）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"カップヌードルミュージアム横浜",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"キリン横浜工場見学",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"サッポロビール恵比寿工場見学",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（恵比寿）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"サントリー武蔵野工場見学",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（府中）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"トヨタ産業技術記念館",budget:"700円〜",budgetNum:700,area:"その他",areaRaw:"愛知（名古屋）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"キユーピー 工場見学（仙川）",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（調布）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"キユーピー仙川工場見学",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（調布）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"ヤクルト工場見学",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"ニッスイ 魚の総合ミュージアム",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（品川）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"明治なるほどファクトリー（坂戸）",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（坂戸）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"明治なるほどファクトリー坂戸",budget:"0円",budgetNum:0,area:"埼玉",areaRaw:"埼玉（坂戸）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"企業・工場見学",name:"キッコーマン もの知りしょうゆ館",budget:"0円",budgetNum:0,area:"千葉",areaRaw:"千葉（野田）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
 
   // ────────────────────────────────────────
   // ミュージアム・展示施設／歴史・専門博物館（東京）
   // ────────────────────────────────────────
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"東京国立博物館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"博物館",name:"国立西洋美術館（常設）",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"江戸東京たてもの園",budget:"400円〜",budgetNum:400,area:"東京",areaRaw:"東京（小金井）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"警察博物館",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（京橋）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"郵政博物館",budget:"300円〜",budgetNum:300,area:"東京",areaRaw:"東京（押上）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
@@ -1227,26 +1180,23 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"東京タワー展望台",budget:"1200円〜",budgetNum:1200,area:"東京",areaRaw:"東京（芝公園）",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"池袋サンシャイン60展望台",budget:"800円〜",budgetNum:800,area:"東京",areaRaw:"東京（池袋）",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"東京ポートシティ竹芝 展望台",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（浜松町）",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"展望台",name:"ヒルトップ展望台（お台場パレットタウン跡）",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（お台場）",time:"夕方",indoor:"屋外",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"展望台",name:"ヒルトップ展望台",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（お台場）",time:"夕方",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"川崎市夢見ヶ崎展望台",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（川崎）",time:"夕方",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"高崎市タワー美術館展望台",budget:"300円〜",budgetNum:300,area:"群馬",areaRaw:"群馬（高崎）",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"展望台",name:"宇都宮タワー（八幡山公園）",budget:"150円〜",budgetNum:150,area:"栃木",areaRaw:"栃木（宇都宮）",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"ミュージアム・展示施設",subCategory:"展望台",name:"犬吠埼灯台（千葉）",budget:"300円〜",budgetNum:300,area:"千葉",areaRaw:"千葉（銚子）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"展望台",name:"宇都宮タワー",budget:"150円〜",budgetNum:150,area:"栃木",areaRaw:"栃木（宇都宮）",time:"夕方",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"ミュージアム・展示施設",subCategory:"展望台",name:"犬吠埼灯台",budget:"300円〜",budgetNum:300,area:"千葉",areaRaw:"千葉（銚子）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
 
   // ────────────────────────────────────────
   // ミュージアム・展示施設／水族館（追加）
   // ────────────────────────────────────────
-  {category:"ミュージアム・展示施設",subCategory:"水族館",name:"海遊館（関西）",budget:"2400円〜",budgetNum:2400,area:"その他",areaRaw:"大阪（天保山）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"ミュージアム・展示施設",subCategory:"水族館",name:"鴨川シーワールド",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（鴨川）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
+  {category:"ミュージアム・展示施設",subCategory:"水族館",name:"海遊館",budget:"2400円〜",budgetNum:2400,area:"その他",areaRaw:"大阪（天保山）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"大洗水族館",budget:"2000円〜",budgetNum:2000,area:"茨城",areaRaw:"茨城（大洗）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"東京海洋大学水産資料館",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（品川）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
 
   // ────────────────────────────────────────
   // ミュージアム・展示施設／動物園（追加）
   // ────────────────────────────────────────
-  {category:"ミュージアム・展示施設",subCategory:"動物園",name:"東武動物公園",budget:"2000円〜",budgetNum:2000,area:"埼玉",areaRaw:"埼玉（宮代町）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"ミュージアム・展示施設",subCategory:"動物園",name:"よこはま動物園ズーラシア",budget:"800円〜",budgetNum:800,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"ミュージアム・展示施設",subCategory:"動物園",name:"野毛山動物園（無料）",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"ミュージアム・展示施設",subCategory:"動物園",name:"野毛山動物園",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"市川市動植物園",budget:"500円〜",budgetNum:500,area:"千葉",areaRaw:"千葉（市川）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"那須どうぶつ王国",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"群馬県立群馬サファリパーク",budget:"2500円〜",budgetNum:2500,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
