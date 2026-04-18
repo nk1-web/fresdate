@@ -22,15 +22,52 @@
       --gray-dark:#4A3F3C; --text:#2D1F1C; --radius:20px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
-    .app{max-width:430px;margin:0 auto;min-height:100vh;background:var(--cream);}
-    .page{display:none;min-height:100vh;}
+    body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);overflow:hidden;height:100dvh;}
+    /* ━━━ スライドコンテナ ━━━ */
+    .app{max-width:430px;margin:0 auto;height:100dvh;background:var(--cream);overflow:hidden;position:relative;}
+    /* 3ページ横並びラッパー */
+    .main-pages{
+      display:flex;
+      width:300%;            /* 3ページ分 */
+      height:100dvh;
+      transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);
+      will-change:transform;
+    }
+    /* メインの3ページ（home / filter / liked） */
+    .main-pages > .page{
+      width:calc(100% / 3);  /* 1/3 = 1ページ分 */
+      height:100dvh;
+      overflow-y:auto;
+      overflow-x:hidden;
+      flex-shrink:0;
+      display:flex;
+      flex-direction:column;
+    }
+    /* サブページ（category / subcategory / results）はposition:fixed的に重ねる */
+    .sub-page{
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:var(--cream);
+      display:none;
+      flex-direction:column;
+      overflow-y:auto;
+      overflow-x:hidden;
+      z-index:200;
+    }
+    .sub-page.active{display:flex;}
+    /* 旧pageクラス互換（サブページ用） */
+    .page{display:none;min-height:100dvh;}
     .page.active{display:flex;flex-direction:column;}
     @keyframes slideUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
     .page-enter{animation:slideUp 0.3s ease forwards;}
+    /* サブページのスライドイン */
+    @keyframes slideInRight{from{transform:translateX(100%);}to{transform:translateX(0);}}
+    @keyframes slideOutRight{from{transform:translateX(0);}to{transform:translateX(100%);}}
+    .sub-page.slide-in{animation:slideInRight 0.28s cubic-bezier(0.4,0,0.2,1) forwards;}
+    .sub-page.slide-out{animation:slideOutRight 0.25s cubic-bezier(0.4,0,0.2,1) forwards;}
 
     /* ━━━ ホーム ━━━ */
-    #home{position:relative;overflow:hidden;}
+    #home{position:relative;overflow:hidden;height:100dvh;}
     #home::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;
       background:radial-gradient(circle,rgba(232,51,42,0.09) 0%,transparent 70%);pointer-events:none;}
     .header{display:flex;align-items:center;gap:10px;padding:52px 24px 0;position:relative;z-index:1;}
@@ -124,9 +161,7 @@
     .chip.on{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:transparent;}
     .chip:hover:not(.on){border-color:var(--red);color:var(--red);}
     .sep{height:1px;background:rgba(0,0,0,0.05);margin:4px 0 16px;}
-    .filter-foot{position:fixed;bottom:64px;left:50%;transform:translateX(-50%);
-      width:100%;max-width:430px;padding:14px 24px 16px;
-      background:linear-gradient(to top,var(--cream) 70%,transparent);z-index:200;}
+    .filter-foot{padding:10px 24px 12px;background:var(--cream);flex-shrink:0;}
 
     /* ━━━ カテゴリ選択 ━━━ */
     #category{overflow-y:auto;padding-bottom:32px;}
@@ -348,6 +383,7 @@
 
     /* ホームとフィルターはナビ分の余白確保 */
     #home .swipe-area{padding-bottom:80px;}
+    #liked{overflow-y:auto;padding-bottom:80px;}
 
     /* キャッチフレーズ */
     .home-catch{
@@ -367,7 +403,7 @@
       line-height:1.8;
       animation:fadeUp 0.4s ease both;
     }
-    #filter{padding-bottom:160px;}
+    #filter{padding-bottom:0;display:flex;flex-direction:column;overflow:hidden;}
     #liked .card-list{padding-bottom:80px;}
 
 
@@ -396,10 +432,9 @@
       display:flex;align-items:center;justify-content:center;
     }
     .keyword-results{
-      padding:0 24px;
+      padding:0 24px 80px;
       overflow-y:auto;
       flex:1;
-      padding-bottom:140px;
     }
     .keyword-count{
       font-size:12px;color:var(--gray-mid);
@@ -407,7 +442,6 @@
     }
 
     /* ━━━ いいね一覧 ━━━ */
-    #liked{overflow-y:auto;padding-bottom:32px;}
 
 
   </style>
@@ -415,8 +449,11 @@
 <body>
 <div class="app">
 
+  <!-- ★ メイン3ページ横並びスライドコンテナ ★ -->
+  <div class="main-pages" id="mainPages">
+
   <!-- ① ホーム -->
-  <section id="home" class="page active">
+  <section id="home" class="page">
     <!-- ヘッダー -->
     <header class="header">
       <img src="logo.png" alt="Fresdate" class="logo-img" onerror="this.style.display='none'">
@@ -459,18 +496,6 @@
       </p>
     </div>
 
-    <!-- 下部ナビゲーションバー -->
-    <nav class="bottom-nav">
-      <button class="nav-btn nav-active" id="navHome" onclick="navTo('home')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
-      </button>
-      <button class="nav-btn" id="navSearch" onclick="navTo('search')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      </button>
-      <button class="nav-btn" id="navLike" onclick="navTo('liked')">
-        <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
-      </button>
-    </nav>
   </section>
 
   <!-- ② 絞り込みページ -->
@@ -496,7 +521,7 @@
     <!-- キーワード検索結果（入力中のみ表示） -->
     <div id="keywordResults" class="keyword-results" style="display:none;"></div>
     <!-- 通常フィルター（キーワード未入力時のみ表示） -->
-    <div id="normalFilter">
+    <div id="normalFilter" style="flex:1;overflow-y:auto;padding-bottom:16px;">
     <div class="filter-wrap">
       <div class="filter-grp">
         <div class="filter-lbl">📍 エリア</div>
@@ -556,66 +581,59 @@
     <div class="filter-foot">
       <button class="btn btn-main" onclick="showCategories()">🔍 カテゴリを選ぶ</button>
     </div>
-    <nav class="bottom-nav">
-      <button class="nav-btn" onclick="navTo('home')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
-      </button>
-      <button class="nav-btn nav-active" onclick="navTo('search')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      </button>
-      <button class="nav-btn" onclick="navTo('liked')">
-        <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
-      </button>
-    </nav>
   </section>
 
-  <!-- ③ カテゴリ選択 -->
-  <section id="category" class="page">
+  <!-- ③ いいね一覧（スライドコンテナ内） -->
+  <section id="liked" class="page">
     <div class="page-hd">
-      <button class="back-btn" onclick="go('filter','category')">←</button>
+      <h2 class="page-ttl">❤️ いいねしたプラン</h2>
+    </div>
+    <div class="card-list" id="likedList" style="padding-bottom:80px;"></div>
+  </section>
+
+  </div><!-- /.main-pages -->
+
+  <!-- ★ 共通ナビバー（常時固定・ページをまたいで1つだけ） -->
+  <nav class="bottom-nav">
+    <button class="nav-btn nav-active" id="navHome" onclick="navTo('home')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
+    </button>
+    <button class="nav-btn" id="navSearch" onclick="navTo('search')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+    </button>
+    <button class="nav-btn" id="navLike" onclick="navTo('liked')">
+      <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
+    </button>
+  </nav>
+
+  <!-- ④ カテゴリ選択（サブページ・重ねて表示） -->
+  <section id="category" class="sub-page">
+    <div class="page-hd">
+      <button class="back-btn" onclick="closeSubPage('category')">←</button>
       <h2 class="page-ttl">カテゴリを選ぶ</h2>
     </div>
     <div class="cat-grid" id="catGrid"></div>
   </section>
 
-  <!-- ④ サブカテゴリ選択（エリア・ジャンル選択） -->
-  <section id="subcategory" class="page">
+  <!-- ⑤ サブカテゴリ選択（サブページ） -->
+  <section id="subcategory" class="sub-page">
     <div class="page-hd">
-      <button class="back-btn" onclick="go('category','subcategory')">←</button>
+      <button class="back-btn" onclick="closeSubPage('subcategory')">←</button>
       <h2 class="page-ttl" id="subPageTitle">エリアを選ぶ</h2>
     </div>
     <div class="sub-select-grid" id="subSelectGrid"></div>
   </section>
 
-  <!-- ⑤ 結果ページ -->
-  <section id="results" class="page">
+  <!-- ⑥ 結果ページ（サブページ） -->
+  <section id="results" class="sub-page">
     <div class="page-hd">
-      <button class="back-btn" id="resultBackBtn" onclick="go('subcategory','results')">←</button>
+      <button class="back-btn" id="resultBackBtn" onclick="closeSubPage('results')">←</button>
       <h2 class="page-ttl" id="resultTitle">プラン一覧</h2>
     </div>
     <div class="count-row">
       <span class="count-num" id="countNum">0</span>件
     </div>
     <div class="card-list" id="cardList"></div>
-  </section>
-
-  <!-- ⑥ いいね一覧 -->
-  <section id="liked" class="page">
-    <div class="page-hd">
-      <h2 class="page-ttl">❤️ いいねしたプラン</h2>
-    </div>
-    <div class="card-list" id="likedList" style="padding-bottom:80px;"></div>
-    <nav class="bottom-nav">
-      <button class="nav-btn" onclick="navTo('home')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg></span>
-      </button>
-      <button class="nav-btn" onclick="navTo('search')">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-      </button>
-      <button class="nav-btn nav-active" onclick="navTo('liked')">
-        <span class="nav-icon"><svg class="fill-active" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
-      </button>
-    </nav>
   </section>
 
 </div>
@@ -799,85 +817,171 @@ async function likeCurrentCard() {
   }
 }
 
-// ━━━ ナビゲーション ━━━
-function navTo(dest) {
-  const current = document.querySelector('.page.active');
-  if (!current) return;
-  const fromId = current.id;
-  if (dest === 'search') {
-    // 検索（フィルター）ページへ
-    if (fromId !== 'filter') go('filter', fromId);
-  } else if (dest === 'liked') {
-    showLikes(fromId);
-  } else if (dest === 'home') {
-    if (fromId !== 'home') go('home', fromId);
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// スライドコンテナ方式ナビゲーション
+// home(0) / filter(1) / liked(2) の3ページを横スライド
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const MAIN_PAGE_ORDER = ['home', 'filter', 'liked'];
+let currentMainIdx = 0; // 現在表示中ページのインデックス
+
+// メインページをインデックスで切り替え（スライドアニメーション）
+function slideTo(idx, animate = true) {
+  if (idx < 0 || idx >= MAIN_PAGE_ORDER.length) return;
+  const pages = document.getElementById('mainPages');
+  if (!animate) pages.style.transition = 'none';
+  // 100/3% * idx = ページ幅×idx だけ左にずらす
+  pages.style.transform = `translateX(calc(-${100 / 3 * idx}%))`;
+  if (!animate) requestAnimationFrame(() => { pages.style.transition = ''; });
+  currentMainIdx = idx;
+  updateNavActive(MAIN_PAGE_ORDER[idx]);
+
+  // likedページへ移動したらリスト更新
+  if (MAIN_PAGE_ORDER[idx] === 'liked') refreshLikedPage();
+}
+
+function updateNavActive(pageId) {
+  // 全ナビボタンのactive解除
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('nav-active'));
+  // 対応するnavボタンをactive
+  const map = { home: 'navHome', filter: 'navSearch', liked: 'navLike' };
+  if (map[pageId]) {
+    const btn = document.getElementById(map[pageId]);
+    if (btn) btn.classList.add('nav-active');
   }
 }
 
+// ナビボタンから呼ぶ
+function navTo(dest) {
+  // サブページが開いていたら全部閉じてメインに戻る
+  document.querySelectorAll('.sub-page.active').forEach(p => p.classList.remove('active'));
+  if (dest === 'search') slideTo(1);
+  else if (dest === 'liked') slideTo(2);
+  else if (dest === 'home') slideTo(0);
+}
+
+// サブページ（category / subcategory / results）を開く
+function openSubPage(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('slide-out');
+  el.classList.add('active', 'slide-in');
+  el.addEventListener('animationend', () => el.classList.remove('slide-in'), { once: true });
+}
+
+// サブページを閉じる
+function closeSubPage(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('slide-out');
+  el.addEventListener('animationend', () => {
+    el.classList.remove('active', 'slide-out');
+  }, { once: true });
+}
+
+// 旧 go() 互換（サブページ遷移で使っている箇所用）
+function go(toId, fromId) {
+  const MAIN_IDS = new Set(['home', 'filter', 'liked']);
+  if (MAIN_IDS.has(toId)) {
+    // メインページへ戻る場合はサブページを全て閉じる
+    document.querySelectorAll('.sub-page.active').forEach(p => {
+      p.classList.remove('active', 'slide-in', 'slide-out');
+    });
+    const idx = MAIN_PAGE_ORDER.indexOf(toId);
+    if (idx >= 0) slideTo(idx);
+  } else {
+    // サブページへ遷移
+    openSubPage(toId);
+  }
+  window.scrollTo(0, 0);
+}
 
 // ─────────────────────────────
-// ページスワイプ（ホーム / 検索 / いいね）
-// 左スワイプ → 左のページ、右スワイプ → 右のページ
-// ホーム画面：おみくじカード(#swipeCard)の上のスワイプのみ除外
+// インスタ風ページスワイプ
+// ホーム画面でカード操作中（おみくじ前）の #swipeCard の上のみ除外
+// それ以外どこでも水平スワイプでページ切り替え
 // ─────────────────────────────
-const MAIN_PAGE_ORDER = ['home', 'filter', 'liked'];
-
-let pageSwipeStartX = 0;
-let pageSwipeStartY = 0;
-let pageSwipeLocked = false;
+let psStartX = 0, psStartY = 0;
+let psTracking = false;
+let psMoved = false;
+let psCardSwipe = false; // カードスワイプ操作と判定したか
 
 document.addEventListener('touchstart', e => {
-  // ホーム画面のスワイプカード操作エリアは除外
-  // ただし #swipeArea 内でも「おみくじカード表示中」はスワイプカード操作なし
-  // → swipeIndex < swipeCards.length のとき（カード操作中）のみ除外
-  const inSwipeArea = e.target.closest('#swipeArea');
-  if (inSwipeArea) {
-    // カードがまだある（おみくじ前）→ カード操作なのでページスワイプ無効
-    if (typeof swipeIndex !== 'undefined' && typeof swipeCards !== 'undefined'
-        && swipeIndex < swipeCards.length) {
-      pageSwipeLocked = true;
-      return;
-    }
-    // おみくじ表示中 → ページスワイプ有効（下でそのまま処理）
-  }
+  // サブページが開いている場合はページスワイプ無効
+  if (document.querySelector('.sub-page.active')) return;
 
-  pageSwipeStartX = e.touches[0].clientX;
-  pageSwipeStartY = e.touches[0].clientY;
-  pageSwipeLocked = false;
-}, {passive: true});
+  const t = e.touches[0];
+  psStartX = t.clientX;
+  psStartY = t.clientY;
+  psTracking = true;
+  psMoved = false;
+
+  // おみくじ前のカードの上か判定
+  const onSwipeCard = e.target.closest('#swipeCard');
+  const cardsRemaining = typeof swipeIndex !== 'undefined'
+    && typeof swipeCards !== 'undefined'
+    && swipeIndex < swipeCards.length;
+  psCardSwipe = !!(onSwipeCard && cardsRemaining);
+}, { passive: true });
+
+document.addEventListener('touchmove', e => {
+  if (!psTracking) return;
+  if (psCardSwipe) return; // カード操作中はページスワイプしない
+
+  const dx = e.touches[0].clientX - psStartX;
+  const dy = e.touches[0].clientY - psStartY;
+
+  // 斜め判定：縦の動きが大きければページスワイプしない
+  if (!psMoved && Math.abs(dy) > Math.abs(dx) * 0.8) {
+    psTracking = false;
+    return;
+  }
+  psMoved = true;
+
+  // スライドをドラッグに追従させる
+  const pageW = document.getElementById('mainPages').offsetWidth / 3;
+  const baseOffset = -(100 / 3) * currentMainIdx;
+  const percent = (dx / pageW) * (100 / 3);
+  const pages = document.getElementById('mainPages');
+  pages.style.transition = 'none';
+  pages.style.transform = `translateX(calc(${baseOffset}% + ${dx}px))`;
+}, { passive: true });
 
 document.addEventListener('touchend', e => {
-  if (pageSwipeLocked) return;
-  if (pageSwipeStartX === 0 && pageSwipeStartY === 0) return;
+  if (!psTracking || psCardSwipe) {
+    psTracking = false;
+    return;
+  }
+  psTracking = false;
+  if (!psMoved) return;
 
-  const current = document.querySelector('.page.active');
-  if (!current) return;
+  const dx = e.changedTouches[0].clientX - psStartX;
+  const dy = e.changedTouches[0].clientY - psStartY;
 
-  const currentId = current.id;
-  const idx = MAIN_PAGE_ORDER.indexOf(currentId);
-  if (idx === -1) return;
-
-  const dx = e.changedTouches[0].clientX - pageSwipeStartX;
-  const dy = e.changedTouches[0].clientY - pageSwipeStartY;
-
-  // 水平スワイプ判定（横60px以上 かつ 縦より横が1.5倍以上）
-  if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-
-  if (dx < 0 && idx > 0) {
-    // 左スワイプ → 左のページ（home → 左なし / filter → home / liked → filter）
-    navTo(MAIN_PAGE_ORDER[idx - 1] === 'filter' ? 'search' : MAIN_PAGE_ORDER[idx - 1]);
-  } else if (dx > 0 && idx < MAIN_PAGE_ORDER.length - 1) {
-    // 右スワイプ → 右のページ（home → filter / filter → liked / liked → 右なし）
-    navTo(MAIN_PAGE_ORDER[idx + 1] === 'filter' ? 'search' : MAIN_PAGE_ORDER[idx + 1]);
+  // 水平スワイプ判定（横30px以上 かつ 縦より横が優勢）
+  if (Math.abs(dx) < 30 || Math.abs(dx) < Math.abs(dy) * 0.8) {
+    // 戻す
+    slideTo(currentMainIdx);
+    return;
   }
 
-  pageSwipeLocked = true;
-  pageSwipeStartX = 0;
-  pageSwipeStartY = 0;
-}, {passive: true});
+  const pages = document.getElementById('mainPages');
+  pages.style.transition = ''; // transitionを復活
+
+  if (dx < 0 && currentMainIdx < MAIN_PAGE_ORDER.length - 1) {
+    // 左スワイプ → 右ページへ
+    slideTo(currentMainIdx + 1);
+  } else if (dx > 0 && currentMainIdx > 0) {
+    // 右スワイプ → 左ページへ
+    slideTo(currentMainIdx - 1);
+  } else {
+    slideTo(currentMainIdx);
+  }
+}, { passive: true });
 
 // ─────────────────────────────
-// ページ読み込み時にスワイプカード初期化
+// ページ読み込み時：スライドコンテナ初期化
+// ─────────────────────────────
+slideTo(0, false); // アニメーションなしで初期位置へ
 setTimeout(() => {
   if (typeof DB !== 'undefined') initSwipeCards();
 }, 100);
@@ -1016,21 +1120,10 @@ let selectedCat = '';      // 選択中のカテゴリ
 let prevResultPage = 'subcategory'; // 結果ページの戻り先
 
 // ─────────────────────────────
-// ページ遷移
-// ─────────────────────────────
-function go(toId, fromId) {
-  document.getElementById(fromId).classList.remove('active');
-  const to = document.getElementById(toId);
-  to.classList.add('active', 'page-enter');
-  setTimeout(() => to.classList.remove('page-enter'), 350);
-  window.scrollTo(0, 0);
-}
-
-// ─────────────────────────────
-// ホーム → フィルター
+// ホーム → フィルター（旧互換）
 // ─────────────────────────────
 function goFilter() {
-  go('filter', 'home');
+  slideTo(1);
 }
 
 // ─────────────────────────────
@@ -1101,7 +1194,7 @@ function onCatSelect(cat) {
   } else {
     // 直接結果を表示（戻り先はカテゴリ選択）
     prevResultPage = 'category';
-    document.getElementById('resultBackBtn').onclick = () => go('category', 'results');
+    document.getElementById('resultBackBtn').onclick = () => closeSubPage('results');
     renderResults(cat, plans);
     go('results', 'category');
   }
@@ -1141,7 +1234,7 @@ function showSubcategories(cat, plans) {
     const subPlans = plans.filter(p => (p.subCategory || 'その他') === subName);
     const info2 = CAT_INFO[cat];
     prevResultPage = 'category';
-    document.getElementById('resultBackBtn').onclick = () => go('category', 'results');
+    document.getElementById('resultBackBtn').onclick = () => closeSubPage('results');
     renderResults(`${info2?.icon || ''} ${subName}`, subPlans);
     go('results', 'category');
     return;
@@ -1188,7 +1281,7 @@ function showSubcategories(cat, plans) {
       card.onclick = () => {
         const subPlans = plans.filter(p => (p.subCategory || 'その他') === sub);
         prevResultPage = 'subcategory';
-        document.getElementById('resultBackBtn').onclick = () => go('subcategory', 'results');
+        document.getElementById('resultBackBtn').onclick = () => closeSubPage('results');
         renderResults(`${info?.icon || ''} ${sub}`, subPlans);
         go('results', 'subcategory');
       };
@@ -1343,32 +1436,31 @@ setTimeout(initLottie, 300);
 // キーワード検索
 // ─────────────────────────────
 function onKeywordInput(val) {
-  const clearBtn  = document.getElementById('keywordClear');
-  const kwResults = document.getElementById('keywordResults');
+  const clearBtn     = document.getElementById('keywordClear');
+  const kwResults    = document.getElementById('keywordResults');
   const normalFilter = document.getElementById('normalFilter');
   const filterFoot   = document.querySelector('.filter-foot');
 
   clearBtn.style.display = val ? 'flex' : 'none';
 
   if (!val.trim()) {
-    // 未入力→通常フィルター表示
     kwResults.style.display    = 'none';
     normalFilter.style.display = '';
-    filterFoot.style.display   = '';
+    if (filterFoot) filterFoot.style.display = '';
     return;
   }
 
-  // 入力中→フィルターを隠してキーワード結果を表示
+  // 入力中 → フィルター隠してキーワード結果表示
   normalFilter.style.display = 'none';
-  filterFoot.style.display   = 'none';
-  kwResults.style.display    = '';
+  if (filterFoot) filterFoot.style.display = 'none';
+  kwResults.style.display    = 'block';
 
   const q = val.trim().toLowerCase();
   const hits = DB.filter(p =>
     p.name.toLowerCase().includes(q) ||
     p.category.toLowerCase().includes(q) ||
-    p.subCategory.toLowerCase().includes(q) ||
-    p.areaRaw.toLowerCase().includes(q)
+    (p.subCategory || '').toLowerCase().includes(q) ||
+    (p.areaRaw || '').toLowerCase().includes(q)
   );
 
   kwResults.innerHTML = '<div class="keyword-count">' + hits.length + '件ヒット</div>';
@@ -1524,33 +1616,35 @@ async function toggleHeart(btn) {
 }
 
 // ─────────────────────────────
-// いいね一覧（どこからでも遷移可）
+// いいね一覧 ページ更新
 // ─────────────────────────────
-async function showLikes(fromId) {
-  fromId = fromId || 'home';
+async function refreshLikedPage() {
   const likes = getLikes();
   const list  = document.getElementById('likedList');
   list.innerHTML = '';
   if (likes.length === 0) {
     list.innerHTML = '<div class="no-hit"><div class="ico">🤍</div><p>まだいいねしたプランがありません。<br>気になるプランにハートを押してみよう！</p></div>';
-  } else {
-    const likedPlans = DB.filter(p => likes.includes(p.name));
-    // いいね数を一括取得
-    let likeMap = {};
-    try {
-      const res = await sbFetch('/rest/v1/plan_likes?select=plan_name&plan_name=in.(' + likedPlans.map(p => '"' + p.name + '"').join(',') + ')');
-      if (res.ok) {
-        const rows = await res.json();
-        rows.forEach(r => { likeMap[r.plan_name] = (likeMap[r.plan_name] || 0) + 1; });
-      }
-    } catch(e) {}
-    likedPlans.forEach((p, i) => {
-      const c = makeCard(p, likeMap[p.name] || 0);
-      c.style.animationDelay = i * 0.04 + 's';
-      list.appendChild(c);
-    });
+    return;
   }
-  go('liked', fromId);
+  const likedPlans = DB.filter(p => likes.includes(p.name));
+  let likeMap = {};
+  try {
+    const res = await sbFetch('/rest/v1/plan_likes?select=plan_name&plan_name=in.(' + likedPlans.map(p => '"' + p.name + '"').join(',') + ')');
+    if (res.ok) {
+      const rows = await res.json();
+      rows.forEach(r => { likeMap[r.plan_name] = (likeMap[r.plan_name] || 0) + 1; });
+    }
+  } catch(e) {}
+  likedPlans.forEach((p, i) => {
+    const c = makeCard(p, likeMap[p.name] || 0);
+    c.style.animationDelay = i * 0.04 + 's';
+    list.appendChild(c);
+  });
+}
+
+// 旧 showLikes 互換（ナビボタンなど他から呼ばれる場合）
+async function showLikes(fromId) {
+  slideTo(2);
 }
 </script>
 </body>
