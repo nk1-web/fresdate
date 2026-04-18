@@ -150,8 +150,12 @@
     .page-ttl{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;flex:1;}
 
     /* ━━━ 絞り込みページ ━━━ */
-    #filter{overflow-y:auto;padding-bottom:100px;}
-    .filter-wrap{padding:0 24px;}
+    #filter{display:flex;flex-direction:column;height:100dvh;overflow:hidden;padding-bottom:0;}
+    #filter .page-hd{flex-shrink:0;}
+    #filter .keyword-wrap{flex-shrink:0;}
+    #filter #keywordResults{flex:1;overflow-y:auto;min-height:0;}
+    #normalFilter{flex:1;overflow-y:auto;min-height:0;-webkit-overflow-scrolling:touch;}
+    .filter-wrap{padding:0 24px 8px;}
     .filter-grp{margin-bottom:16px;}
     .filter-lbl{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gray-mid);margin-bottom:8px;}
     .chips{display:flex;flex-wrap:wrap;gap:7px;}
@@ -161,7 +165,12 @@
     .chip.on{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:transparent;}
     .chip:hover:not(.on){border-color:var(--red);color:var(--red);}
     .sep{height:1px;background:rgba(0,0,0,0.05);margin:4px 0 16px;}
-    .filter-foot{padding:10px 24px 14px;background:var(--cream);flex-shrink:0;}
+    .filter-foot{
+      flex-shrink:0;
+      padding:10px 24px calc(14px + 70px + env(safe-area-inset-bottom));
+      background:var(--cream);
+      border-top:1px solid rgba(0,0,0,0.05);
+    }
 
     /* ━━━ カテゴリ選択 ━━━ */
     #category{overflow-y:auto;padding-bottom:32px;}
@@ -402,7 +411,7 @@
       line-height:1.8;
       animation:fadeUp 0.4s ease both;
     }
-    #filter{padding-bottom:0;display:flex;flex-direction:column;overflow:hidden;}
+    /* #filter は上部で定義済み */
     #liked{overflow-y:auto;padding-bottom:80px;}
     #liked .card-list{padding-bottom:80px;}
 
@@ -523,7 +532,7 @@
     <!-- キーワード検索結果（入力中のみ表示） -->
     <div id="keywordResults" class="keyword-results" style="display:none;"></div>
     <!-- 通常フィルター（キーワード未入力時のみ表示） -->
-    <div id="normalFilter" style="flex:1;overflow-y:auto;min-height:0;">
+    <div id="normalFilter">
     <div class="filter-wrap">
       <div class="filter-grp">
         <div class="filter-lbl">📍 エリア</div>
