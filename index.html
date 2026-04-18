@@ -150,8 +150,12 @@
     .page-ttl{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;flex:1;}
 
     /* ━━━ 絞り込みページ ━━━ */
-    #filter{overflow-y:auto;padding-bottom:100px;}
-    .filter-wrap{padding:0 24px;}
+    #filter{display:flex;flex-direction:column;height:100dvh;overflow:hidden;padding-bottom:0;}
+    #filter .page-hd{flex-shrink:0;}
+    #filter .keyword-wrap{flex-shrink:0;}
+    #filter #keywordResults{flex:1;overflow-y:auto;min-height:0;}
+    #normalFilter{flex:1;overflow-y:auto;min-height:0;-webkit-overflow-scrolling:touch;}
+    .filter-wrap{padding:0 24px 8px;}
     .filter-grp{margin-bottom:16px;}
     .filter-lbl{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--gray-mid);margin-bottom:8px;}
     .chips{display:flex;flex-wrap:wrap;gap:7px;}
@@ -161,7 +165,12 @@
     .chip.on{background:linear-gradient(135deg,var(--red),var(--orange));color:white;border-color:transparent;}
     .chip:hover:not(.on){border-color:var(--red);color:var(--red);}
     .sep{height:1px;background:rgba(0,0,0,0.05);margin:4px 0 16px;}
-    .filter-foot{padding:10px 24px 14px;background:var(--cream);flex-shrink:0;}
+    .filter-foot{
+      flex-shrink:0;
+      padding:10px 24px calc(14px + 70px + env(safe-area-inset-bottom));
+      background:var(--cream);
+      border-top:1px solid rgba(0,0,0,0.05);
+    }
 
     /* ━━━ カテゴリ選択 ━━━ */
     #category{overflow-y:auto;padding-bottom:32px;}
@@ -402,7 +411,7 @@
       line-height:1.8;
       animation:fadeUp 0.4s ease both;
     }
-    #filter{padding-bottom:0;display:flex;flex-direction:column;overflow:hidden;}
+    /* #filter は上部で定義済み */
     #liked{overflow-y:auto;padding-bottom:80px;}
     #liked .card-list{padding-bottom:80px;}
 
@@ -523,7 +532,7 @@
     <!-- キーワード検索結果（入力中のみ表示） -->
     <div id="keywordResults" class="keyword-results" style="display:none;"></div>
     <!-- 通常フィルター（キーワード未入力時のみ表示） -->
-    <div id="normalFilter" style="flex:1;overflow-y:auto;min-height:0;">
+    <div id="normalFilter">
     <div class="filter-wrap">
       <div class="filter-grp">
         <div class="filter-lbl">📍 エリア</div>
@@ -1072,7 +1081,6 @@ const BAR_COLORS = {
 const NEEDS_SUBCAT = new Set([
   "食べ歩き・散策",
   "アウトドア", "ミュージアム・展示施設", "リラクゼーション",
-  "スポーツ・アクティビティ",
 ]);
 
 // エリアフィルターを適用するカテゴリ（場所が固定のもの）
@@ -1102,24 +1110,16 @@ const SUB_ICONS = {
   "東京エリア":"🗼", "神奈川エリア":"⛩️", "埼玉エリア":"🏯", "千葉エリア":"🌊",
   "栃木エリア":"🍓", "群馬エリア":"♨️", "茨城エリア":"🌾",
   // アウトドア
-  "登山":"⛰️", "山":"⛰️", "公園":"🌳", "海":"🏖️", "キャンプ":"🏕️", "牧場":"🐄",
-  "釣り":"🎣", "高原":"🏔️", "滝・渓谷":"💧", "滝・渓谷・湖":"💧",
-  "神社・史跡":"⛩️", "ドライブ":"🚗", "ピクニック":"🧺",
-  "マリンスポーツ":"🏄", "花畑・農園":"🌷", "星空・夜景":"🌠", "その他":"🌿",
-  // スポーツ・アクティビティ
-  "屋内スポーツ":"🏓", "屋外スポーツ":"⚽", "施設":"🏟️", "アクティビティ":"🎯",
+  "登山":"⛰️", "公園":"🌳", "海":"🏖️", "キャンプ":"🏕️", "牧場":"🐄", "釣り":"🎣", "高原":"🏔️", "滝・渓谷":"💧", "神社・史跡":"⛩️", "その他":"🌿",
   // ミュージアム
   "水族館":"🐠", "美術館":"🖼️", "動物園":"🦁", "プラネタリウム":"🌟",
-  "博物館":"📜", "科学館":"🔭", "植物園":"🍃", "展望台":"🗼",
-  "文学館・記念館":"📚", "企業・工場見学":"🏭", "展示":"🖼️",
+  "博物館":"📜", "植物園":"🍃", "展望台":"🗼",
   // 期間限定イベント
-  "花見":"🌸", "いちご狩り":"🍓",
+  "花見":"🌸", "いちご狩り":"🍓", "展示":"🖼️", "アクティビティ":"🎯",
   // 季節
   "春":"🌸", "夏":"🌻", "秋":"🍂", "冬":"❄️",
   // リラクゼーション
-  "温泉":"♨️", "温泉複合施設":"🛁", "温泉・サウナ・岩盤浴":"🧖",
-  "サウナ":"🔥", "岩盤浴":"💆", "マッサージ・スパ":"💆", "ヨガ・瞑想":"🧘",
-  "動物カフェ":"🐾",
+  "温泉":"♨️", "温泉・サウナ・岩盤浴":"🧖", "サウナ":"🔥", "岩盤浴":"💆", "動物カフェ":"🐾",
 };
 
 // ─────────────────────────────
@@ -1256,23 +1256,14 @@ function showSubcategories(cat, plans) {
     "東京エリア","神奈川エリア","埼玉エリア","千葉エリア",
     "栃木エリア","群馬エリア","茨城エリア"
   ];
-  // カテゴリごとのサブカテゴリ固定順
-  const OUTDOOR_ORDER    = ["山","公園","海","高原","滝・渓谷・湖","神社・史跡","ドライブ","ピクニック","キャンプ","牧場","釣り","マリンスポーツ","花畑・農園","星空・夜景","その他"];
-  const MUSEUM_ORDER     = ["水族館","美術館","動物園","博物館","科学館","プラネタリウム","展望台","文学館・記念館","企業・工場見学","展示"];
-  const RELAX_ORDER      = ["温泉","温泉複合施設","サウナ","岩盤浴","マッサージ・スパ","ヨガ・瞑想","動物カフェ"];
-  const SPORTS_ORDER     = ["屋内スポーツ","屋外スポーツ","アクティビティ","施設"];
-
-  const FIXED_ORDER = {
-    "アウトドア":           OUTDOOR_ORDER,
-    "ミュージアム・展示施設": MUSEUM_ORDER,
-    "リラクゼーション":     RELAX_ORDER,
-    "スポーツ・アクティビティ": SPORTS_ORDER,
-  };
-
+  // エリア選択系 → 全エリアを固定順で表示
+  // それ以外（ミュージアム・アウトドア等）→ データにあるサブカテゴリを表示
+  // アウトドアは順番固定（その他を一番下に）
+  const OUTDOOR_ORDER = ["山","公園","海","高原","滝・渓谷・湖","神社・史跡","キャンプ","牧場","釣り","その他"];
   const subList = AREA_SELECT_CATS.has(cat)
     ? ALL_AREAS
-    : FIXED_ORDER[cat]
-      ? FIXED_ORDER[cat].filter(s => subCount[s] !== undefined)
+    : cat === "アウトドア"
+      ? OUTDOOR_ORDER.filter(s => subCount[s] !== undefined)
       : Object.keys(subCount);
 
   const grid = document.getElementById('subSelectGrid');
