@@ -818,6 +818,7 @@ function navTo(dest) {
 // ─────────────────────────────
 // ページスワイプ（ホーム / 検索 / いいね）
 // 左スワイプ → 左のページ、右スワイプ → 右のページ
+// ホーム画面：おみくじカード(#swipeCard)の上のスワイプのみ除外
 // ─────────────────────────────
 const MAIN_PAGE_ORDER = ['home', 'filter', 'liked'];
 
@@ -826,26 +827,27 @@ let pageSwipeStartY = 0;
 let pageSwipeLocked = false;
 
 document.addEventListener('touchstart', e => {
-  if (e.target.closest('#swipeArea')) return;
-  // 画面中央部（上下20%〜80%の範囲）のみでページスワイプを受け付ける
-  const touchY = e.touches[0].clientY;
-  const winH = window.innerHeight;
-  if (touchY < winH * 0.20 || touchY > winH * 0.80) {
-    // 中央範囲外は座標をリセットして無効化
-    pageSwipeStartX = 0;
-    pageSwipeStartY = 0;
-    pageSwipeLocked = true;
-    return;
+  // ホーム画面のスワイプカード操作エリアは除外
+  // ただし #swipeArea 内でも「おみくじカード表示中」はスワイプカード操作なし
+  // → swipeIndex < swipeCards.length のとき（カード操作中）のみ除外
+  const inSwipeArea = e.target.closest('#swipeArea');
+  if (inSwipeArea) {
+    // カードがまだある（おみくじ前）→ カード操作なのでページスワイプ無効
+    if (typeof swipeIndex !== 'undefined' && typeof swipeCards !== 'undefined'
+        && swipeIndex < swipeCards.length) {
+      pageSwipeLocked = true;
+      return;
+    }
+    // おみくじ表示中 → ページスワイプ有効（下でそのまま処理）
   }
+
   pageSwipeStartX = e.touches[0].clientX;
   pageSwipeStartY = e.touches[0].clientY;
   pageSwipeLocked = false;
 }, {passive: true});
 
 document.addEventListener('touchend', e => {
-  if (e.target.closest('#swipeArea')) return;
   if (pageSwipeLocked) return;
-  // 開始Y座標が未設定（中央範囲外でtouchstartされた）場合は無視
   if (pageSwipeStartX === 0 && pageSwipeStartY === 0) return;
 
   const current = document.querySelector('.page.active');
@@ -857,11 +859,15 @@ document.addEventListener('touchend', e => {
 
   const dx = e.changedTouches[0].clientX - pageSwipeStartX;
   const dy = e.changedTouches[0].clientY - pageSwipeStartY;
+
+  // 水平スワイプ判定（横60px以上 かつ 縦より横が1.5倍以上）
   if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
 
   if (dx < 0 && idx > 0) {
+    // 左スワイプ → 左のページ（home → 左なし / filter → home / liked → filter）
     navTo(MAIN_PAGE_ORDER[idx - 1] === 'filter' ? 'search' : MAIN_PAGE_ORDER[idx - 1]);
   } else if (dx > 0 && idx < MAIN_PAGE_ORDER.length - 1) {
+    // 右スワイプ → 右のページ（home → filter / filter → liked / liked → 右なし）
     navTo(MAIN_PAGE_ORDER[idx + 1] === 'filter' ? 'search' : MAIN_PAGE_ORDER[idx + 1]);
   }
 
