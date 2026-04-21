@@ -1015,6 +1015,7 @@ document.addEventListener('touchend', e => {
 // ページ読み込み時：スライドコンテナ初期化
 // ─────────────────────────────
 slideTo(0, false); // アニメーションなしで初期位置へ
+// ※ initSwipeCards() は preloadSupabaseImages().then() 内で呼ばれる
 
 
 // =====================================================
@@ -1084,22 +1085,15 @@ const CAT_INFO = {
 };
 
 // =====================================================
-// 画像取得ロジック（Supabase優先）
-// admin.html でアップロードした画像を plan_images テーブルから取得
-// =====================================================
 // 画像取得ロジック（Supabase plan_images テーブル）
-// anon key で読み取り専用・起動時に全件先読みしてキャッシュ
+// sbFetch（SUPABASE_KEY）で読み取り・起動時に全件先読みしてキャッシュ
 // =====================================================
 const IMAGE_CACHE = {};  // plan_name → url | null
-const _SB_IMG_URL = "https://hmfoiqxcipjxnymtegum.supabase.co";
-const _SB_IMG_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZm9pcXhjaXBqeG55bXRlZ3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNTM3NTksImV4cCI6MjA5MTYyOTc1OX0.n44Hsr_PEFmeaTBAj18HZFZzpvwwZPhWhIhC47n4060"; // anon key（読み取り専用・公開可）
 
-// 起動時に全件先読み → 完了してからカード描画
+// 起動時に全件先読み
 async function preloadSupabaseImages() {
   try {
-    const res = await fetch(_SB_IMG_URL + '/rest/v1/plan_images?select=plan_name,image_url', {
-      headers: { apikey: _SB_IMG_KEY, Authorization: 'Bearer ' + _SB_IMG_KEY }
-    });
+    const res = await sbFetch('/rest/v1/plan_images?select=plan_name,image_url');
     if (!res.ok) return;
     const rows = await res.json();
     rows.forEach(r => {
@@ -1108,7 +1102,7 @@ async function preloadSupabaseImages() {
   } catch(e) { /* 画像なしで続行 */ }
 }
 
-// キャッシュから取得（先読み完了後なのでDBアクセスなし）
+// キャッシュから取得
 function getImageUrl(planName) {
   return IMAGE_CACHE[planName] || null;
 }
