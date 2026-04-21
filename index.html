@@ -1015,9 +1015,6 @@ document.addEventListener('touchend', e => {
 // ページ読み込み時：スライドコンテナ初期化
 // ─────────────────────────────
 slideTo(0, false); // アニメーションなしで初期位置へ
-setTimeout(() => {
-  if (typeof DB !== 'undefined') initSwipeCards();
-}, 100);
 
 
 // =====================================================
@@ -1087,16 +1084,17 @@ const CAT_INFO = {
 };
 
 // =====================================================
-// 画像取得ロジック（キー不要・Public REST API使用）
-// plan_images テーブルを anon キーなしで読み取る
-// ※ Supabase側で plan_images テーブルの SELECT を全員許可にすること
+// 画像取得ロジック（Supabase優先）
+// admin.html でアップロードした画像を plan_images テーブルから取得
 // =====================================================
-
+// 画像取得ロジック（Supabase plan_images テーブル）
+// anon key で読み取り専用・起動時に全件先読みしてキャッシュ
+// =====================================================
 const IMAGE_CACHE = {};  // plan_name → url | null
 const _SB_IMG_URL = "https://hmfoiqxcipjxnymtegum.supabase.co";
 const _SB_IMG_KEY = "sb_publishable_1sehiDZzwEXislaUR5qwtw_-KKPNhqp"; // anon key（読み取り専用・公開可）
 
-// 起動時に plan_images を一括先読み（anon keyで読み取りのみ）
+// 起動時に全件先読み → 完了してからカード描画
 async function preloadSupabaseImages() {
   try {
     const res = await fetch(_SB_IMG_URL + '/rest/v1/plan_images?select=plan_name,image_url', {
@@ -1110,33 +1108,25 @@ async function preloadSupabaseImages() {
   } catch(e) { /* 画像なしで続行 */ }
 }
 
-// プラン名 → 画像URL（キャッシュ優先、なければ個別fetch）
-async function fetchSupabaseImage(planName) {
-  if (planName in IMAGE_CACHE) return IMAGE_CACHE[planName];
-  try {
-    const res = await fetch(
-      _SB_IMG_URL + '/rest/v1/plan_images?plan_name=eq.' + encodeURIComponent(planName) + '&select=image_url&limit=1',
-      { headers: { apikey: _SB_IMG_KEY, Authorization: 'Bearer ' + _SB_IMG_KEY } }
-    );
-    if (!res.ok) { IMAGE_CACHE[planName] = null; return null; }
-    const rows = await res.json();
-    const url = rows.length > 0 ? rows[0].image_url : null;
-    IMAGE_CACHE[planName] = url;
-    return url;
-  } catch(e) { IMAGE_CACHE[planName] = null; return null; }
+// キャッシュから取得（先読み完了後なのでDBアクセスなし）
+function getImageUrl(planName) {
+  return IMAGE_CACHE[planName] || null;
 }
 
-// img要素に画像をセット（ロード完了後にプレースホルダーを消す）
-async function loadCardImage(planName, imgEl, placeholderEl) {
-  const url = await fetchSupabaseImage(planName);
+// img要素に画像をセット
+function loadCardImage(planName, imgEl, placeholderEl) {
+  const url = getImageUrl(planName);
   if (!url) return;
   imgEl.src = url;
   imgEl.onload = () => { imgEl.style.opacity = '1'; if (placeholderEl) placeholderEl.classList.add('hidden'); };
-  imgEl.onerror = () => { /* 画像取得失敗 → プレースホルダー維持 */ };
 }
 
-// 起動時に先読み（非同期・ノンブロッキング）
-preloadSupabaseImages();
+// 先読み完了を待ってからカード描画
+preloadSupabaseImages().then(() => {
+  setTimeout(() => {
+    if (typeof DB !== 'undefined') initSwipeCards();
+  }, 100);
+});
 
 const BAR_COLORS = {
   "スポーツ・アクティビティ": "linear-gradient(90deg,#43e97b,#38f9d7)",
