@@ -79,7 +79,7 @@ const DB = [
   {category:"アウトドア",subCategory:"山",     name:"高尾山",        budget:"2000円〜",budgetNum:2000, area:"東京",areaRaw:"東京（八王子）",       time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"公園",name:"芝公園",        budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（芝公園）",  time:"昼",indoor:"屋外",season:"春",  duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"公園",name:"代々木公園",    budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（代々木）",  time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"公園",name:"新宿御苑",      budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（新宿）",    time:"昼",indoor:"屋外",season:"春",  duration:"2〜4時間"},
+  {category:"アウトドア",subCategory:"公園",name:"新宿御苑",budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（新宿）",    time:"昼",indoor:"屋外",season:"春",  duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"海",       name:"葛西臨海公園",  budget:"1000円〜",budgetNum:1000, area:"東京",areaRaw:"東京（葛西）",    time:"昼",indoor:"屋外",season:"夏",  duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"キャンプ", name:"山中湖キャンプ",budget:"5000円〜",budgetNum:5000, area:"その他",    areaRaw:"山梨（山中湖）",  time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"釣り",     name:"八景島釣り掘",    budget:"3000円〜",budgetNum:3000, area:"神奈川",    areaRaw:"神奈川（八景島）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
@@ -137,7 +137,7 @@ const DB = [
   {category:"エンタメ",subCategory:"",name:"サーカス",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"展望台",name:"スカイツリー",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（押上）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"",name:"ペットショップ巡り",budget:"0円",budgetNum:0,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"",subCategory:"",name:"家具屋・雑貨屋巡り",budget:"0円",budgetNum:0,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
+  {category:"食べ歩き・散策",subCategory:"東京エリア",name:"家具屋・雑貨屋巡り",budget:"0円",budgetNum:0,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"エンタメ",subCategory:"",name:"アウトレット",budget:"0円",budgetNum:0,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
  
   // スポーツ・アクティビティ
@@ -148,11 +148,11 @@ const DB = [
 
   // 体験・ものづくり
   {category:"体験・ものづくり",subCategory:"",name:"そば打ち体験",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"",name:"乗馬体験",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ",name:"乗馬体験",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
 
   // 食べ歩き・散策
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"新大久保食べ歩き",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（新大久保）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"食べ歩き・散策",subCategory:"東京エリア",name:"新宿御苑散策",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（新宿）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
+  
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"蔵前散策",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（蔵前）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"吉祥寺散策",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（吉祥寺）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"清澄白河散策",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（清澄白河）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
@@ -176,12 +176,10 @@ const DB = [
 
   // テーマパーク
   {category:"テーマパーク",subCategory:"",name:"富士急ハイランド",budget:"5000円〜",budgetNum:5000,area:"その他",areaRaw:"山梨（富士急）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"ユニバーサルスタジオジャパン",budget:"10000円〜",budgetNum:10000,area:"その他",areaRaw:"大阪（USJ）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"ジブリパーク",budget:"5000円〜",budgetNum:5000,area:"その他",areaRaw:"愛知（ジブリパーク）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"ちいかわパーク",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // プチ旅行
-  {category:"食べ歩き・散策",subCategory:"神奈川エリア",name:"江ノ島",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（江ノ島）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
 
   // 期間限定イベント
 
@@ -284,7 +282,6 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"板橋区立熱帯環境植物館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（板橋）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"彫刻の森美術館",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"ガラスの森美術館",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"博物館",name:"江戸東京博物館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（両国）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"国立科学博物館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（上野）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"未来科学館",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（お台場）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"那須ステンドグラス美術館",budget:"2000円〜",budgetNum:2000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -329,7 +326,7 @@ const DB = [
   {category:"アウトドア",subCategory:"神社・史跡",name:"鶴岡八幡宮",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"神社・史跡",name:"箱根神社",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"神社・史跡",name:"鎌倉大仏",budget:"500円〜",budgetNum:500,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"神社・史跡",name:"筑波山",budget:"1000円〜",budgetNum:1000,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  
   {category:"アウトドア",subCategory:"神社・史跡",name:"八ッ場あがつま湖・吾妻峡",budget:"0円",budgetNum:0,area:"群馬",areaRaw:"群馬（長野原）",time:"昼",indoor:"屋外",season:"秋",duration:"2〜4時間"},
 
   // ── アウトドア / 海 ──
@@ -449,7 +446,6 @@ const DB = [
 
   // ── 2026年4月 新規追加イベント ──
   {category:"期間限定イベント",subCategory:"花見",name:"昭和記念公園 チューリップフェス",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（立川）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-10",endDate:"04-30"},
-  {category:"期間限定イベント",subCategory:"花見",name:"亀戸天神 藤まつり",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（江東区）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-15",endDate:"05-06"},
   {category:"期間限定イベント",subCategory:"展示",name:"デザインあ展",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（六本木）",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"06-30"},
   {category:"期間限定イベント",subCategory:"展示",name:"ジブリパークとジブリ展",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"春",duration:"2〜4時間",startDate:"04-01",endDate:"06-30"},
   {category:"期間限定イベント",subCategory:"アクティビティ",name:"オクトーバーフェスト",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（日比谷）",time:"夕方",indoor:"屋外",season:"春",duration:"2〜4時間",startDate:"04-24",endDate:"05-06"},
@@ -529,7 +525,7 @@ const DB = [
   {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ",name:"レーザータグ",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"スポーツ・アクティビティ",subCategory:"施設",name:"インドアサーフィン",budget:"4000円〜",budgetNum:4000,area:"千葉",areaRaw:"千葉（千葉市）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ",name:"カヌー体験",budget:"3000円〜",budgetNum:3000,area:"埼玉",areaRaw:"埼玉（長瀞）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ",name:"バッティングセンター",budget:"500円〜",budgetNum:500,area:"東京",araRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ",name:"バッティングセンター",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ",name:"クロスカントリー",budget:"3000円〜",budgetNum:3000,area:"茨城",areaRaw:"茨城（つくば）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"スポーツ・アクティビティ",subCategory:"屋外スポーツ",name:"スケートボード",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"スポーツ・アクティビティ",subCategory:"屋内スポーツ",name:"クライミングジム",budget:"2500円〜",budgetNum:2500,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -593,7 +589,7 @@ const DB = [
   {category:"お家デート",subCategory:"",name:"プロジェクターで映画鑑賞",budget:"2000円〜",budgetNum:2000,area:"おうち",areaRaw:"全国",time:"夜",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"お家デート",subCategory:"",name:"ワインテイスティング",budget:"2000円〜",budgetNum:2000,area:"おうち",areaRaw:"全国",time:"夜",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"お家デート",subCategory:"",name:"縁側でプチ花見",budget:"1000円〜",budgetNum:1000,area:"おうち",areaRaw:"全国",time:"昼",indoor:"屋外",season:"春",duration:"1〜3時間"},
-  {category:"お家デート",subCategory:"",name:"アロマキャンドル作り）",budget:"1500円〜",budgetNum:1500,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"1〜3時間"},
+  {category:"お家デート",subCategory:"",name:"アロマキャンドル作り",budget:"1500円〜",budgetNum:1500,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"お家デート",subCategory:"",name:"手作りすごろく・オリジナルゲーム",budget:"300円〜",budgetNum:300,area:"おうち",areaRaw:"全国",time:"いつでも",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"お家デート",subCategory:"",name:"星空観察",budget:"0円",budgetNum:0,area:"おうち",areaRaw:"全国",time:"夜",indoor:"屋外",season:"通年",duration:"1〜3時間"},
   {category:"お家デート",subCategory:"",name:"おうちスパ",budget:"1000円〜",budgetNum:1000,area:"おうち",areaRaw:"全国",time:"夜",indoor:"屋内",season:"通年",duration:"1〜3時間"},
@@ -654,8 +650,6 @@ const DB = [
   // ── 食べ歩き・散策追加 ──
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"谷根千散策",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（谷中・根津・千駄木）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"下北沢散策",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（下北沢）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"食べ歩き・散策",subCategory:"東京エリア",name:"清澄白河カフェ巡り",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（清澄白河）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"食べ歩き・散策",subCategory:"東京エリア",name:"蔵前おしゃれ散策",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（蔵前）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"中目黒カフェ＆川沿い散歩",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（中目黒）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"原宿・表参道ショッピング",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京（原宿・表参道）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"食べ歩き・散策",subCategory:"東京エリア",name:"築地場外市場",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（築地）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
@@ -691,7 +685,7 @@ const DB = [
   {category:"リラクゼーション",subCategory:"温泉",name:"熱海温泉",budget:"5000円〜",budgetNum:5000,area:"その他",areaRaw:"静岡（熱海）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"大磯温泉",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（大磯）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"サウナ",name:"ととのい",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ体験",budget:"8000円〜",budgetNum:8000,area:"群馬",areaRaw:"群馬（みなかみ）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ体験（みなかみ）",budget:"8000円〜",budgetNum:8000,area:"群馬",areaRaw:"群馬（みなかみ）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"サウナ",name:"サウナ付きグランピング",budget:"15000円〜",budgetNum:15000,area:"栃木",areaRaw:"栃木（那須）",time:"いつでも",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"ドーミーインデイユース",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"東京天然温泉 古代の湯",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（板橋）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -748,7 +742,6 @@ const DB = [
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"すみだ水族館",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（押上）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"マクセル アクアパーク品川",budget:"2300円〜",budgetNum:2300,area:"東京",areaRaw:"東京（品川）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"水族館",name:"横浜・八景島シーパラ水族館",budget:"2400円〜",budgetNum:2400,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"水族館",name:"鴨川シーワールド水族館",budget:"2800円〜",budgetNum:2800,area:"千葉",areaRaw:"千葉（鴨川）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"多摩動物公園",budget:"600円〜",budgetNum:600,area:"東京",areaRaw:"東京（日野）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"千葉市動物公園",budget:"700円〜",budgetNum:700,area:"千葉",areaRaw:"千葉（千葉市）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"動物園",name:"埼玉こども動物自然公園",budget:"700円〜",budgetNum:700,area:"埼玉",areaRaw:"埼玉（東松山）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
@@ -774,7 +767,7 @@ const DB = [
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"浦和スパ＆リゾート",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（浦和）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"飯能 七間の湯",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（飯能）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
+  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ（秩父）",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
 
   // ── リラクゼーション 千葉 ──
   {category:"リラクゼーション",subCategory:"温泉",name:"市原 湯巡り万華郷",budget:"2000円〜",budgetNum:2000,area:"千葉",areaRaw:"千葉（市原）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
@@ -861,7 +854,6 @@ const DB = [
   // ── ミュージアム・展示施設 群馬 ──
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"群馬県立自然史博物館",budget:"400円〜",budgetNum:400,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"富岡製糸場",budget:"1000円〜",budgetNum:1000,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"ミュージアム・展示施設",subCategory:"水族館",name:"群馬サファリパーク",budget:"2500円〜",budgetNum:2500,area:"群馬",areaRaw:"群馬（富岡）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"ミュージアム・展示施設",subCategory:"プラネタリウム",name:"高崎市少年科学館プラネタリウム",budget:"400円〜",budgetNum:400,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"ミュージアム・展示施設",subCategory:"美術館",name:"渋川 ハラミュージアムアーク",budget:"1500円〜",budgetNum:1500,area:"群馬",areaRaw:"群馬（渋川）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"群馬県立歴史博物館",budget:"300円〜",budgetNum:300,area:"群馬",areaRaw:"群馬（高崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -921,7 +913,6 @@ const DB = [
   {category:"テーマパーク",subCategory:"",name:"神奈川フェアウェル農場",budget:"1500円〜",budgetNum:1500,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"よこはま動物園ズーラシア",budget:"800円〜",budgetNum:800,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"ドリームランドの丘・大船フラワーセンター",budget:"300円〜",budgetNum:300,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
-  {category:"テーマパーク",subCategory:"",name:"箱根彫刻の森美術館",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"小田原フラワーガーデン",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（小田原）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"相模川ふれあい科学館",budget:"600円〜",budgetNum:600,area:"神奈川",areaRaw:"神奈川（相模原）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
