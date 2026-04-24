@@ -241,7 +241,6 @@ const DB = [
   {category:"アウトドア",subCategory:"海",name:"立石海岸",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（横須賀）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"海",name:"城ヶ島",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（三浦）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"海",name:"稚児ヶ淵",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（江ノ島）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"アウトドア",subCategory:"海",name:"仙石原",budget:"0円",budgetNum:0,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋外",season:"秋",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"海",name:"辰ノ島",budget:"1000円〜",budgetNum:1000,area:"その他",areaRaw:"長崎（壱岐）",time:"昼",indoor:"屋外",season:"夏",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"海",name:"青海島",budget:"0円",budgetNum:0,area:"その他",areaRaw:"山口（長門）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"海",name:"父母ヶ浜",budget:"0円",budgetNum:0,area:"その他",areaRaw:"香川（三豊）",time:"夕方",indoor:"屋外",season:"通年",duration:"2〜4時間"},
@@ -966,7 +965,6 @@ const DB = [
   // アウトドア／花畑・農園体験（全エリア）
   // ────────────────────────────────────────
   // 東京
-  {category:"アウトドア",subCategory:"花畑・農園",name:"昭和記念公園 コスモス畑",budget:"500円〜",budgetNum:500,area:"東京",areaRaw:"東京（立川）",time:"昼",indoor:"屋外",season:"秋",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"花畑・農園",name:"多摩川いちご狩り",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（稲城）",time:"昼",indoor:"屋外",season:"春",duration:"2〜4時間"},
   {category:"アウトドア",subCategory:"花畑・農園",name:"砧公園 菜の花",budget:"0円",budgetNum:0,area:"東京",areaRaw:"東京（世田谷）",time:"昼",indoor:"屋外",season:"春",duration:"1〜3時間"},
   // 神奈川
