@@ -685,7 +685,6 @@ const DB = [
   {category:"リラクゼーション",subCategory:"温泉",name:"熱海温泉",budget:"5000円〜",budgetNum:5000,area:"その他",areaRaw:"静岡（熱海）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"大磯温泉",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（大磯）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"サウナ",name:"ととのい",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ体験（みなかみ）",budget:"8000円〜",budgetNum:8000,area:"群馬",areaRaw:"群馬（みなかみ）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"サウナ",name:"サウナ付きグランピング",budget:"15000円〜",budgetNum:15000,area:"栃木",areaRaw:"栃木（那須）",time:"いつでも",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"ドーミーインデイユース",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"東京天然温泉 古代の湯",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京（板橋）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -694,13 +693,11 @@ const DB = [
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"うさぎカフェ",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"爬虫類カフェ",budget:"1500円〜",budgetNum:1500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"ハリネズミカフェ",budget:"1500円〜",budgetNum:1500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"カップル個室岩盤浴",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"温泉",name:"鴨川日帰り温泉リゾート",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（鴨川）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"コミュニティスパ",budget:"1000円〜",budgetNum:1000,area:"東京",areaRaw:"東京都内",time:"夜",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"サウナ",name:"フィンランド式サウナ",budget:"10000円〜",budgetNum:10000,area:"その他",areaRaw:"山梨（山中湖）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"月岡温泉",budget:"3000円〜",budgetNum:3000,area:"その他",areaRaw:"新潟（月岡）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"モルモットカフェ",budget:"1500円〜",budgetNum:1500,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"岩盤浴",name:"薬草スチーム漢方岩盤浴",budget:"2500円〜",budgetNum:2500,area:"東京",areaRaw:"全国",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
  
   // ── テーマパーク追加 ──
   {category:"テーマパーク",subCategory:"",name:"東京ディズニーシー",budget:"10000円〜",budgetNum:10000,area:"千葉",areaRaw:"千葉（舞浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
@@ -758,7 +755,6 @@ const DB = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   // ── リラクゼーション 神奈川 ──
-  {category:"リラクゼーション",subCategory:"サウナ",name:"川崎サウナ＆スパ",budget:"2000円〜",budgetNum:2000,area:"神奈川",areaRaw:"神奈川（川崎）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ── リラクゼーション 埼玉 ──
   {category:"リラクゼーション",subCategory:"温泉",name:"満願の湯",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（越生）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
@@ -767,12 +763,10 @@ const DB = [
   {category:"リラクゼーション",subCategory:"動物カフェ",name:"ねこカフェ",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"浦和スパ＆リゾート",budget:"1500円〜",budgetNum:1500,area:"埼玉",areaRaw:"埼玉（浦和）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉",name:"飯能 七間の湯",budget:"1000円〜",budgetNum:1000,area:"埼玉",areaRaw:"埼玉（飯能）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"サウナ",name:"テントサウナ（秩父）",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（秩父）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
 
   // ── リラクゼーション 千葉 ──
   {category:"リラクゼーション",subCategory:"温泉",name:"市原 湯巡り万華郷",budget:"2000円〜",budgetNum:2000,area:"千葉",areaRaw:"千葉（市原）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"船橋スパワールド",budget:"1500円〜",budgetNum:1500,area:"千葉",areaRaw:"千葉（船橋）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"温泉",name:"鴨川温泉ヴィラ",budget:"3000円〜",budgetNum:3000,area:"千葉",areaRaw:"千葉（南房総）",time:"いつでも",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"リラクゼーション",subCategory:"温泉複合施設",name:"湯楽の里",budget:"1000円〜",budgetNum:1000,area:"千葉",areaRaw:"千葉（野田）",time:"いつでも",indoor:"屋内",season:"通年",duration:"2〜4時間"},
 
   // ── リラクゼーション 茨城 ──
@@ -1056,28 +1050,16 @@ const DB = [
   // リラクゼーション／マッサージ・スパ
   // ────────────────────────────────────────
   // 東京
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"カップルスパ",budget:"10000円〜",budgetNum:10000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ペアマッサージ",budget:"8000円〜",budgetNum:8000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ヘッドスパ",budget:"5000円〜",budgetNum:5000,area:"東京",areaRaw:"東京（銀座・表参道）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"タイ古式マッサージ",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"リフレクソロジー",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   // 神奈川
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"みなとみらいスパ＆マッサージ",budget:"8000円〜",budgetNum:8000,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"箱根 日帰りスパ",budget:"10000円〜",budgetNum:10000,area:"神奈川",areaRaw:"神奈川（箱根）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"鎌倉 ボディマッサージ",budget:"6000円〜",budgetNum:6000,area:"神奈川",areaRaw:"神奈川（鎌倉）",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
   // 埼玉・千葉・茨城・栃木・群馬
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"ペアスパ",budget:"8000円〜",budgetNum:8000,area:"埼玉",areaRaw:"埼玉（大宮）",time:"昼",indoor:"屋内",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"那須 ペアスパリゾート",budget:"12000円〜",budgetNum:12000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
-  {category:"リラクゼーション",subCategory:"マッサージ・スパ",name:"草津 旅館スパ体験",budget:"10000円〜",budgetNum:10000,area:"群馬",areaRaw:"群馬（草津）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
 
   // ────────────────────────────────────────
   // リラクゼーション／ヨガ・瞑想
   // ────────────────────────────────────────
-  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"代々木公園ヨガ体験",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（代々木）",time:"昼",indoor:"屋外",season:"春",duration:"1〜3時間"},
   {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"カップルヨガ体験",budget:"3000円〜",budgetNum:3000,area:"東京",areaRaw:"東京都内",time:"昼",indoor:"屋内",season:"通年",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"湘南サンセットヨガ",budget:"3000円〜",budgetNum:3000,area:"神奈川",areaRaw:"神奈川（藤沢）",time:"夕方",indoor:"屋外",season:"夏",duration:"1〜3時間"},
-  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"高尾山森林瞑想体験",budget:"2000円〜",budgetNum:2000,area:"東京",areaRaw:"東京（八王子）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
-  {category:"リラクゼーション",subCategory:"ヨガ・瞑想",name:"那須 朝ヨガ体験",budget:"3000円〜",budgetNum:3000,area:"栃木",areaRaw:"栃木（那須）",time:"昼",indoor:"屋外",season:"通年",duration:"1〜3時間"},
 
   // ────────────────────────────────────────
   // ミュージアム・展示施設／美術館（東京）
