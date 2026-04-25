@@ -717,7 +717,6 @@ const DB = [
   {category:"テーマパーク",subCategory:"",name:"横浜八景島シーパラダイス",budget:"3500円〜",budgetNum:3500,area:"神奈川",areaRaw:"神奈川（横浜）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"スパリゾートハワイアンズ",budget:"5000円〜",budgetNum:5000,area:"その他",areaRaw:"福島（いわき）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"ミュージアム・展示施設",subCategory:"博物館",name:"明治村",budget:"2000円〜",budgetNum:2000,area:"その他",areaRaw:"愛知（犬山）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
-  {category:"テーマパーク",subCategory:"",name:"としまえん跡・Warner Bros. Studio",budget:"4000円〜",budgetNum:4000,area:"東京",areaRaw:"東京（練馬）",time:"昼",indoor:"屋内",season:"通年",duration:"半日〜1日"},
   {category:"アウトドア",subCategory:"公園",name:"倉敷チボリ公園跡",budget:"0円",budgetNum:0,area:"その他",areaRaw:"岡山（倉敷）",time:"昼",indoor:"屋外",season:"通年",duration:"2〜4時間"},
   {category:"テーマパーク",subCategory:"",name:"三井グリーンランド",budget:"4000円〜",budgetNum:4000,area:"その他",areaRaw:"熊本（荒尾）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
   {category:"テーマパーク",subCategory:"",name:"鷲羽山ハイランド",budget:"3000円〜",budgetNum:3000,area:"その他",areaRaw:"岡山（倉敷）",time:"昼",indoor:"屋外",season:"通年",duration:"半日〜1日"},
