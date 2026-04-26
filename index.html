@@ -1653,7 +1653,13 @@ function onKeywordInput(val) {
   kwResults.innerHTML = '<div class="keyword-count">' + hits.length + '件ヒット</div>';
 
   if (hits.length === 0) {
-    kwResults.innerHTML += '<div class="no-hit"><div class="ico">🔍</div><p>「' + val + '」に一致するプランが見つかりませんでした。</p></div>';
+    const safeVal = document.createElement('span');
+    safeVal.textContent = val;
+    const noHit = document.createElement('div');
+    noHit.className = 'no-hit';
+    noHit.innerHTML = '<div class="ico">🔍</div><p></p>';
+    noHit.querySelector('p').textContent = '「' + val + '」に一致するプランが見つかりませんでした。';
+    kwResults.appendChild(noHit);
     return;
   }
 
